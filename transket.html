@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transket Case Study</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Permanent+Marker&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Protest+Riot&display=swap">
+<style id="share-shim">
+x-dc, helmet, sc-if { display: contents; }
+x-import[component-from-global-scope$=".Button"] {
+  position: relative; display: inline-flex; align-items: center; gap: 14px; box-sizing: border-box;
+  height: 44px; padding: 0 28px; border-radius: 12px; cursor: pointer; white-space: nowrap;
+  font: 700 14px/1 'Plus Jakarta Sans', sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #1A1411;
+}
+x-import[component-from-global-scope$=".Button"]:focus-visible { outline: 2px solid #E14F8E; outline-offset: 3px; }
+x-import[component-from-global-scope$=".Button"][size="sm"] { height: 38px; padding: 0 20px; gap: 10px; font-size: 13px; }
+x-import[component-from-global-scope$=".Button"][variant="outline"]::before {
+  content: ""; position: absolute; inset: 0; padding: 1.5px; border-radius: inherit;
+  background: linear-gradient(90deg, #F5A623, #E14F8E 50%, #8B5CF6);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); pointer-events: none;
+}
+x-import[component-from-global-scope$=".Button"][variant="gold"] { background: #D8C788; }
+x-import[component-from-global-scope$=".Button"][variant="ghost"] { padding: 0 4px; text-decoration: underline; text-underline-offset: 4px; }
+x-import[component-from-global-scope$=".Button"][arrow]::after { content: "\2197"; font-size: 1.15em; letter-spacing: 0; }
+x-import[component-from-global-scope$=".Avatar"] {
+  display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%;
+  background: linear-gradient(135deg, #E14F8E, #F5A623); color: #fff; font: 700 13px/1 'Plus Jakarta Sans', sans-serif; letter-spacing: 0.04em;
+}
+.share-video { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; width: 100%; height: 100%;
+  text-decoration: none; color: #F3EFE6; font: 700 12.5px/1.2 'Plus Jakarta Sans', sans-serif; letter-spacing: 0.08em; text-transform: uppercase;
+  background: radial-gradient(circle at 50% 40%, #3B2A22, #1A1411 70%); }
+.share-video span.play { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; font-size: 18px; letter-spacing: 0;
+  background: linear-gradient(135deg, #E14F8E, #F5A623); color: #fff; }
+.share-video:hover span.play { transform: scale(1.06); }
+.share-video:focus-visible { outline: 2px solid #E14F8E; outline-offset: -4px; }
+
+[data-hv="1"]:hover{color:#1A1411 !important}
+[data-hv="2"]:hover{color:#1A1411 !important}
+[data-hv="3"]:hover{color:#1A1411 !important}
+[data-hv="4"]:hover{color:#F3EFE6 !important}
+[data-hv="5"]:hover{box-shadow:0 10px 30px rgba(38,26,21,0.12) !important}
+[data-hv="6"]:hover{box-shadow:0 10px 30px rgba(38,26,21,0.12) !important}
+[data-hv="7"]:hover{box-shadow:0 10px 30px rgba(38,26,21,0.12) !important}
+[data-hv="8"]:hover{box-shadow:0 10px 30px rgba(38,26,21,0.12) !important}
+[data-hv="9"]:hover{background:#E4DFC0 !important}
+[data-hv="10"]:hover{background:rgba(255,255,255,0.7) !important}
+[data-hv="11"]:hover{background:rgba(255,255,255,0.7) !important}
+[data-hv="12"]:hover{background:rgba(255,255,255,0.7) !important}
+[data-hv="13"]:hover{background:rgba(255,255,255,0.7) !important}
+[data-hv="14"]:hover{background:rgba(255,255,255,0.7) !important}
+[data-hv="15"]:hover{background:rgba(255,255,255,0.7) !important}
+[data-hv="16"]:hover{background:rgba(255,255,255,0.7) !important}
+[data-hv="17"]:hover{background:rgba(255,255,255,0.7) !important}
+[data-hv="18"]:hover{background:rgba(255,255,255,0.7) !important}
+[data-hv="19"]:hover{background:rgba(255,255,255,0.7) !important}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('x-import[component-from-global-scope$=".Button"]').forEach(function (b) {
+    var href = b.getAttribute('href');
+    b.setAttribute('role', 'link'); b.tabIndex = 0;
+    function go() {
+      if (!href || href === '#') return;
+      if (b.getAttribute('target') === '_blank' || /^https?:/.test(href)) { var a = document.createElement('a'); a.href = href; a.target = '_blank'; a.rel = 'noopener'; document.body.appendChild(a); a.click(); a.remove(); }
+      else location.href = href;
+    }
+    b.addEventListener('click', go);
+    b.addEventListener('keydown', function (e) { if (e.key === 'Enter') go(); });
+  });
+  document.querySelectorAll('x-import[component-from-global-scope$=".Avatar"]').forEach(function (a) {
+    a.textContent = (a.getAttribute('name') || '').split(/\s+/).map(function (w) { return w[0] || ''; }).join('').slice(0, 2).toUpperCase();
+  });
+  var bar = document.getElementById('share-progress');
+  var tocIds = Array.prototype.map.call(document.querySelectorAll('[data-toc]'), function (el) { return el.getAttribute('data-toc'); })
+    .filter(function (v, i, arr) { return arr.indexOf(v) === i; });
+  function onScroll() {
+    var doc = document.documentElement, max = doc.scrollHeight - window.innerHeight;
+    if (bar) bar.style.width = (max > 0 ? Math.min(100, Math.max(0, window.scrollY / max * 100)) : 0) + '%';
+    if (!tocIds.length) return;
+    var active = '', y = window.scrollY + 140;
+    tocIds.forEach(function (id) { var el = document.getElementById(id); if (el && el.offsetTop <= y) active = id; });
+    document.querySelectorAll('[data-toc]').forEach(function (el) {
+      var on = el.getAttribute('data-toc') === active;
+      el.style.color = el.getAttribute('data-toc-part') === 'num' ? (on ? '#E14F8E' : '#B5984E') : (on ? '#1A1411' : '#6E6E73');
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  var form = document.querySelector('form[data-share-form]');
+  if (form) form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var btn = form.querySelector('[type="submit"]'); if (btn) btn.textContent = 'Thanks! I\'ll get back to you soon.';
+  });
+});
+</script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  
+  <style>
+/* Eyebrow — mirrors the "Eyebrow" component in the Figma file "Pratiksha's Portfolio".
+   Pill, 34px tall, 1.5px Signature gradient stroke (amber → pink → violet), transparent fill. */
+:root {
+  --pt-gradient-signature: linear-gradient(90deg, #F5A623 0%, #E14F8E 50%, #8B5CF6 100%);
+  --pt-text-primary: #1A1411;
+  --pt-text-on-dark: #F3EFE6;
+}
+
+.pt-eyebrow {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: 34px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: transparent;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--pt-text-primary);
+}
+
+/* Gradient stroke drawn on a masked pseudo-element so the fill stays transparent on any surface. */
+.pt-eyebrow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1.5px;
+  border-radius: inherit;
+  background: var(--pt-gradient-signature);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  pointer-events: none;
+}
+
+.pt-eyebrow--on-dark { color: var(--pt-text-on-dark); }
+
+@media (max-width: 480px) {
+  .pt-eyebrow { white-space: normal; height: auto; min-height: 34px; padding: 8px 16px; line-height: 1.3; }
+}
+
+</style>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #F6F3E2; -webkit-font-smoothing: antialiased; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { animation: none !important; transition: none !important; }
+    }
+    a:focus-visible, button:focus-visible { outline: 2px solid #8B5CF6; outline-offset: 3px; border-radius: 4px; }
+    nav a { white-space: nowrap; }
+    section[id], header[id] { scroll-margin-top: 84px; }
+    @media (max-width: 960px) {
+      nav[aria-label="Portfolio"] > div { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      nav[aria-label="Portfolio"] > div > div { gap: 16px; flex-shrink: 0; }
+      nav[aria-label="Portfolio"] x-import { flex-shrink: 0; }
+    }
+    #reflection a[href="#top"], #reflection a[href="#top"] span { color: #EEDFAE !important; }
+    #reflection a[href="#top"]:hover, #reflection a[href="#top"]:hover span { color: #F6ECC8 !important; }
+  </style>
+</helmet>
+
+<!-- ============ READING PROGRESS ============ -->
+<sc-if>
+  <div aria-hidden="true" id="share-progress" style="position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#F5A623 0%,#E14F8E 50%,#8B5CF6 100%);z-index:120"></div>
+</sc-if>
+
+<!-- ============ PORTFOLIO GLOBAL NAV (inherited shell) ============ -->
+<nav aria-label="Portfolio" style="position:sticky;top:0;z-index:110;background:rgba(255,255,255,0.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(26,20,17,0.06)">
+  <div style="max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+    <a href="index.html" aria-label="Pratiksha Tripathi — home" style="display:flex;align-items:center;text-decoration:none"><img src="assets/logo-lockup-cutout.png" alt="Pratiksha Tripathi" style="height:34px;width:auto;display:block"></a>
+    <div style="display:flex;gap:28px;flex-wrap:wrap;align-items:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase">
+      <a href="index.html" style="color:#4A4A4F;text-decoration:none" data-hv="1">Home</a>
+      <a href="index.html#about" style="color:#4A4A4F;text-decoration:none" data-hv="2">Expertise</a>
+      <a href="index.html#projects" style="color:#1A1411;text-decoration:none;border-bottom:2px solid #E14F8E;padding-bottom:2px" aria-current="page">Projects</a>
+      <a href="index.html#contact" style="color:#4A4A4F;text-decoration:none" data-hv="3">Contact</a>
+    </div>
+    <x-import component-from-global-scope="PratikshaTripathiDesignSystem_4e2eff.Button" variant="outline" size="sm" arrow href="index.html#contact" hint-size="auto,38px">Book a call</x-import>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header id="top" data-screen-label="Hero" style="background:#261A15;color:#F3EFE6;padding:96px 24px 88px">
+  <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;align-items:flex-start;gap:20px">
+    <span class="pt-eyebrow pt-eyebrow--on-dark">UX case study · B2B SaaS</span>
+    <h1 style="margin:0;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(52px,9vw,96px);line-height:1.02;color:#F3EFE6;letter-spacing:0.01em">TRANSKET</h1>
+    <p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:clamp(20px,3vw,27px);line-height:1.45;color:#D8C788;max-width:640px">Making Meta's WhatsApp Business tools easy for any business to use.</p>
+    <p style="margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.7;color:#B9AEA4;max-width:620px">Meta's WhatsApp Business Platform can do a lot: customer chats, automation, campaigns and business messaging. But having the technology is not the same as having a product people can use.<br><br>I was the only product designer at Transket. My job was to take what Meta offered and shape it into one product that businesses could understand without help. That covered customer messaging, campaigns, automation, analytics and several business portals. In every flow, I tried to keep things simple without taking away anything the platform could do.</p>
+    <figure id="demo" style="margin:4px 0 0;width:310px;max-width:100%;scroll-margin-top:100px">
+      <div style="position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#1A1411;border:1px solid rgba(243,239,230,0.12);box-shadow:0 16px 40px rgba(0,0,0,0.35)">
+        <iframe src="https://www.youtube-nocookie.com/embed/Ze4ziT_L0eM?rel=0&amp;modestbranding=1" title="Transket product demo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;display:block"></iframe>
+      </div>
+      <figcaption style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:10px">
+        <span style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:13px;color:#B9AEA4">Product demo: see it end to end</span>
+        <a href="https://www.youtube.com/watch?v=Ze4ziT_L0eM" target="_blank" rel="noopener" style="font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D8C788;text-decoration:none;white-space:nowrap" data-hv="4">YouTube ↗</a>
+      </figcaption>
+    </figure>
+    <p style="margin:6px 0 0;font-family:'Playfair Display',Georgia,serif;font-size:clamp(17px,2.2vw,20px);line-height:1.5;color:#F3EFE6;max-width:640px;border-left:3px solid #E14F8E;padding-left:16px"><span style="display: block; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(225, 79, 142); margin-bottom: 8px;">Challenge statement</span>Most of my work wasn't inventing new features. It was working out how Meta's existing features should fit together, so businesses felt confident using them. I also kept improving the product as customer needs changed and Meta kept releasing new features and updates.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:rgba(243,239,230,0.12);border:1px solid rgba(243,239,230,0.12);border-radius:16px;overflow:hidden;width:100%;margin-top:20px">
+      <div style="background:#2E211B;padding:18px 20px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B9AEA4;margin-bottom:6px">Role</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:600;color:#F3EFE6">Solo Product Designer</div></div>
+      <div style="background:#2E211B;padding:18px 20px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B9AEA4;margin-bottom:6px">Platform</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:600;color:#F3EFE6">Meta WhatsApp Business Platform</div></div>
+      <div style="background:#2E211B;padding:18px 20px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B9AEA4;margin-bottom:6px">Market</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:600;color:#F3EFE6">Businesses in Canada</div></div>
+      <div style="background:#2E211B;padding:18px 20px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B9AEA4;margin-bottom:6px">Scope</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:600;color:#F3EFE6">5 portals · 18+ feature areas</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MY ROLE ============ -->
+<section aria-label="My role" data-screen-label="My role" style="padding:56px 24px 0">
+  <div style="max-width:760px;margin:0 auto;box-sizing:border-box;background:#FFFFFF;border-radius:22px;padding:30px 30px;box-shadow:0 8px 30px rgba(38,26,21,0.07);display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;align-items:start">
+    <div>
+      <div style="height:3px;width:40px;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);border-radius:2px;margin-bottom:14px"></div>
+      <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:28px;line-height:1.1;color:#261A15;margin-bottom:8px">My contribution</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;color:#3B2A22">Product Designer (the only designer on the product)</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;line-height:1.6;color:#6E6E73;margin-top:4px">I handled the design from start to finish: understanding what users and the business needed, studying competitors, planning the flows, designing the screens and working with developers until it was built.</div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start">
+      <span style="background:#F6F3E2;border-radius:999px;padding:8px 14px;font-family:'Plus Jakarta Sans';font-size:13px;font-weight:600;color:#3B2A22">Competitive research</span>
+      <span style="background:#F6F3E2;border-radius:999px;padding:8px 14px;font-family:'Plus Jakarta Sans';font-size:13px;font-weight:600;color:#3B2A22">Workflow design</span>
+      <span style="background:#F6F3E2;border-radius:999px;padding:8px 14px;font-family:'Plus Jakarta Sans';font-size:13px;font-weight:600;color:#3B2A22">Interaction design</span>
+      <span style="background:#F6F3E2;border-radius:999px;padding:8px 14px;font-family:'Plus Jakarta Sans';font-size:13px;font-weight:600;color:#3B2A22">Prototyping</span>
+      <span style="background:#F6F3E2;border-radius:999px;padding:8px 14px;font-family:'Plus Jakarta Sans';font-size:13px;font-weight:600;color:#3B2A22">Design system</span>
+      <span style="background:#F6F3E2;border-radius:999px;padding:8px 14px;font-family:'Plus Jakarta Sans';font-size:13px;font-weight:600;color:#3B2A22">Developer handoff</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 30-SECOND SCANNER LAYER ============ -->
+<section id="scan" data-screen-label="The 30-second version" style="padding:72px 24px 8px">
+  <div style="max-width:760px;margin:0 auto">
+    <span class="pt-eyebrow">The 30-second version</span>
+
+    <!-- Tension -->
+    <h2 style="margin:18px 0 14px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(34px,5vw,50px);line-height:1.06;color:#261A15;max-width:760px">Businesses needed more power. Users needed less complexity.</h2>
+    <p style="margin:0 0 26px;font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;line-height:1.65;color:#4A4A4F;max-width:720px">Businesses in Canada needed a better way to handle customer chats and their growing day-to-day work. But most tools in this space are complicated, and people who aren't good with technology struggle to learn them. Our goal was to put powerful features into one product that still felt easy to learn and use.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-bottom:36px">
+      <div style="background:#FFFFFF;border-radius:16px;padding:20px 22px;box-shadow:0 2px 10px rgba(38,26,21,0.05)">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#1F8A5B;margin-bottom:10px">Already familiar</div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px">
+          <span style="background:#EDF7EE;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#1F6B47">Conversations</span>
+          <span style="background:#EDF7EE;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#1F6B47">Contacts</span>
+          <span style="background:#EDF7EE;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#1F6B47">Messaging</span>
+        </div>
+      </div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:20px 22px;box-shadow:0 2px 10px rgba(38,26,21,0.05)">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#C4426E;margin-bottom:10px">New business features</div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px">
+          <span style="background:#FBEDF2;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#9E355C">Automation</span>
+          <span style="background:#FBEDF2;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#9E355C">Campaigns</span>
+          <span style="background:#FBEDF2;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#9E355C">Data collection</span>
+          <span style="background:#FBEDF2;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#9E355C">AI analytics</span>
+          <span style="background:#FBEDF2;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#9E355C">Teams &amp; permissions</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key UX move: the spine -->
+    <div style="background:#261A15;border-radius:22px;padding:30px 28px;margin-bottom:32px">
+      <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#B9AEA4;margin-bottom:6px">The key UX move</div>
+      <div style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(19px,2.4vw,24px);line-height:1.4;color:#F3EFE6;margin-bottom:22px;max-width:720px">Start with what people already know, then add the new features around it.</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px">
+        <div style="background:#2E211B;border-radius:14px;overflow:hidden"><div style="padding:18px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:14px"><span style="font-family:'Protest Riot',sans-serif;font-size:13px;color:#8C8178">01</span><span style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#8C8178">Familiarity</span></div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:500;line-height:1.35;color:#F3EFE6;margin-bottom:8px">Lower the learning curve</div><div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#B9AEA4">Start from messaging patterns people already recognise.</div></div></div>
+        <div style="background:#2E211B;border-radius:14px;overflow:hidden"><div style="padding:18px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:14px"><span style="font-family:'Protest Riot',sans-serif;font-size:13px;color:#8C8178">02</span><span style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#8C8178">Features</span></div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:500;line-height:1.35;color:#F3EFE6;margin-bottom:8px">Turn chats into proper workflows</div><div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#B9AEA4">Add Flows, campaigns and team tools on top of everyday chats.</div></div></div>
+        <div style="background:#2E211B;border-radius:14px;overflow:hidden"><div style="padding:18px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:14px"><span style="font-family:'Protest Riot',sans-serif;font-size:13px;color:#8C8178">03</span><span style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#8C8178">Intelligence</span></div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:500;line-height:1.35;color:#F3EFE6;margin-bottom:8px">Less manual work and searching</div><div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#B9AEA4">Use automation, chatbots and AI insights so businesses can reply and act faster.</div></div></div>
+        <div style="background:#2E211B;border-radius:14px;overflow:hidden"><div style="padding:18px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:14px"><span style="font-family:'Protest Riot',sans-serif;font-size:13px;color:#8C8178">04</span><span style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#8C8178">Scale</span></div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:500;line-height:1.35;color:#F3EFE6;margin-bottom:8px">Add new portals as the business grows</div><div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#B9AEA4">Give Enterprise, Admin and Partner users their own portals, so each group only sees what they need.</div></div></div>
+      </div>
+    </div>
+
+    <!-- Capability at a glance -->
+    <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:12px">Jump to a part</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:8px">
+      <a href="#iterations" style="text-decoration:none;background:#FFFFFF;border-radius:16px;padding:20px;box-shadow:0 2px 10px rgba(38,26,21,0.05);display:block" data-hv="5"><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:23px;color:#261A15;margin-bottom:4px">Screen iterations</div><div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#6E6E73">What I noticed, what I changed, and the trade-off I accepted.</div></a>
+      <a href="#smart-analytics" style="text-decoration:none;background:#FFFFFF;border-radius:16px;padding:20px;box-shadow:0 2px 10px rgba(38,26,21,0.05);display:block" data-hv="6"><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:23px;color:#261A15;margin-bottom:4px">Smart Analytics</div><div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#6E6E73">Enterprise AI: ask across every organization instead of hunting dashboards.</div></a>
+      <a href="#trial" style="text-decoration:none;background:#FFFFFF;border-radius:16px;padding:20px;box-shadow:0 2px 10px rgba(38,26,21,0.05);display:block" data-hv="7"><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:23px;color:#261A15;margin-bottom:4px">Trial rewards</div><div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#6E6E73">Extra trial days earned by doing the things that teach the product.</div></a>
+      <a href="#outcomes" style="text-decoration:none;background:#FFFFFF;border-radius:16px;padding:20px;box-shadow:0 2px 10px rgba(38,26,21,0.05);display:block" data-hv="8"><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:23px;color:#261A15;margin-bottom:4px">Outcomes</div><div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#6E6E73">What the work changed for the product and the business.</div></a>
+      <a href="#scale" style="text-decoration:none;background:#ECE8CF;border-radius:16px;padding:20px;display:block" data-hv="9"><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:23px;color:#261A15;margin-bottom:4px">Then it grew</div><div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#6E6E73">Organizations and portals as the business evolved.</div></a>
+    </div>
+    <p style="margin:24px 0 0;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:16px;line-height:1.6;color:#6E6E73">Below is the full story, with the reasons behind each decision.</p>
+  </div>
+</section>
+
+<!-- ============ SECTION INDEX (contextual navigator) ============ -->
+<section aria-label="Explore this case study" data-screen-label="Section index" style="padding:56px 24px 0">
+  <div style="max-width:760px;margin:0 auto">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid rgba(26,20,17,0.12);padding-bottom:14px">
+      <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:30px;color:#261A15">Explore this case study</div>
+      <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:14px;color:#9A9AA0">Jump to any part, or just keep reading.</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));column-gap:48px;margin-top:6px">
+      <a href="#demo" style="display:flex;gap:14px;align-items:baseline;padding:13px 4px;border-bottom:1px solid rgba(26,20,17,0.07);text-decoration:none" data-hv="10"><span aria-hidden="true" style="min-width:22px;color:#E14F8E;font-size:12px">▶</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;color:#6E6E73">Product demo video</span></a>
+      <a href="#platform" style="display:flex;gap:14px;align-items:baseline;padding:13px 4px;border-bottom:1px solid rgba(26,20,17,0.07);text-decoration:none" data-hv="11"><span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;color:#B5984E;min-width:22px" data-toc="platform" data-toc-part="num">01</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;color:#6E6E73;" data-toc="platform" data-toc-part="label">Platform context</span></a>
+      <a href="#overview" style="display:flex;gap:14px;align-items:baseline;padding:13px 4px;border-bottom:1px solid rgba(26,20,17,0.07);text-decoration:none" data-hv="12"><span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;color:#B5984E;min-width:22px" data-toc="overview" data-toc-part="num">02</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;color:#6E6E73;" data-toc="overview" data-toc-part="label">Overview &amp; scope</span></a>
+      <a href="#challenge" style="display:flex;gap:14px;align-items:baseline;padding:13px 4px;border-bottom:1px solid rgba(26,20,17,0.07);text-decoration:none" data-hv="13"><span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;color:#B5984E;min-width:22px" data-toc="challenge" data-toc-part="num">03</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;color:#6E6E73;" data-toc="challenge" data-toc-part="label">The design challenge</span></a>
+      <a href="#approach" style="display:flex;gap:14px;align-items:baseline;padding:13px 4px;border-bottom:1px solid rgba(26,20,17,0.07);text-decoration:none" data-hv="14"><span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;color:#B5984E;min-width:22px" data-toc="approach" data-toc-part="num">04</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;color:#6E6E73;" data-toc="approach" data-toc-part="label">Design philosophy &amp; familiarity</span></a>
+      <a href="#competitive" style="display:flex;gap:14px;align-items:baseline;padding:13px 4px;border-bottom:1px solid rgba(26,20,17,0.07);text-decoration:none" data-hv="15"><span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;color:#B5984E;min-width:22px" data-toc="competitive" data-toc-part="num">06</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;color:#6E6E73;" data-toc="competitive" data-toc-part="label">Competitive research</span></a>
+      <a href="#iterations" style="display:flex;gap:14px;align-items:baseline;padding:13px 4px;border-bottom:1px solid rgba(26,20,17,0.07);text-decoration:none" data-hv="16"><span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;color:#B5984E;min-width:22px" data-toc="iterations" data-toc-part="num">07</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;color:#6E6E73;" data-toc="iterations" data-toc-part="label">Iterations &amp; product decisions</span></a>
+      <a href="#scale" style="display:flex;gap:14px;align-items:baseline;padding:13px 4px;border-bottom:1px solid rgba(26,20,17,0.07);text-decoration:none" data-hv="17"><span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;color:#B5984E;min-width:22px" data-toc="scale" data-toc-part="num">08</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;color:#6E6E73;" data-toc="scale" data-toc-part="label">Organizations &amp; portals</span></a>
+      <a href="#outcomes" style="display:flex;gap:14px;align-items:baseline;padding:13px 4px;border-bottom:1px solid rgba(26,20,17,0.07);text-decoration:none" data-hv="18"><span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;color:#B5984E;min-width:22px" data-toc="outcomes" data-toc-part="num">09</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;color:#6E6E73;" data-toc="outcomes" data-toc-part="label">Outcomes</span></a>
+      <a href="#reflection" style="display:flex;gap:14px;align-items:baseline;padding:13px 4px;border-bottom:1px solid rgba(26,20,17,0.07);text-decoration:none" data-hv="19"><span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;color:#B5984E;min-width:22px" data-toc="reflection" data-toc-part="num">10</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;color:#6E6E73;" data-toc="reflection" data-toc-part="label">Reflection</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 PLATFORM ============ -->
+<section id="platform" data-screen-label="01 Platform context" style="padding:88px 24px 0">
+  <div style="max-width:760px;margin:0 auto">
+    <span class="pt-eyebrow">01 · The platform underneath</span>
+    <h2 style="margin:18px 0 16px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(36px,5vw,48px);line-height:1.08;color:#261A15">Having the technology is not the same as having a product</h2>
+    <p style="margin:0 0 18px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.7;color:#4A4A4F">Meta provides the technology underneath: the messaging system, message templates, the rules about what can be sent and when, and the message reports. Transket didn't build any of that, and I'm not claiming it did.</p>
+    <p style="margin:0 0 18px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.7;color:#4A4A4F">But technology on its own isn't a product. Meta's system is built around technical things like templates, variables, media settings and recipient lists. A business owner just thinks, "send this offer to these customers tomorrow." My job was to design the part in between, so nobody has to think like a developer to get their work done.</p>
+  </div>
+  <div style="max-width:760px;margin:36px auto 0">
+    <div style="background:#FFFFFF;border-radius:24px;padding:32px 28px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+      <div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;align-items:center;font-family:'Plus Jakarta Sans',sans-serif">
+        <div style="text-align:center;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138">What Meta offers</div>
+        <div></div>
+        <div style="text-align:center;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#E14F8E">Transket workflow</div>
+        <div></div>
+        <div style="text-align:center;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#4A4A4F">Business goal</div>
+        <div style="background:#F6F3E2;border-radius:12px;padding:14px;text-align:center;font-size:14px;font-weight:600;color:#3B2A22">Template messaging</div>
+        <div aria-hidden="true" style="color:#CBB873;font-size:18px;text-align:center">→</div>
+        <div style="background:#FFF6E8;border:1px solid rgba(245,166,35,0.35);border-radius:12px;padding:14px;text-align:center;font-size:14px;font-weight:600;color:#3B2A22">Campaign workflow</div>
+        <div aria-hidden="true" style="color:#CBB873;font-size:18px;text-align:center">→</div>
+        <div style="background:#F0F1F3;border-radius:12px;padding:14px;text-align:center;font-size:14px;color:#4A4A4F">“Send this offer to these customers”</div>
+        <div style="background:#F6F3E2;border-radius:12px;padding:14px;text-align:center;font-size:14px;font-weight:600;color:#3B2A22">Incoming communication</div>
+        <div aria-hidden="true" style="color:#CBB873;font-size:18px;text-align:center">→</div>
+        <div style="background:#FFF6E8;border:1px solid rgba(245,166,35,0.35);border-radius:12px;padding:14px;text-align:center;font-size:14px;font-weight:600;color:#3B2A22">Shared Inbox</div>
+        <div aria-hidden="true" style="color:#CBB873;font-size:18px;text-align:center">→</div>
+        <div style="background:#F0F1F3;border-radius:12px;padding:14px;text-align:center;font-size:14px;color:#4A4A4F">“Help my team respond to customers”</div>
+        <div style="background:#F6F3E2;border-radius:12px;padding:14px;text-align:center;font-size:14px;font-weight:600;color:#3B2A22">Message activity data</div>
+        <div aria-hidden="true" style="color:#CBB873;font-size:18px;text-align:center">→</div>
+        <div style="background:#FFF6E8;border:1px solid rgba(245,166,35,0.35);border-radius:12px;padding:14px;text-align:center;font-size:14px;font-weight:600;color:#3B2A22">Analytics experience</div>
+        <div aria-hidden="true" style="color:#CBB873;font-size:18px;text-align:center">→</div>
+        <div style="background:#F0F1F3;border-radius:12px;padding:14px;text-align:center;font-size:14px;color:#4A4A4F">“Understand what happened after sending”</div>
+      </div>
+      <div style="margin-top:18px;font-family:'Plus Jakarta Sans';font-size:13px;color:#9A9AA0;text-align:center">Transket sits in the middle, between what Meta offers and what a business wants to do.</div>
+    </div>
+  </div>
+  <div style="max-width:760px;margin:32px auto 0">
+    <div style="margin:0;border-left:3px solid #E14F8E;padding:2px 0 2px 16px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:6px">Takeaway</div><p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:18px;line-height:1.55;color:#3B2A22">Meta provides the technology. Transket's job is to turn it into simple workflows a business can actually use.</p></div>
+  </div>
+</section>
+
+<!-- ============ 02 OVERVIEW ============ -->
+<section id="overview" data-screen-label="02 Overview" style="padding:88px 24px 0">
+  <div style="max-width:760px;margin:0 auto">
+    <span class="pt-eyebrow">02 · What Transket is</span>
+    <h2 style="margin:18px 0 16px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(36px,5vw,48px);line-height:1.08;color:#261A15">One product that kept growing</h2>
+    <p style="margin:0 0 18px;font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;line-height:1.7;color:#4A4A4F">Transket lets businesses use WhatsApp properly for work: chat with customers as a team, send campaigns, automate replies and see what happened afterwards. All the messaging itself runs on Meta's WhatsApp Business Platform, along with its templates, rules and limits.</p>
+    <p style="margin:0 0 18px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.7;color:#4A4A4F">It was never just one feature. As the product grew, my work covered four main areas. Each new area was also a test of whether my earlier decisions still worked.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin:28px 0 0">
+      <div style="background:#FFFFFF;border-radius:16px;padding:22px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+        <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:24px;color:#261A15;margin-bottom:8px">Communicate</div>
+        <div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.7;color:#6E6E73">Shared Inbox · Quick Messages · Tags · Automation</div>
+      </div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:22px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+        <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:24px;color:#261A15;margin-bottom:8px">Reach</div>
+        <div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.7;color:#6E6E73">Campaign Creation &amp; Scheduling · Contact Management · WhatsApp Forms · Widget · QR Link Generator</div>
+      </div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:22px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+        <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:24px;color:#261A15;margin-bottom:8px">Understand</div>
+        <div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.7;color:#6E6E73">Customer Dashboard · Analytics · Subscription, Renewal, Trial &amp; Trial Extension</div>
+      </div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:22px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+        <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:24px;color:#261A15;margin-bottom:8px">Operate &amp; scale</div>
+        <div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.7;color:#6E6E73">Role-based Access · Partner Portal · Admin Portal · Enterprise Portal · Multi-organization · Public Website</div>
+      </div>
+    </div>
+    <div style="margin:32px 0 0;border-left:3px solid #E14F8E;padding:2px 0 2px 16px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:6px">Takeaway</div><p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:18px;line-height:1.55;color:#3B2A22">Transket grew from a messaging tool into a full product for talking to customers, reaching them, understanding results and running the business.</p></div>
+  </div>
+</section>
+
+<!-- ============ 03 CHALLENGE ============ -->
+<section id="challenge" data-screen-label="03 Design challenge" style="padding:88px 24px 0">
+  <div style="max-width:760px;margin:0 auto">
+    <span class="pt-eyebrow">03 · The central challenge</span>
+    <h2 style="margin:18px 0 16px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(36px,5vw,48px);line-height:1.08;color:#261A15">Designing for what users want to do, not for how the system works</h2>
+    <div style="background:#FFFFFF;border-radius:16px;padding:28px 30px;box-shadow:0 8px 30px rgba(38,26,21,0.07);margin:8px 0 24px">
+      <div style="height:3px;width:56px;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);border-radius:2px;margin-bottom:16px"></div>
+      <p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:21px;line-height:1.55;color:#261A15">How do we take a powerful but technical WhatsApp platform and make it feel simple and familiar for everyday business owners?</p>
+    </div>
+    <p style="margin:0 0 18px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.7;color:#4A4A4F">The Canadian market added another challenge. I couldn't assume every user would already understand WhatsApp Business terms like templates, campaigns, variables or API messaging. Some would, but many wouldn't. So the product had to work for people who know their business well, even if they don't know how the platform works.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:24px 0">
+      <div style="background:#ECE8CF;border-radius:16px;padding:22px 24px">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#7C6829;margin-bottom:10px">What a user thinks</div>
+        <p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:18px;line-height:1.5;color:#261A15">“I want to send this offer to these customers tomorrow.”</p>
+      </div>
+      <div style="background:#ECE8CF;border-radius:16px;padding:22px 24px">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#7C6829;margin-bottom:10px">What the platform requires</div>
+        <p style="margin:0;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.7;color:#3B2A22">Select a template → resolve template variables → configure media → define recipients → schedule the campaign.</p>
+      </div>
+    </div>
+    <p style="margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.7;color:#4A4A4F">Most of my design work happened in that gap between what users want to do and how the platform is built. To close it, I needed a few clear rules I could use everywhere.</p>
+  </div>
+</section>
+
+<!-- ============ 04 PHILOSOPHY ============ -->
+<section id="approach" data-screen-label="04 Design philosophy" style="padding:88px 24px 0">
+  <div style="max-width:760px;margin:0 auto">
+    <span class="pt-eyebrow">04 · Design philosophy</span>
+    <h2 style="margin:18px 0 16px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(36px,5vw,48px);line-height:1.08;color:#261A15">Keep what users need. Make it easier to get to.</h2>
+    <p style="margin:0 0 8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.7;color:#4A4A4F">Simplifying didn't mean removing things. The platform's requirements are real, and people need them. It meant thinking about <em>when</em> and <em>how</em> people come across each one. Instead of deciding screen by screen, I set four principles early and checked every decision against them.</p>
+  </div>
+  <div style="max-width:760px;margin:28px auto 0">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px">
+      <div style="background:#FFFFFF;border-radius:16px;padding:24px;box-shadow:0 8px 30px rgba(38,26,21,0.07)"><div style="height:3px;width:40px;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);border-radius:2px;margin-bottom:14px"></div><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138;margin-bottom:8px">Principle 01</div><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:22px;line-height:1.15;color:#261A15;margin-bottom:8px">Keep the WhatsApp feel</div><p style="margin:0;font-family:'Plus Jakarta Sans';font-size:13.5px;line-height:1.6;color:#6E6E73">For most users, Transket was their first time using WhatsApp for business. Keeping things close to normal WhatsApp meant they already knew how to read and reply to a chat.</p></div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:24px;box-shadow:0 8px 30px rgba(38,26,21,0.07)"><div style="height:3px;width:40px;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);border-radius:2px;margin-bottom:14px"></div><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138;margin-bottom:8px">Principle 02</div><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:22px;line-height:1.15;color:#261A15;margin-bottom:8px">Show only what's needed right now</div><p style="margin:0;font-family:'Plus Jakarta Sans';font-size:13.5px;line-height:1.6;color:#6E6E73">Ask for one decision at a time and show the rest when it's needed. A few clear steps are easier than one crowded screen.</p></div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:24px;box-shadow:0 8px 30px rgba(38,26,21,0.07)"><div style="height:3px;width:40px;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);border-radius:2px;margin-bottom:14px"></div><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138;margin-bottom:8px">Principle 03</div><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:22px;line-height:1.15;color:#261A15;margin-bottom:8px">Keep big-business features easy</div><p style="margin:0;font-family:'Plus Jakarta Sans';font-size:13.5px;line-height:1.6;color:#6E6E73">Features for larger companies shouldn't make the product harder to use. Even advanced tools should make sense to a first-time user.</p></div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:24px;box-shadow:0 8px 30px rgba(38,26,21,0.07)"><div style="height:3px;width:40px;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);border-radius:2px;margin-bottom:14px"></div><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138;margin-bottom:8px">Principle 04</div><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:22px;line-height:1.15;color:#261A15;margin-bottom:8px">Keep every portal consistent</div><p style="margin:0;font-family:'Plus Jakarta Sans';font-size:13.5px;line-height:1.6;color:#6E6E73">Customer, Enterprise, Admin and Partner portals are all one product. Something you learn in one should work the same way in the others.</p></div>
+    </div>
+    <p style="margin:24px auto 0;max-width:760px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.7;color:#6E6E73">Behind these four was one simple test I used on every screen: <em>keep what the user needs, and make it easier to get to</em>. Here's how that worked in practice.</p>
+  </div>
+  <div style="max-width:760px;margin:32px auto 0">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">
+      <div style="background:#FFFFFF;border-radius:16px;padding:22px 24px;box-shadow:0 2px 10px rgba(38,26,21,0.05)"><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:22px;color:#261A15;margin-bottom:6px">Show the right decision at the right time</div><p style="margin:0;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#6E6E73">Don't show everything at once. Each step in a flow should ask for one kind of decision.</p><div style="margin-top:12px;font-family:'Plus Jakarta Sans';font-size:12px;line-height:1.5;color:#9A8138"><strong style="color:#B5984E">In Transket:</strong> the campaign builder goes step by step: details, then template, then audience, then schedule.</div></div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:22px 24px;box-shadow:0 2px 10px rgba(38,26,21,0.05)"><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:22px;color:#261A15;margin-bottom:6px">Follow dependencies naturally</div><p style="margin:0;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#6E6E73">If one choice depends on another, the steps should follow that order. Pick a template first, then see what that template needs.</p><div style="margin-top:12px;font-family:'Plus Jakarta Sans';font-size:12px;line-height:1.5;color:#9A8138"><strong style="color:#B5984E">In Transket:</strong> choosing a template shows its variable and media fields, and in the Bot Builder each option leads to its own branch.</div></div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:22px 24px;box-shadow:0 2px 10px rgba(38,26,21,0.05)"><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:22px;color:#261A15;margin-bottom:6px">Familiar first, new second</div><p style="margin:0;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#6E6E73">If people already know a way of doing something, especially from WhatsApp, use it so there's less to learn.</p><div style="margin-top:12px;font-family:'Plus Jakarta Sans';font-size:12px;line-height:1.5;color:#9A8138"><strong style="color:#B5984E">In Transket:</strong> the Shared Inbox keeps the chat list, the chat and the message box where people expect them from WhatsApp.</div></div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:22px 24px;box-shadow:0 2px 10px rgba(38,26,21,0.05)"><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:22px;color:#261A15;margin-bottom:6px">Keep the primary task obvious</div><p style="margin:0;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#6E6E73">Extra buttons are there to help with the main task, not to distract from it.</p><div style="margin-top:12px;font-family:'Plus Jakarta Sans';font-size:12px;line-height:1.5;color:#9A8138"><strong style="color:#B5984E">In Transket:</strong> in the inbox, replying stays front and centre, and tags, assignment and filters sit quietly around it.</div></div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:22px 24px;box-shadow:0 2px 10px rgba(38,26,21,0.05)"><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:22px;color:#261A15;margin-bottom:6px">Show advanced options later</div><p style="margin:0;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#6E6E73">Advanced settings only appear when they're actually needed.</p><div style="margin-top:12px;font-family:'Plus Jakarta Sans';font-size:12px;line-height:1.5;color:#9A8138"><strong style="color:#B5984E">In Transket:</strong> variable and media fields only appear after you pick a template that needs them.</div></div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:22px 24px;box-shadow:0 2px 10px rgba(38,26,21,0.05)"><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:22px;color:#261A15;margin-bottom:6px">Always show where you are</div><p style="margin:0;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#6E6E73">Users should always know where they are, what they selected, what has happened, and what happens next.</p><div style="margin-top:12px;font-family:'Plus Jakarta Sans';font-size:12px;line-height:1.5;color:#9A8138"><strong style="color:#B5984E">In Transket:</strong> the current organization is always shown, and campaigns have a review step before they go out.</div></div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:22px 24px;box-shadow:0 2px 10px rgba(38,26,21,0.05)"><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:22px;color:#261A15;margin-bottom:6px">Fewer clicks ≠ better UX</div><p style="margin:0;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#6E6E73">One crowded screen can be harder to use than a few clear steps. I aimed for each step to be easy to understand, not for the fewest clicks.</p><div style="margin-top:12px;font-family:'Plus Jakarta Sans';font-size:12px;line-height:1.5;color:#9A8138"><strong style="color:#B5984E">In Transket:</strong> campaign creation is split into steps instead of one long form.</div></div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:22px 24px;box-shadow:0 2px 10px rgba(38,26,21,0.05)"><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:22px;color:#261A15;margin-bottom:6px">Design every state, not just the perfect one</div><p style="margin:0;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#6E6E73">Empty, loading, error, success, disabled, no results, half done and confirmation. Every flow was designed for all of these, not just the ideal case.</p><div style="margin-top:12px;font-family:'Plus Jakarta Sans';font-size:12px;line-height:1.5;color:#9A8138"><strong style="color:#B5984E">In Transket:</strong> contact import, campaign launch and the trial experience all have empty, error and success states.</div></div>
+    </div>
+  </div>
+  <div style="max-width:760px;margin:32px auto 0">
+    <div style="margin:0;border-left:3px solid #E14F8E;padding:2px 0 2px 16px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:6px">Takeaway</div><p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:18px;line-height:1.55;color:#3B2A22">Keep everything the user needs, but show it only when they need it.</p></div>
+  </div>
+</section>
+
+<!-- ============ 05 WHATSAPP FAMILIARITY ============ -->
+<section id="familiarity" data-screen-label="05 WhatsApp familiarity" style="padding:88px 24px 0">
+  <div style="max-width:760px;margin:0 auto">
+    <span class="pt-eyebrow">05 · Familiarity as a bridge</span>
+    <h2 style="margin:18px 0 16px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(36px,5vw,48px);line-height:1.08;color:#261A15">Familiar did not mean identical</h2>
+    <p style="margin:0 0 18px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.7;color:#4A4A4F">Almost everyone who uses Transket already knows WhatsApp. They know how the chat list works, where to type a message and what the little ticks mean. I didn't have to teach any of that. So instead of inventing a new way to message, I built on what people already knew and used it as the way into a bigger business tool.</p>
+    <p style="margin:0 0 18px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.7;color:#4A4A4F">But WhatsApp was a starting point, not something to copy. Business teams need things normal WhatsApp doesn't have, like shared chats, assigning chats, customer details, tags, quick replies, filters and teamwork. So the real question was:</p>
+    <div style="background:#FFFFFF;border-radius:16px;padding:26px 30px;box-shadow:0 8px 30px rgba(38,26,21,0.07);margin:8px 0 24px">
+      <div style="height:3px;width:56px;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);border-radius:2px;margin-bottom:14px"></div>
+      <p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:20px;line-height:1.55;color:#261A15">How do we add business features without losing the feel of WhatsApp?</p>
+    </div>
+    <div style="display:grid;gap:10px;margin:24px 0 8px">
+      <div style="display:grid;grid-template-columns:1fr auto 1.4fr;gap:12px;align-items:center;background:#FFFFFF;border-radius:12px;padding:14px 18px;box-shadow:0 1px 2px rgba(38,26,21,0.05);font-family:'Plus Jakarta Sans'"><div style="font-size:14px;font-weight:600;color:#3B2A22">Familiar conversation list</div><div aria-hidden="true" style="color:#F5A623;font-weight:700">→</div><div style="font-size:14px;color:#4A4A4F">Shared team inbox with assignment and filters</div></div>
+      <div style="display:grid;grid-template-columns:1fr auto 1.4fr;gap:12px;align-items:center;background:#FFFFFF;border-radius:12px;padding:14px 18px;box-shadow:0 1px 2px rgba(38,26,21,0.05);font-family:'Plus Jakarta Sans'"><div style="font-size:14px;font-weight:600;color:#3B2A22">Familiar chat thread</div><div aria-hidden="true" style="color:#F5A623;font-weight:700">→</div><div style="font-size:14px;color:#4A4A4F">Customer chat with customer details on the side</div></div>
+      <div style="display:grid;grid-template-columns:1fr auto 1.4fr;gap:12px;align-items:center;background:#FFFFFF;border-radius:12px;padding:14px 18px;box-shadow:0 1px 2px rgba(38,26,21,0.05);font-family:'Plus Jakarta Sans'"><div style="font-size:14px;font-weight:600;color:#3B2A22">Familiar message box</div><div aria-hidden="true" style="color:#F5A623;font-weight:700">→</div><div style="font-size:14px;color:#4A4A4F">Message box with quick replies and templates</div></div>
+      <div style="display:grid;grid-template-columns:1fr auto 1.4fr;gap:12px;align-items:center;background:#FFFFFF;border-radius:12px;padding:14px 18px;box-shadow:0 1px 2px rgba(38,26,21,0.05);font-family:'Plus Jakarta Sans'"><div style="font-size:14px;font-weight:600;color:#3B2A22">Familiar message states</div><div aria-hidden="true" style="color:#F5A623;font-weight:700">→</div><div style="font-size:14px;color:#4A4A4F">Message status the whole team can see</div></div>
+    </div>
+    <div style="margin:32px 0 0;border-left:3px solid #E14F8E;padding:2px 0 2px 16px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:6px">Takeaway</div><p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:18px;line-height:1.55;color:#3B2A22">Transket feels like WhatsApp where that helps, and adds business tools around the conversation instead of on top of it.</p></div>
+  </div>
+</section>
+
+<!-- ============ 06 COMPETITIVE ============ -->
+<section id="competitive" data-screen-label="06 Competitive analysis" style="padding:88px 24px 0">
+  <div style="max-width:760px;margin:0 auto">
+    <span class="pt-eyebrow">06 · Competitive analysis</span>
+    <h2 style="margin:18px 0 16px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(36px,5vw,48px);line-height:1.08;color:#261A15">What I learned from competitors, and where we could do better</h2>
+    <p style="margin:0 0 18px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.7;color:#4A4A4F">I looked at the main WhatsApp Business tools: Gallabox, AiSensy, Wati and a few others. They all use the same Meta technology, so comparing feature lists wouldn't tell me much. Instead, I looked at how each one turned those features into something people actually use:</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px">
+      <span style="background:#FFFFFF;border:1px solid rgba(26,20,17,0.08);border-radius:999px;padding:7px 14px;font-family:'Plus Jakarta Sans';font-size:13px;color:#3B2A22">Entry points</span>
+      <span style="background:#FFFFFF;border:1px solid rgba(26,20,17,0.08);border-radius:999px;padding:7px 14px;font-family:'Plus Jakarta Sans';font-size:13px;color:#3B2A22">Decisions shown at once</span>
+      <span style="background:#FFFFFF;border:1px solid rgba(26,20,17,0.08);border-radius:999px;padding:7px 14px;font-family:'Plus Jakarta Sans';font-size:13px;color:#3B2A22">Workflow sequence</span>
+      <span style="background:#FFFFFF;border:1px solid rgba(26,20,17,0.08);border-radius:999px;padding:7px 14px;font-family:'Plus Jakarta Sans';font-size:13px;color:#3B2A22">Configuration density</span>
+      <span style="background:#FFFFFF;border:1px solid rgba(26,20,17,0.08);border-radius:999px;padding:7px 14px;font-family:'Plus Jakarta Sans';font-size:13px;color:#3B2A22">Dependency handling</span>
+      <span style="background:#FFFFFF;border:1px solid rgba(26,20,17,0.08);border-radius:999px;padding:7px 14px;font-family:'Plus Jakarta Sans';font-size:13px;color:#3B2A22">Primary action clarity</span>
+      <span style="background:#FFFFFF;border:1px solid rgba(26,20,17,0.08);border-radius:999px;padding:7px 14px;font-family:'Plus Jakarta Sans';font-size:13px;color:#3B2A22">Progress visibility</span>
+      <span style="background:#FFFFFF;border:1px solid rgba(26,20,17,0.08);border-radius:999px;padding:7px 14px;font-family:'Plus Jakarta Sans';font-size:13px;color:#3B2A22">Context preservation</span>
+      <span style="background:#FFFFFF;border:1px solid rgba(26,20,17,0.08);border-radius:999px;padding:7px 14px;font-family:'Plus Jakarta Sans';font-size:13px;color:#3B2A22">Review before commitment</span>
+      <span style="background:#FFFFFF;border:1px solid rgba(26,20,17,0.08);border-radius:999px;padding:7px 14px;font-family:'Plus Jakarta Sans';font-size:13px;color:#3B2A22">First-time learnability</span>
+      <span style="background:#FFFFFF;border:1px solid rgba(26,20,17,0.08);border-radius:999px;padding:7px 14px;font-family:'Plus Jakarta Sans';font-size:13px;color:#3B2A22">Error &amp; incomplete states</span>
+    </div>
+    <p style="margin:0 0 6px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.7;color:#4A4A4F">The pattern I kept seeing: too many choices thrown at people at once. So in Transket I broke the harder tasks into clear steps, and showed each thing only when it mattered.</p>
+  </div>
+  <div style="max-width:760px;margin:28px auto 0">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px">
+      <div style="background:#FFFFFF;border-radius:16px;padding:22px 24px;box-shadow:0 2px 10px rgba(38,26,21,0.05)"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138;margin-bottom:8px">What I saw</div><p style="margin:0;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#4A4A4F">Powerful products that showed everything at once. Template, variables, media, audience and scheduling all sat on one crowded screen, and the main button was hard to find.</p></div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:22px 24px;box-shadow:0 2px 10px rgba(38,26,21,0.05)"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138;margin-bottom:8px">Common problems</div><p style="margin:0;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#4A4A4F">Steps that depended on each other weren't explained, errors only showed up after you hit submit, and there was no clear sense of progress. Users had to keep track of everything themselves.</p></div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:22px 24px;box-shadow:0 2px 10px rgba(38,26,21,0.05)"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138;margin-bottom:8px">What I simplified</div><p style="margin:0;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#4A4A4F">I split the setup by the decision you're making, put the steps in the order they depend on each other, and moved checks earlier so mistakes show up right where you make them.</p></div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:22px 24px;box-shadow:0 2px 10px rgba(38,26,21,0.05)"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138;margin-bottom:8px">What I kept</div><p style="margin:0;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#4A4A4F">All the features, and the familiar WhatsApp feel. The goal was to put things in a better order, not to remove features or change what people already knew.</p></div>
+    </div>
+    <div style="background:#261A15;border-radius:16px;padding:24px 28px;margin-top:14px"><div style="height:3px;width:40px;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);border-radius:2px;margin-bottom:14px"></div><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B5984E;margin-bottom:8px">The rule that shaped Transket</div><p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:19px;line-height:1.5;color:#F3EFE6">Offer the same features as competitors, but show them in a clearer order.</p><div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:18px"><span style="background:rgba(243,239,230,0.1);border:1px solid rgba(243,239,230,0.14);border-radius:999px;padding:7px 13px;font-family:'Plus Jakarta Sans';font-size:12.5px;color:#E9E2D4">Keep things familiar</span><span style="background:rgba(243,239,230,0.1);border:1px solid rgba(243,239,230,0.14);border-radius:999px;padding:7px 13px;font-family:'Plus Jakarta Sans';font-size:12.5px;color:#E9E2D4">Cut extra settings</span><span style="background:rgba(243,239,230,0.1);border:1px solid rgba(243,239,230,0.14);border-radius:999px;padding:7px 13px;font-family:'Plus Jakarta Sans';font-size:12.5px;color:#E9E2D4">Break decisions into smaller steps</span><span style="background:rgba(243,239,230,0.1);border:1px solid rgba(243,239,230,0.14);border-radius:999px;padding:7px 13px;font-family:'Plus Jakarta Sans';font-size:12.5px;color:#E9E2D4">Keep the WhatsApp feel</span></div></div>
+  </div>
+  <div style="max-width:760px;margin:24px auto 0">
+<div style="max-width:760px;margin:0 auto 20px;background:#FFFFFF;border:1px solid rgba(26,20,17,0.08);border-radius:26px;box-shadow:0 8px 30px rgba(38,26,21,0.07);overflow:hidden"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))"><div style="padding:28px;border-right:1px solid rgba(26,20,17,0.07);border-bottom:1px solid rgba(26,20,17,0.07)"><div style="font-family:'Plus Jakarta Sans';font-size:10.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:14px">Competitor</div><div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><img src="assets/logo-wati.png" alt="Wati logo" style="flex-shrink:0;width:40px;height:40px;border-radius:10px;object-fit:contain;display:block"><div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:700;color:#261A15">Wati</div><div style="font-family:'Plus Jakarta Sans';font-size:12.5px;color:#6E6E73">Campaign Creation</div></div></div><figure style="margin:0 0 16px;height:230px"><img src="assets/casestudy/comp-wati-campaign.png" alt="Wati New Broadcast screen: broadcast name, template selection, and contact selection all on one screen, with a live WhatsApp preview on the right." loading="lazy" style="width:100%;height:230px;object-fit:cover;object-position:top;display:block;border-radius:16px;border:1px solid rgba(26,20,17,0.08)"></figure><div style="display:flex;gap:10px;align-items:flex-start;margin-top:10px"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#261A15;color:#F3EFE6;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">1</span><span style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#4A4A4F">Template, variables, audience and schedule all sit on a single screen.</span></div><div style="display:flex;gap:10px;align-items:flex-start;margin-top:10px"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#261A15;color:#F3EFE6;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">2</span><span style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#4A4A4F">The main Send button competes with other buttons for attention.</span></div><div style="display:flex;gap:10px;align-items:flex-start;margin-top:10px"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#261A15;color:#F3EFE6;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">3</span><span style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#4A4A4F">Template fields show up before you've even picked a template.</span></div></div><div style="padding:28px;border-bottom:1px solid rgba(26,20,17,0.07)"><div style="font-family:'Plus Jakarta Sans';font-size:10.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:14px">Transket</div><div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><img src="assets/logo-transket.png" alt="Transket logo" style="flex-shrink:0;width:40px;height:40px;border-radius:10px;object-fit:contain;display:block"><div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:700;color:#261A15">Transket</div><div style="font-family:'Plus Jakarta Sans';font-size:12.5px;color:#6E6E73">Campaign Builder</div></div></div><figure style="margin:0 0 16px;height:230px"><img src="assets/casestudy/transket-campaign-builder.png" alt="Transket campaign builder, Step 2 of 4: a stepped progress bar (Campaign Details, Choose Template, Select Audience, Schedule, Review &amp; Run) above the Configure Template step, with media attachment and variable inputs beside a live WhatsApp preview." loading="lazy" style="width:100%;height:230px;object-fit:cover;object-position:top;display:block;border-radius:16px;border:1px solid rgba(26,20,17,0.08)"></figure><div style="display:flex;gap:10px;align-items:flex-start;margin-top:10px"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#261A15;color:#F3EFE6;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">1</span><span style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#4A4A4F">The task is split into five steps, each asking for one kind of decision.</span></div><div style="display:flex;gap:10px;align-items:flex-start;margin-top:10px"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#261A15;color:#F3EFE6;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">2</span><span style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#4A4A4F">Each step has one clear main button, and other options stay in the background.</span></div><div style="display:flex;gap:10px;align-items:flex-start;margin-top:10px"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#261A15;color:#F3EFE6;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">3</span><span style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#4A4A4F">Variable and media fields appear only after a template is selected.</span></div></div></div><div style="background:#F6F3E2;padding:24px 28px"><div style="display:flex;align-items:center;gap:10px;margin-bottom:10px"><div style="height:3px;width:28px;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);border-radius:2px"></div><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138">Design response</div></div><p style="margin:0;font-family:'Plus Jakarta Sans';font-size:15px;line-height:1.7;color:#3B2A22">Instead of showing every campaign setting at once, I turned the builder into guided steps that follow the order things depend on each other. A first-time user handles one decision at a time, and nothing is taken away.</p></div></div>
+<div style="max-width:760px;margin:0 auto 20px;background:#FFFFFF;border:1px solid rgba(26,20,17,0.08);border-radius:26px;box-shadow:0 8px 30px rgba(38,26,21,0.07);overflow:hidden"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))"><div style="padding:28px;border-right:1px solid rgba(26,20,17,0.07);border-bottom:1px solid rgba(26,20,17,0.07)"><div style="font-family:'Plus Jakarta Sans';font-size:10.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:14px">Transket</div><div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><img src="assets/logo-transket.png" alt="Transket logo" style="flex-shrink:0;width:40px;height:40px;border-radius:10px;object-fit:contain;display:block"><div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:700;color:#261A15">Transket</div><div style="font-family:'Plus Jakarta Sans';font-size:12.5px;color:#6E6E73">Bot Builder</div></div></div><figure style="margin:0 0 16px;height:230px"><img src="assets/casestudy/transket-bot-builder.png" alt="Transket bot builder canvas: a Keywords trigger connected to an Ask Question node with Explore Our Menu / Manage My Order options, branching into an Ask List meal-plan node, with an Add Content panel of Send and Ask blocks." loading="lazy" style="width:100%;height:230px;object-fit:cover;object-position:top;display:block;border-radius:16px;border:1px solid rgba(26,20,17,0.08)"></figure><div style="display:flex;gap:10px;align-items:flex-start;margin-top:10px"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#261A15;color:#F3EFE6;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">1</span><span style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#4A4A4F">Each card shows just enough to understand the chat flow at a glance.</span></div><div style="display:flex;gap:10px;align-items:flex-start;margin-top:10px"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#261A15;color:#F3EFE6;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">2</span><span style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#4A4A4F">Clicking a card opens its settings in a side panel, so the main view stays focused on the whole flow.</span></div><div style="display:flex;gap:10px;align-items:flex-start;margin-top:10px"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#261A15;color:#F3EFE6;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">3</span><span style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#4A4A4F">Media is shown as small icons, and the detailed settings stay in the side panel.</span></div></div><div style="padding:28px;border-bottom:1px solid rgba(26,20,17,0.07)"><div style="font-family:'Plus Jakarta Sans';font-size:10.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:14px">Competitor</div><div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><img src="assets/logo-aisensy.jpeg" alt="AiSensy logo" style="flex-shrink:0;width:40px;height:40px;border-radius:10px;object-fit:contain;display:block"><div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:700;color:#261A15">Aisensy</div><div style="font-family:'Plus Jakarta Sans';font-size:12.5px;color:#6E6E73">Bot Builder / Flow Builder</div></div></div><figure style="margin:0 0 16px;height:230px"><img src="assets/casestudy/comp-flow-builder.png" alt="AiSensy flow builder canvas: a Flow Start keyword node connected to Message nodes with product cards and buttons, beside a Content Block palette." loading="lazy" style="width:100%;height:230px;object-fit:cover;object-position:top;display:block;border-radius:16px;border:1px solid rgba(26,20,17,0.08)"></figure><div style="display:flex;gap:10px;align-items:flex-start;margin-top:10px"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#261A15;color:#F3EFE6;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">1</span><span style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#4A4A4F">Message details and settings are shown right inside the flow cards.</span></div><div style="display:flex;gap:10px;align-items:flex-start;margin-top:10px"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#261A15;color:#F3EFE6;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">2</span><span style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#4A4A4F">All the detailed content stays visible while you build the flow.</span></div><div style="display:flex;gap:10px;align-items:flex-start;margin-top:10px"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#261A15;color:#F3EFE6;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">3</span><span style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#4A4A4F">Media, captions and actions are shown inside the cards, which adds a lot of visual clutter.</span></div></div></div><div style="background:#F6F3E2;padding:24px 28px"><div style="display:flex;align-items:center;gap:10px;margin-bottom:10px"><div style="height:3px;width:28px;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);border-radius:2px"></div><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138">Design response</div></div><p style="margin:0;font-family:'Plus Jakarta Sans';font-size:15px;line-height:1.7;color:#3B2A22">I kept the flow cards focused on the path of the conversation, not every setting. Media shows as a small icon next to the text, and editing happens in the side panel. This keeps big bot flows easier to read and manage.</p></div></div>
+<div style="max-width:760px;margin:0 auto 20px;background:#FFFFFF;border:1px solid rgba(26,20,17,0.08);border-radius:26px;box-shadow:0 8px 30px rgba(38,26,21,0.07);overflow:hidden"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))"><div style="padding:28px;border-right:1px solid rgba(26,20,17,0.07);border-bottom:1px solid rgba(26,20,17,0.07)"><div style="font-family:'Plus Jakarta Sans';font-size:10.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:14px">Competitor</div><div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><div style="flex-shrink:0;width:40px;height:40px;border-radius:10px;border:1px dashed rgba(154,129,56,0.6);background:#EFEAD5;display:flex;align-items:center;justify-content:center;font-family:'Protest Riot',sans-serif;font-size:18px;color:#9A8138">G</div><div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:700;color:#261A15">Gallabox</div><div style="font-family:'Plus Jakarta Sans';font-size:12.5px;color:#6E6E73">Shared Inbox</div></div></div><figure style="margin:0 0 16px;height:230px"><img src="assets/casestudy/comp-gallabox-inbox.png" alt="Gallabox Conversations screen: a left navigation, a second panel of conversation filters and views, an Unassigned conversation list, and the chat thread with failed-message warnings, a Reply/Notes composer and Request Payment / Send Template actions." loading="lazy" style="width:100%;height:230px;object-fit:cover;object-position:top left;display:block;border-radius:16px;border:1px solid rgba(26,20,17,0.08)"></figure><div style="display:flex;gap:10px;align-items:flex-start;margin-top:10px"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#261A15;color:#F3EFE6;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">1</span><span style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#4A4A4F">Tags, assignment and status get as much attention as the chat itself.</span></div><div style="display:flex;gap:10px;align-items:flex-start;margin-top:10px"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#261A15;color:#F3EFE6;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">2</span><span style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#4A4A4F">Business panels surround the chat and squeeze it into a small space.</span></div><div style="display:flex;gap:10px;align-items:flex-start;margin-top:10px"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#261A15;color:#F3EFE6;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">3</span><span style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#4A4A4F">The familiar WhatsApp layout is changed to look like a dashboard.</span></div></div><div style="padding:28px;border-bottom:1px solid rgba(26,20,17,0.07)"><div style="font-family:'Plus Jakarta Sans';font-size:10.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:14px">Transket</div><div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><img src="assets/logo-transket.png" alt="Transket logo" style="flex-shrink:0;width:40px;height:40px;border-radius:10px;object-fit:contain;display:block"><div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:700;color:#261A15">Transket</div><div style="font-family:'Plus Jakarta Sans';font-size:12.5px;color:#6E6E73">Shared Inbox</div></div></div><figure style="margin:0 0 16px;height:230px"><img src="assets/casestudy/transket-shared-inbox.png" alt="Transket Inbox: conversation list with status chips and lead tags, the chat thread in a WhatsApp-style layout with a bot-handling banner and Intervene action, and a collapsible Chat Profile panel with lead source and status." loading="lazy" style="width:100%;height:230px;object-fit:cover;object-position:top left;display:block;border-radius:16px;border:1px solid rgba(26,20,17,0.08)"></figure><div style="display:flex;gap:10px;align-items:flex-start;margin-top:10px"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#261A15;color:#F3EFE6;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">1</span><span style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#4A4A4F">The chat and message box stay in the middle, laid out like WhatsApp.</span></div><div style="display:flex;gap:10px;align-items:flex-start;margin-top:10px"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#261A15;color:#F3EFE6;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">2</span><span style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#4A4A4F">Customer details sit next to the chat, easy to see but never covering it.</span></div><div style="display:flex;gap:10px;align-items:flex-start;margin-top:10px"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#261A15;color:#F3EFE6;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">3</span><span style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#4A4A4F">Tags, assignment and filters stay quiet until they’re needed.</span></div></div></div><div style="background:#F6F3E2;padding:24px 28px"><div style="display:flex;align-items:center;gap:10px;margin-bottom:10px"><div style="height:3px;width:28px;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);border-radius:2px"></div><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138">Design response</div></div><p style="margin:0;font-family:'Plus Jakarta Sans';font-size:15px;line-height:1.7;color:#3B2A22">I added the business tools around the chat instead of on top of it. The conversation stays the main thing, so the inbox still feels like WhatsApp while doing a lot more.</p></div></div>
+  </div>
+  <div style="max-width:760px;margin:32px auto 0">
+    <div style="margin:0;border-left:3px solid #E14F8E;padding:2px 0 2px 16px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:6px">Takeaway</div><p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:18px;line-height:1.55;color:#3B2A22">Competitors offered the same features. Transket stood apart by showing them in a clearer order, one step at a time.</p></div>
+  </div>
+</section>
+
+<!-- ============ 07 ITERATIONS & PRODUCT DECISIONS ============ -->
+<section id="iterations" data-screen-label="07 Iterations and product decisions" style="padding:88px 24px 0">
+  <div style="max-width:760px;margin:0 auto">
+    <span class="pt-eyebrow">07 · Iterations &amp; product decisions</span>
+    <h2 style="margin:18px 0 16px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(36px,5vw,48px);line-height:1.08;color:#261A15">Why I made the changes I made</h2>
+    <p style="margin:0 0 8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.7;color:#4A4A4F">These aren't here to show I made many versions. They're here to show my thinking. Each one covers what I noticed, what I changed, why, and what I gave up for it.</p>
+  </div>
+  <div style="max-width:760px;margin:40px auto 18px">
+    <div style="display:flex;align-items:center;gap:10px;margin:0 0 6px"><div style="height:3px;width:28px;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);border-radius:2px"></div><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138">Part A · Screen iterations</div></div>
+    <h3 style="margin:0 0 10px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:32px;line-height:1.15;color:#261A15">What I noticed, what I changed, and why</h3>
+  </div>
+  <div style="max-width:760px;margin:0 auto;display:grid;gap:20px">
+    <div style="background:#FFFFFF;border-radius:24px;padding:28px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+      <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:4px">Iteration 01</div>
+      <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:28px;color:#261A15;margin-bottom:18px">Dashboard density &amp; setup guidance</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-bottom:18px">
+        <figure style="margin:0"><img src="assets/casestudy/home-iter-early.png" alt="Earlier Transket dashboard: a large 'complete the profile setup' tracker with a full Business Verification explainer card, QR and widget cards, and bordered contact-management cards." loading="lazy" style="width:100%;height:340px;object-fit:cover;object-position:top;display:block;border-radius:12px;border:1px solid rgba(26,20,17,0.08)"><figcaption style="margin-top:8px;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138">Earlier version</figcaption></figure>
+        <figure style="margin:0"><img src="assets/casestudy/home-iter-final.png" alt="Final Transket dashboard: a trial banner, a compact account-health status row, a collapsible setup tracker, quick-action cards, and a business-info panel." loading="lazy" style="width:100%;height:340px;object-fit:cover;object-position:top;display:block;border-radius:12px;border:1px solid rgba(26,20,17,0.08)"><figcaption style="margin-top:8px;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138">Revised version</figcaption></figure>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#4A4A4F">
+        <div><div style="font-weight:700;color:#261A15;margin-bottom:4px">What I noticed</div>The first dashboard worked for what the product needed back then. But as we added more setup steps, features and business rules, the home screen ran out of room. Priorities changed, and sections that used to fit no longer matched how much the page had to show.</div>
+        <div><div style="font-weight:700;color:#261A15;margin-bottom:4px">What I changed</div>I tightened the spacing, padding and corners, and added icons so the main sections are easier to spot. I simplified the feature cards so they look cleaner and are quicker to scan. And because users could now finish setup in any order, I replaced the numbered steps with status labels that show real progress.</div>
+        <div><div style="font-weight:700;color:#261A15;margin-bottom:4px">Why · trade-off</div>The focus moved from adding features to organising them so the page stays easy to scan. Some parts got busier so more useful information shows up first, and cleaner styling keeps it friendly. The bigger decision was the stepper. Once users could verify in any order, numbered steps gave the wrong idea of progress, so I swapped them for status labels, even though we lost the neat 1-2-3 look.</div>
+      </div>
+    </div>
+    <div style="background:#FFFFFF;border-radius:24px;padding:28px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+      <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:4px">Iteration 02</div>
+      <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:28px;color:#261A15;margin-bottom:18px">Billing page: from separate views to one clear page</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-bottom:18px">
+        <figure style="margin:0"><img src="assets/casestudy/billing-before-separate-views.png" alt="Earlier Transket billing: a My Subscription view, selected from a dropdown, with plan status, subscription details, a saved payment method and a billing history table, kept separate from the plans view." loading="lazy" style="width:100%;height:300px;object-fit:contain;object-position:top;background:#F6F3E2;display:block;border-radius:12px;box-shadow:0 4px 18px rgba(38,26,21,0.12)"><figcaption style="margin-top:8px;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138">Earlier version</figcaption></figure>
+        <figure style="margin:0"><img src="assets/casestudy/billing-after-single-page.png" alt="Revised Transket Billing &amp; Plan page: one view with the active plan and a Manage Subscription button that opens Stripe, renewal alerts, and all three plans side by side." loading="lazy" style="width: 100%; height: 300px; object-fit: contain; object-position: top; background: #F6F3E2; display: block; border-radius: 12px; box-shadow: 0 4px 18px rgba(38,26,21,0.12)"><figcaption style="margin-top:8px;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138">Revised version</figcaption></figure>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#4A4A4F">
+        <div><div style="font-weight:700;color:#261A15;margin-bottom:4px">What I noticed</div>Billing was split into separate views: “My Subscription” for your plan, payment method and billing history, and another one for comparing plans. Once we moved payments to Stripe, most of that first view had nothing left to do, but people still had to switch screens just to see what they were on and what else was available.</div>
+        <div><div style="font-weight:700;color:#261A15;margin-bottom:4px">What I changed</div>When we decided to let Stripe handle everything to do with payments, like cards, invoices and billing history, I replaced all of it with one “Manage Subscription” button. With that gone, I brought everything onto one Billing &amp; Plan page: your current plan at the top, renewal alerts below, and all the plans side by side underneath.</div>
+        <div><div style="font-weight:700;color:#261A15;margin-bottom:4px">Why · trade-off</div>There was no point rebuilding what Stripe already does well. With less to show, one page made more sense than two. You can see your plan and your options in one place, which also makes upgrading an easy next step. The trade-off is that payment details now open in Stripe instead of inside Transket. It's a small switch, and worth it for a simpler page.</div>
+      </div>
+    </div>
+    <div style="background:#FFFFFF;border-radius:24px;padding:28px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+      <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:4px">Iteration 03</div>
+      <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:28px;color:#261A15;margin-bottom:18px">Inbox as a growing workspace</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-bottom:18px">
+        <figure style="margin:0"><img src="assets/casestudy/inbox-iter-live.png" alt="Live Transket inbox: the attachment menu open as one flat list of thirteen options — Contact, Location, Image, Video, Audio, Document, Sticker, Template Message, Quick Message, Catalog, Products, Catalog Link, Payment Link." loading="lazy" style="width:100%;height:auto;display:block;border-radius:12px;box-shadow:0 4px 18px rgba(38,26,21,0.12)"><figcaption style="margin-top:8px;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138">Earlier version</figcaption></figure>
+        <figure style="margin:0"><img src="assets/casestudy/inbox-iter-revised.png" alt="Revised Transket inbox: the attachment menu grouped into labelled sections — Communication, Media, and Business &amp; commerce — each holding its related options." loading="lazy" style="width:100%;height:auto;display:block;border-radius:12px;box-shadow:0 4px 18px rgba(38,26,21,0.12)"><figcaption style="margin-top:8px;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138">Revised version</figcaption></figure>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#4A4A4F">
+        <div><div style="font-weight:700;color:#261A15;margin-bottom:4px">What I noticed</div>As we added more to the product, the inbox had to hold more than just chats. Assigning chats, customer details, search, chat status and a few WhatsApp-only actions all lived in the same space. Some buttons were hard to understand at a glance, and all the extra things started crowding the chat.</div>
+        <div><div style="font-weight:700;color:#261A15;margin-bottom:4px">What I changed</div>I gave the inbox more order. Icon-only buttons that were hard to guess got clearer labels, the attachment menu was split into simple groups (Communication, Media, Business &amp; commerce), and the chat header made room for new things without crowding the chat. The Chat Profile became a panel you can open, close or hide, so customer details are there when you want them and out of the way when you don't.</div>
+        <div><div style="font-weight:700;color:#261A15;margin-bottom:4px">Why · trade-off</div>The point was to let the product do more without the inbox feeling harder to use. New WhatsApp rules and features kept adding things to show, so instead of leaving it all on screen at once, I put some of it behind menus and a panel you can hide. The chat stays front and centre, and the rest is one click away.</div>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:760px;margin:56px auto 0">
+    <div style="display:flex;align-items:center;gap:10px;margin:0 0 6px"><div style="height:3px;width:28px;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);border-radius:2px"></div><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138">Part B · Product decisions</div></div>
+    <h3 style="margin:0 0 10px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:32px;line-height:1.15;color:#261A15">Not every decision is a screen change</h3>
+    <p style="margin:0 0 22px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.7;color:#4A4A4F">These two decisions changed how the product grows and keeps its users. Each one shows why we made the call and what it changed.</p>
+  </div>
+  <div style="max-width:760px;margin:0 auto;display:grid;gap:20px">
+    <div id="smart-analytics" style="background:#FFFFFF;border-radius:24px;padding:28px;box-shadow:0 8px 30px rgba(38,26,21,0.07);scroll-margin-top:84px">
+      <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:4px">Decision 04 · Smart Analytics (AI) · Enterprise plan</div>
+      <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:28px;color:#261A15;margin-bottom:18px">Same analytics for everyone, plus a way to ask for Enterprise</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-bottom:20px">
+        <figure style="margin:0"><img src="assets/casestudy/analytics-before-separate.png" alt="Customer dashboard Campaign Analytics: overview, performance, campaign cost and template metrics for one organization, with Campaigns and Analytics tabs and a date range picker." loading="lazy" style="width:100%;height:300px;object-fit:cover;object-position:top left;display:block;border-radius:12px;border:1px solid rgba(26,20,17,0.08)"><figcaption style="margin-top:8px;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138">Every plan · section analytics</figcaption></figure>
+        <figure style="margin:0"><img src="assets/casestudy/smart-analytics-enterprise.png" alt="Enterprise Portal Smart Analytics: an AI prompt box asking "What analytics insights are you looking for?", with Attach and Voice options, an Ask button, suggested prompts, and tabs for Campaigns, Inbox and Commerce Analytics." loading="lazy" style="width:100%;height:300px;object-fit:cover;object-position:top left;display:block;border-radius:12px;border:1px solid rgba(26,20,17,0.08)"><figcaption style="margin-top:8px;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138">Enterprise plan · Smart Analytics across every organization</figcaption></figure>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px 18px;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#4A4A4F">
+        <div><div style="font-weight:700;color:#261A15;margin-bottom:4px">The opportunity</div>Every plan includes separate analytics for Campaigns, Inbox and Commerce, each for one organization. That's all a single business needs, so we kept it as it was. But enterprises run several organizations, and getting the full picture meant opening each one, then each section, and putting the numbers together themselves.</div>
+        <div><div style="font-weight:700;color:#261A15;margin-bottom:4px">What Enterprise adds</div>The Enterprise Portal brings analytics for every organization into one place. The same Campaign, Inbox and Commerce views are there as tabs, with Smart Analytics on top. Ask in your own language, like "Give me an overview of my campaign performance for this week", and get an AI-powered answer, with suggested prompts to get started. The manual views stay one tab away, so any answer can be checked against the numbers behind it.</div>
+      </div>
+      <div style="margin-top:22px;background:#261A15;border-radius:16px;padding:22px 24px">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#D8C788;margin-bottom:8px">How it helped the business</div>
+        <p style="margin:0;font-family:'Plus Jakarta Sans';font-size:14.5px;line-height:1.7;color:#D6CDC2">Smart Analytics turned analytics into an upgrade path. Businesses start with the regular analytics. Once they run several organizations, the Enterprise plan gives them one place to see and ask about all of them. That gives the bigger plan a clear, visible reason to exist, and makes it easier to explain and to sell.</p>
+      </div>
+    </div>
+    <div id="trial" style="background:#FFFFFF;border-radius:24px;padding:28px;box-shadow:0 8px 30px rgba(38,26,21,0.07);scroll-margin-top:84px">
+      <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:4px">Decision 05 · Trial &amp; activation</div>
+      <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:28px;color:#261A15;margin-bottom:18px">Earning trial days by learning the product</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-bottom:20px">
+        <figure style="margin:0"><img src="assets/casestudy/trial-tasks-in-progress.png" alt="Transket dashboard during the trial: a Trial Ending Soon banner, the setup stepper, and an Extend Your Trial by Up to 15 Days card listing three tasks worth +5 days each, with 0/3 tasks completed, a progress bar and a Create Templates button." loading="lazy" style="width:100%;height:300px;object-fit:cover;object-position:top left;display:block;border-radius:12px;border:1px solid rgba(26,20,17,0.08)"><figcaption style="margin-top:8px;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138">During the trial · three tasks, +5 days each</figcaption></figure>
+        <figure style="margin:0"><img src="assets/casestudy/trial-reward-earned.png" alt="Transket dashboard after the tasks: a Congratulations card confirming the full 15-day trial extension, with all three milestones ticked and a Continue to dashboard button." loading="lazy" style="width:100%;height:300px;object-fit:cover;object-position:top left;display:block;border-radius:12px;border:1px solid rgba(26,20,17,0.08)"><figcaption style="margin-top:8px;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138">Reward earned · full 15-day extension</figcaption></figure>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px 18px;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#4A4A4F">
+        <div><div style="font-weight:700;color:#261A15;margin-bottom:4px">The challenge</div>Users who signed up with a clear need were never the problem. They set up the product and kept using it. The harder group were people just trying it out: with nothing pulling them past a quick look, they rarely reached the features that show Transket's real value before their 15-day trial ended.</div>
+        <div><div style="font-weight:700;color:#261A15;margin-bottom:4px">What we did</div>We tied extra trial days to a few tasks built around the product's main features: templates, campaigns and customer messaging. Completing them helped people understand the platform, and gave them a real reason to stay.</div>
+      </div>
+      <div style="margin-top:22px;background:#261A15;border-radius:16px;padding:22px 24px">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#D8C788;margin-bottom:8px">How it helped conversion</div>
+        <p style="margin:0;font-family:'Plus Jakarta Sans';font-size:14.5px;line-height:1.7;color:#D6CDC2">Even users who were just exploring got a clear idea of how Transket works, because they had built templates, run a campaign and handled chats themselves. Once the product made sense to them, buying a plan was the natural next step, and many of these trial users went on to renew.</p>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:760px;margin:32px auto 0">
+    <div style="margin:0;border-left:3px solid #E14F8E;padding:2px 0 2px 16px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:6px">Takeaway</div><p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:18px;line-height:1.55;color:#3B2A22">Every change here, big or small, was made to make the product easier to use or easier to grow with.</p></div>
+  </div>
+</section>
+
+<!-- ============ 08 STRUCTURING THE BUSINESS TO SCALE ============ -->
+<section id="scale" data-screen-label="08 Organizations and portals" style="padding:88px 24px 72px;background:#ECE8CF;margin-top:88px">
+  <div style="max-width:760px;margin:0 auto">
+    <span class="pt-eyebrow">08 · Organizations &amp; portals</span>
+    <h2 style="margin:18px 0 16px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(36px,5vw,48px);line-height:1.08;color:#261A15">Setting up the product to grow with the business</h2>
+    <p style="margin:0 0 32px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.7;color:#4A4A4F">As Transket grew, one dashboard couldn't work for everyone anymore. Customers ran several brands, partners brought in new clients, and our own team needed to run things behind the scenes. Adding more to one screen wasn't the answer. We needed structure: <strong style="color:#261A15">organizations</strong> to keep each customer's businesses separate, and <strong style="color:#261A15">portals</strong> so each group gets a space built for their job.</p>
+    <div style="display:flex;align-items:center;gap:10px;margin:0 0 6px"><div style="height:3px;width:28px;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);border-radius:2px"></div><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138">A · Organizations</div></div>
+    <h3 style="margin:0 0 10px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:32px;line-height:1.15;color:#261A15">Why we split accounts into organizations</h3>
+    <p style="margin:0 0 18px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.7;color:#4A4A4F">Growing customers rarely run one business. They run brands, regions or franchises (Barktee, Transket India and Transket US in the example below), each with its own contacts, campaigns, team and billing. Keeping all of that in one account made reporting messy and permissions risky. Separating them into organizations under one enterprise account let a business manage every brand from one login while keeping each brand's data and team apart.</p>
+    <p style="margin:0 0 18px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.7;color:#4A4A4F">Managing more than one organization brings a new risk. You can do everything right, with the right campaign, audience and timing, but in the wrong organization. Every screen in the enterprise view has to guard against that.</p>
+    <div style="background:#FFFFFF;border-radius:16px;padding:24px 28px;box-shadow:0 8px 30px rgba(38,26,21,0.07);margin:0 0 20px">
+      <div style="height:3px;width:56px;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);border-radius:2px;margin-bottom:14px"></div>
+      <p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:20px;line-height:1.55;color:#261A15">How do we always show which organization you're in, without cluttering the screen?</p>
+    </div>
+    <p style="margin:0 0 18px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.7;color:#4A4A4F">I stuck to a few simple rules. The current organization is always on screen, in the same spot, so you never have to remember it. Switching is a clear action with clear feedback, not a quiet dropdown change you might miss. The organization stays the same as you move around the product. And each organization has its own permissions, because the same person can have different access in different organizations, and the screen has to show that without making them think about it.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px">
+      <figure style="margin:0"><img src="assets/casestudy/org-switcher-current.png" alt="Transket dashboard with a Manage Org link in the sidebar and the Current Organization dropdown open in the right panel: Barktee shown as the current organization with its business ID, Transket India and Transket US listed below with their org IDs, and a dashed Create New Organization option." loading="lazy" style="width:100%;aspect-ratio:2732/2316;object-fit:cover;object-position:top left;display:block;border-radius:16px;box-shadow:0 4px 18px rgba(38,26,21,0.12)"><figcaption style="margin-top:8px;font-family:'Plus Jakarta Sans';font-size:12.5px;line-height:1.6;color:#6E6E73"><strong style="color:#3B2A22">Switching from inside the dashboard.</strong> Users always know which organization they're working in, and can move to another without leaving their work. Everyone lands in the default organization set by the business admin when they log in, so teams start in the right place every time and are much less likely to work in the wrong organization.</figcaption></figure>
+      <figure style="margin:0"><img src="assets/casestudy/manage-organizations.png" alt="Manage Organizations page: the business account (Transket, Business ID 1022) at the top, then a Create New Organization card and one card per organization showing its WABA phone number, WABA status (Connected or Not verified) and WABA ID, with the default organization labelled." loading="lazy" style="width:100%;aspect-ratio:2732/2316;object-fit:contain;object-position:top;background:#F5F7F9;display:block;border-radius:16px;box-shadow:0 4px 18px rgba(38,26,21,0.12)"><figcaption style="margin-top:8px;font-family:'Plus Jakarta Sans';font-size:12.5px;line-height:1.6;color:#6E6E73"><strong style="color:#3B2A22">Managing every organization in one place.</strong> The page where business admins manage their organizations and create new ones. Only business admins can see it.</figcaption></figure>
+    </div>
+  </div>
+  <div style="max-width:760px;margin:56px auto 0">
+    <div style="display:flex;align-items:center;gap:10px;margin:0 0 6px"><div style="height:3px;width:28px;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);border-radius:2px"></div><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138">B · Portals</div></div>
+    <h3 style="margin:0 0 10px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:32px;line-height:1.15;color:#261A15">Why each stakeholder got their own portal</h3>
+    <p style="margin:0 0 22px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.7;color:#4A4A4F">The second part was splitting things by who uses them. Each portal exists because a different group looks after a different part of the business, and one shared dashboard wouldn't have worked well for any of them.</p>
+  </div>
+  <div style="max-width:760px;margin:0 auto">
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px">
+      <div style="flex:0 1 calc((100% - 28px) / 3);min-width:210px;background:#FFFFFF;border-radius:16px;overflow:hidden;box-shadow:0 2px 10px rgba(38,26,21,0.05);display:flex;flex-direction:column">
+        <div style="padding:16px 18px 18px">
+          <div style="font-family:'Plus Jakarta Sans';font-size:10.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:4px">Daily value</div>
+          <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:21px;color:#261A15;margin-bottom:6px">Customer Dashboard</div>
+          <div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.6;color:#6E6E73">Where businesses run WhatsApp every day: inbox, campaigns, contacts and automation. It's what customers pay for, so it's built for getting work done fast.</div>
+        </div>
+      </div>
+      <div style="flex:0 1 calc((100% - 28px) / 3);min-width:210px;background:#FFFFFF;border-radius:16px;overflow:hidden;box-shadow:0 2px 10px rgba(38,26,21,0.05);display:flex;flex-direction:column">
+        <div style="padding:16px 18px 18px">
+          <div style="font-family:'Plus Jakarta Sans';font-size:10.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:4px">Growth channel</div>
+          <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:21px;color:#261A15;margin-bottom:6px">Partner Portal</div>
+          <div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.6;color:#6E6E73">Agencies and resellers refer clients and track their earnings. Their own portal turned partners into a sales channel that grows without growing the sales team.</div>
+        </div>
+      </div>
+      <div style="flex:0 1 calc((100% - 28px) / 3);min-width:210px;background:#FFFFFF;border-radius:16px;overflow:hidden;box-shadow:0 2px 10px rgba(38,26,21,0.05);display:flex;flex-direction:column">
+        <div style="padding:16px 18px 18px">
+          <div style="font-family:'Plus Jakarta Sans';font-size:10.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:4px">Operations</div>
+          <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:21px;color:#261A15;margin-bottom:6px">Admin Portal</div>
+          <div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.6;color:#6E6E73">The internal team manages partners, payouts, subscriptions and support. Dense tables and filters make sense here, because this is checking and managing work, not daily messaging.</div>
+        </div>
+      </div>
+      <div style="flex:0 1 calc((100% - 28px) / 3);min-width:210px;background:#FFFFFF;border-radius:16px;overflow:hidden;box-shadow:0 2px 10px rgba(38,26,21,0.05);display:flex;flex-direction:column">
+        <div style="padding:16px 18px 18px">
+          <div style="font-family:'Plus Jakarta Sans';font-size:10.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:4px">Higher plan</div>
+          <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:21px;color:#261A15;margin-bottom:6px">Enterprise Portal</div>
+          <div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.6;color:#6E6E73">Businesses with several brands see every organization in one place, with Smart Analytics on top. This lets Transket sell to bigger customers, not just single shops.</div>
+        </div>
+      </div>
+      <div style="flex:0 1 calc((100% - 28px) / 3);min-width:210px;background:#FFFFFF;border-radius:16px;overflow:hidden;box-shadow:0 2px 10px rgba(38,26,21,0.05);display:flex;flex-direction:column">
+        <div style="padding:16px 18px 18px">
+          <div style="font-family:'Plus Jakarta Sans';font-size:10.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:4px">Top of funnel</div>
+          <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:21px;color:#261A15;margin-bottom:6px">Public Website</div>
+          <div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.6;color:#6E6E73">Explains the product to people who haven't used it yet, in the same tone, so the first impression matches what they sign up for.</div>
+        </div>
+      </div>
+    </div>
+    <p style="margin:24px 0 0;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.7;color:#4A4A4F">Splitting things up this way was a trade-off. It meant more to design and maintain, but each group only sees what their job needs. What kept five portals manageable was keeping them consistent: the same layout, the same components and the same status labels everywhere. Only the order of information changes, so each person sees their own work first.</p>
+    <div style="margin:32px 0 0;border-left:3px solid #E14F8E;padding:2px 0 2px 16px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:6px">Takeaway</div><p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:18px;line-height:1.55;color:#3B2A22">Organizations and portals let one product serve every kind of user and business, without becoming harder for any of them.</p></div>
+  </div>
+</section>
+
+
+<!-- ============ 09 OUTCOMES ============ -->
+<section id="outcomes" data-screen-label="09 Outcomes" style="padding:88px 24px 0">
+  <div style="max-width:760px;margin:0 auto">
+    <span class="pt-eyebrow">09 · Outcomes</span>
+    <h2 style="margin:18px 0 28px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(36px,5vw,48px);line-height:1.08;color:#261A15">What the work delivered</h2>
+    <div style="background:#261A15;border-radius:24px;padding:32px 30px;box-shadow:0 16px 40px rgba(38,26,21,0.18)">
+      <div style="height:3px;width:56px;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);border-radius:2px;margin-bottom:26px"></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:28px 32px">
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <div style="flex-shrink:0;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:30px;line-height:1;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);-webkit-background-clip:text;background-clip:text;color:transparent">01</div>
+          <div>
+            <div style="font-family:'Plus Jakarta Sans';font-size:16px;font-weight:700;line-height:1.4;color:#F3EFE6;margin-bottom:6px">Turned a technical platform into a full product, as the only designer</div>
+            <div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#B9AEA4">I designed five parts of the product from start to finish: the Customer Dashboard, the Partner, Admin and Enterprise portals, and the public website. That's 18+ feature areas, all working as one consistent product.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <div style="flex-shrink:0;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:30px;line-height:1;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);-webkit-background-clip:text;background-clip:text;color:transparent">02</div>
+          <div>
+            <div style="font-family:'Plus Jakarta Sans';font-size:16px;font-weight:700;line-height:1.4;color:#F3EFE6;margin-bottom:6px">Made the free trial bring in paying customers</div>
+            <div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#B9AEA4">Giving extra trial days for using the main features meant even people who were just exploring set up a working account, and more of them went on to pay.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <div style="flex-shrink:0;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:30px;line-height:1;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);-webkit-background-clip:text;background-clip:text;color:transparent">03</div>
+          <div>
+            <div style="font-family:'Plus Jakarta Sans';font-size:16px;font-weight:700;line-height:1.4;color:#F3EFE6;margin-bottom:6px">Helped build the Enterprise plan</div>
+            <div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#B9AEA4">Managing several organizations, plus AI-powered Smart Analytics, gave Transket a premium plan to sell to businesses with several brands, not just single shops.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <div style="flex-shrink:0;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:30px;line-height:1;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);-webkit-background-clip:text;background-clip:text;color:transparent">04</div>
+          <div>
+            <div style="font-family:'Plus Jakarta Sans';font-size:16px;font-weight:700;line-height:1.4;color:#F3EFE6;margin-bottom:6px">Opened a new sales channel through partners</div>
+            <div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#B9AEA4">The Partner Portal let agencies and resellers bring in and manage their own clients. This grew the customer base without growing the sales team.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10 REFLECTION ============ -->
+<section id="reflection" data-screen-label="10 Reflection" style="padding:88px 24px 88px;background:#261A15;margin-top:88px">
+  <div style="max-width:760px;margin:0 auto">
+    <span class="pt-eyebrow pt-eyebrow--on-dark">10 · Reflection</span>
+    <h2 style="margin:18px 0 20px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(36px,5vw,48px);line-height:1.08;color:#F3EFE6">What this project taught me</h2>
+    <p style="margin:0 0 28px;font-family:'Playfair Display',Georgia,serif;font-size:clamp(19px,2.4vw,23px);line-height:1.5;color:#D8C788">When I started at Transket, I thought feature by feature: how do we build this, how do we make it look good, how do we make it catch attention? By the end, my first question had changed to a simpler one: how do we make this easier?</p>
+    <div style="display:grid;gap:12px;margin:0 0 32px">
+      <div style="display:flex;gap:16px;align-items:flex-start;background:#2E211B;border:1px solid rgba(243,239,230,0.12);border-radius:16px;padding:20px 22px">
+        <div style="flex-shrink:0;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:28px;line-height:1;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);-webkit-background-clip:text;background-clip:text;color:transparent">01</div>
+        <div>
+          <div style="font-family:'Plus Jakarta Sans';font-size:16px;font-weight:700;line-height:1.4;color:#F3EFE6;margin-bottom:6px">Simple beats fancy</div>
+          <div style="font-family:'Plus Jakarta Sans';font-size:14.5px;line-height:1.7;color:#B9AEA4">I saw it again and again: when something feels complicated, people lose interest, and when it feels simple, they keep using it and bring in more leads. There are many WhatsApp business tools out there. Our goal was one that almost anyone could use to grow their business, even someone who isn't comfortable with technology, has little formal education, or is very young. That goal shaped almost every decision I made.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:16px;align-items:flex-start;background:#2E211B;border:1px solid rgba(243,239,230,0.12);border-radius:16px;padding:20px 22px">
+        <div style="flex-shrink:0;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:28px;line-height:1;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);-webkit-background-clip:text;background-clip:text;color:transparent">02</div>
+        <div>
+          <div style="font-family:'Plus Jakarta Sans';font-size:16px;font-weight:700;line-height:1.4;color:#F3EFE6;margin-bottom:6px">Break it down before deciding</div>
+          <div style="font-family:'Plus Jakarta Sans';font-size:14.5px;line-height:1.7;color:#B9AEA4">Early on, we sometimes rushed into designs. A screen would look finished, but it caused problems somewhere else, and we ended up reworking it several times before it was right. That taught me to slow down at the start. Now, when a big problem comes up, I break it into small pieces, work through them one by one, and connect them back together until the whole flow is clear, including where else a change will have an effect. Only then do I make a decision. Taking that time up front saves far more time than fixing things again and again later.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:16px;align-items:flex-start;background:#2E211B;border:1px solid rgba(243,239,230,0.12);border-radius:16px;padding:20px 22px">
+        <div style="flex-shrink:0;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:28px;line-height:1;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);-webkit-background-clip:text;background-clip:text;color:transparent">03</div>
+        <div>
+          <div style="font-family:'Plus Jakarta Sans';font-size:16px;font-weight:700;line-height:1.4;color:#F3EFE6;margin-bottom:6px">Good design also helps the business</div>
+          <div style="font-family:'Plus Jakarta Sans';font-size:14.5px;line-height:1.7;color:#B9AEA4">The trial reward card was a small part of the dashboard, but it helped more people become paying customers. That changed how I see my work. I still care most about making things easy to use, but I also think about what a design does for the company.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:16px;align-items:flex-start;background:#2E211B;border:1px solid rgba(243,239,230,0.12);border-radius:16px;padding:20px 22px">
+        <div style="flex-shrink:0;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:28px;line-height:1;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);-webkit-background-clip:text;background-clip:text;color:transparent">04</div>
+        <div>
+          <div style="font-family:'Plus Jakarta Sans';font-size:16px;font-weight:700;line-height:1.4;color:#F3EFE6;margin-bottom:6px">You can't get everything right at once</div>
+          <div style="font-family:'Plus Jakarta Sans';font-size:14.5px;line-height:1.7;color:#B9AEA4">Most decisions had to fit Meta's rules, what the business wanted, and what a non-technical user could understand. It was rarely possible to keep everyone fully happy. I learned to pick the best option I could, and to be clear about why I picked it.</div>
+        </div>
+      </div>
+    </div>
+    <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#B9AEA4;margin-bottom:12px">Four simple questions I now ask for every screen</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin:0 0 32px;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.4;color:#F3EFE6"><span style="background:#2E211B;border:1px solid rgba(243,239,230,0.12);border-radius:999px;padding:8px 14px">Where am I?</span><span style="background:#2E211B;border:1px solid rgba(243,239,230,0.12);border-radius:999px;padding:8px 14px">What's happening?</span><span style="background:#2E211B;border:1px solid rgba(243,239,230,0.12);border-radius:999px;padding:8px 14px">What do I need to decide?</span><span style="background:#2E211B;border:1px solid rgba(243,239,230,0.12);border-radius:999px;padding:8px 14px">What happens next?</span></div>
+    <p style="margin:0 0 32px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.75;color:#D6CDC2"><strong style="color:#F3EFE6">If I started again:</strong> I would set up shared components and styles much earlier. A lot of my later work depended on them, and having them sooner would have saved us a lot of time.</p>
+    <div style="border-left:3px solid #E14F8E;padding-left:18px">
+      <p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:clamp(18px,2.2vw,21px);line-height:1.55;color:#F3EFE6">Designing on top of a powerful platform is a translation job. Meta provides the capability; the business has a goal. My job was to make the gap between them easy to cross.</p>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;align-items:center">
+      <x-import component-from-global-scope="PratikshaTripathiDesignSystem_4e2eff.Button" variant="gold" arrow href="https://www.transket.ai/" target="_blank" rel="noopener" hint-size="auto,44px">Visit Transket</x-import>
+      <x-import component-from-global-scope="PratikshaTripathiDesignSystem_4e2eff.Button" variant="ghost" href="#top" style="color:#F3EFE6" hint-size="auto,44px">Back to top</x-import>
+    </div>
+  </div>
+</section>
+
+<footer style="background:#261A15;border-top:1px solid rgba(243,239,230,0.12);padding:28px 24px">
+  <div style="max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center">
+    <div style="font-family:'Protest Riot',sans-serif;font-size:15px;color:#B9AEA4">TRANSKET<span style="color:#E14F8E">.</span> case study</div>
+    <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:14px;color:#B9AEA4">The WhatsApp Business Platform itself is provided by Meta. My design work is the part in between, described above.</div>
+  </div>
+</footer>
+</x-dc>
+</body>
+</html>
