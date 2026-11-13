@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="1 9 57 50" role="img" aria-label="Pratiksha Tripathi logo">
+  <defs>
+    <linearGradient id="ptgd" x1="14" y1="54" x2="42" y2="10" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#DCCF97"/>
+      <stop offset="0.45" stop-color="#C9B98A"/>
+      <stop offset="1" stop-color="#A3906F"/>
+    </linearGradient>
+  </defs>
+  <path d="M19.5 14.2 H42 A10.2 10.2 0 0 1 42 34.6 H33.5 Q30.5 34.6 30.5 37.6 V47.5 A5 5 0 0 1 20.5 47.5 V37.6 Q20.5 34.6 17.5 34.6 H11.6 A5.2 5.2 0 0 1 11.6 24.2 H41.2"
+        fill="none" stroke="url(#ptgd)" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
