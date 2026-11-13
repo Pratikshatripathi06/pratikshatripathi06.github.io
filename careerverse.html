@@ -1,338 +1,693 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CareerVerse — Case Study · Pratiksha Tripathi</title>
-<meta name="description" content="AI Behaviour + Conversation Design case study for CareerVerse.">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Protest+Riot&display=swap">
-<link rel="stylesheet" href="css/site.css">
-<link rel="stylesheet" href="css/components.css">
-<style>
-  body { background: #F6F3E2; }
-  a { color: #B5643C; }
-  a:hover { color: #8F4A2A; }
-  #close a[href*="#projects"], #close a[href*="#projects"] span { color: #EEDFAE !important; }
-  #close a[href*="#projects"]:hover, #close a[href*="#projects"]:hover span { color: #F6ECC8 !important; }
-</style>
-<style>
-/* Phones: stack the fixed 2- and 3-column grids into one column */
-@media (max-width: 640px) {
-  [style*="grid-template-columns:1fr 1fr"],
-  [style*="grid-template-columns:repeat(3,minmax(0,1fr))"] { grid-template-columns: 1fr !important; }
-  [style*="grid-template-columns:48px 190px 1fr"] { grid-template-columns: 32px 1fr !important; gap: 6px 12px !important; }
-  [style*="grid-template-columns:48px 190px 1fr"] > :nth-child(3) { grid-column: 1 / -1; }
+<title>CareerVerse Case Study</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Permanent+Marker&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Protest+Riot&display=swap">
+<style id="share-shim">
+x-dc, helmet, sc-if { display: contents; }
+x-import[component-from-global-scope$=".Button"] {
+  position: relative; display: inline-flex; align-items: center; gap: 14px; box-sizing: border-box;
+  height: 44px; padding: 0 28px; border-radius: 12px; cursor: pointer; white-space: nowrap;
+  font: 700 14px/1 'Plus Jakarta Sans', sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #1A1411;
 }
+x-import[component-from-global-scope$=".Button"]:focus-visible { outline: 2px solid #E14F8E; outline-offset: 3px; }
+x-import[component-from-global-scope$=".Button"][size="sm"] { height: 38px; padding: 0 20px; gap: 10px; font-size: 13px; }
+x-import[component-from-global-scope$=".Button"][variant="outline"]::before {
+  content: ""; position: absolute; inset: 0; padding: 1.5px; border-radius: inherit;
+  background: linear-gradient(90deg, #F5A623, #E14F8E 50%, #8B5CF6);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); pointer-events: none;
+}
+x-import[component-from-global-scope$=".Button"][variant="gold"] { background: #D8C788; }
+x-import[component-from-global-scope$=".Button"][variant="ghost"] { padding: 0 4px; text-decoration: underline; text-underline-offset: 4px; }
+x-import[component-from-global-scope$=".Button"][arrow]::after { content: "\2197"; font-size: 1.15em; letter-spacing: 0; }
+x-import[component-from-global-scope$=".Avatar"] {
+  display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%;
+  background: linear-gradient(135deg, #E14F8E, #F5A623); color: #fff; font: 700 13px/1 'Plus Jakarta Sans', sans-serif; letter-spacing: 0.04em;
+}
+.share-video { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; width: 100%; height: 100%;
+  text-decoration: none; color: #F3EFE6; font: 700 12.5px/1.2 'Plus Jakarta Sans', sans-serif; letter-spacing: 0.08em; text-transform: uppercase;
+  background: radial-gradient(circle at 50% 40%, #3B2A22, #1A1411 70%); }
+.share-video span.play { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; font-size: 18px; letter-spacing: 0;
+  background: linear-gradient(135deg, #E14F8E, #F5A623); color: #fff; }
+.share-video:hover span.play { transform: scale(1.06); }
+.share-video:focus-visible { outline: 2px solid #E14F8E; outline-offset: -4px; }
+
+[data-hv="1"]:hover{color:#1A1411 !important}
+[data-hv="2"]:hover{color:#1A1411 !important}
+[data-hv="3"]:hover{color:#1A1411 !important}
+[data-hv="4"]:hover{box-shadow:0 10px 30px rgba(38,26,21,0.12) !important}
+[data-hv="5"]:hover{box-shadow:0 10px 30px rgba(38,26,21,0.12) !important}
+[data-hv="6"]:hover{box-shadow:0 10px 30px rgba(38,26,21,0.12) !important}
+[data-hv="7"]:hover{background:#E4DFC0 !important}
+[data-hv="8"]:hover{background:rgba(255,255,255,0.7) !important}
+[data-hv="9"]:hover{background:rgba(255,255,255,0.7) !important}
+[data-hv="10"]:hover{background:rgba(255,255,255,0.7) !important}
+[data-hv="11"]:hover{background:rgba(255,255,255,0.7) !important}
+[data-hv="12"]:hover{background:rgba(255,255,255,0.7) !important}
+[data-hv="13"]:hover{background:rgba(255,255,255,0.7) !important}
+[data-hv="14"]:hover{background:rgba(255,255,255,0.7) !important}
+[data-hv="15"]:hover{background:rgba(255,255,255,0.7) !important}
+[data-hv="16"]:hover{background:rgba(255,255,255,0.7) !important}
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('x-import[component-from-global-scope$=".Button"]').forEach(function (b) {
+    var href = b.getAttribute('href');
+    b.setAttribute('role', 'link'); b.tabIndex = 0;
+    function go() {
+      if (!href || href === '#') return;
+      if (b.getAttribute('target') === '_blank' || /^https?:/.test(href)) { var a = document.createElement('a'); a.href = href; a.target = '_blank'; a.rel = 'noopener'; document.body.appendChild(a); a.click(); a.remove(); }
+      else location.href = href;
+    }
+    b.addEventListener('click', go);
+    b.addEventListener('keydown', function (e) { if (e.key === 'Enter') go(); });
+  });
+  document.querySelectorAll('x-import[component-from-global-scope$=".Avatar"]').forEach(function (a) {
+    a.textContent = (a.getAttribute('name') || '').split(/\s+/).map(function (w) { return w[0] || ''; }).join('').slice(0, 2).toUpperCase();
+  });
+  var bar = document.getElementById('share-progress');
+  var tocIds = Array.prototype.map.call(document.querySelectorAll('[data-toc]'), function (el) { return el.getAttribute('data-toc'); })
+    .filter(function (v, i, arr) { return arr.indexOf(v) === i; });
+  function onScroll() {
+    var doc = document.documentElement, max = doc.scrollHeight - window.innerHeight;
+    if (bar) bar.style.width = (max > 0 ? Math.min(100, Math.max(0, window.scrollY / max * 100)) : 0) + '%';
+    if (!tocIds.length) return;
+    var active = '', y = window.scrollY + 140;
+    tocIds.forEach(function (id) { var el = document.getElementById(id); if (el && el.offsetTop <= y) active = id; });
+    document.querySelectorAll('[data-toc]').forEach(function (el) {
+      var on = el.getAttribute('data-toc') === active;
+      el.style.color = el.getAttribute('data-toc-part') === 'num' ? (on ? '#E14F8E' : '#B5984E') : (on ? '#1A1411' : '#6E6E73');
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  var form = document.querySelector('form[data-share-form]');
+  if (form) form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var btn = form.querySelector('[type="submit"]');
+    var status = form.querySelector('[data-form-status]');
+    if (!status) { status = document.createElement('p'); status.setAttribute('data-form-status', ''); status.setAttribute('role', 'status');
+      status.style.cssText = "margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;line-height:1.5;color:#3B2A22"; form.appendChild(status); }
+    var data = {}; new FormData(form).forEach(function (v, k) { data[k] = v; });
+    data._subject = 'New message from your portfolio: ' + (data.name || '');
+    data._template = 'table';
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+    status.textContent = '';
+    fetch('https://formsubmit.co/ajax/tripathi.pratiksha3555@gmail.com', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data)
+    }).then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
+      .then(function (j) { if (j && (j.success === false || j.success === 'false')) throw new Error();
+        form.reset(); if (btn) btn.textContent = 'Sent'; status.textContent = 'Thanks! Your message is on its way. I\'ll get back to you soon.'; })
+      .catch(function () { if (btn) { btn.disabled = false; btn.textContent = 'Submit'; }
+        status.textContent = 'Sorry, the message could not be sent. Please email tripathi.pratiksha3555@gmail.com directly.'; });
+  });
+});
+</script>
 </head>
 <body>
+<x-dc>
+<helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  
+  <style>
+/* Eyebrow — mirrors the "Eyebrow" component in the Figma file "Pratiksha's Portfolio".
+   Pill, 34px tall, 1.5px Signature gradient stroke (amber → pink → violet), transparent fill. */
+:root {
+  --pt-gradient-signature: linear-gradient(90deg, #F5A623 0%, #E14F8E 50%, #8B5CF6 100%);
+  --pt-text-primary: #1A1411;
+  --pt-text-on-dark: #F3EFE6;
+}
 
-<div id="reading-progress" aria-hidden="true"></div>
+.pt-eyebrow {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: 34px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: transparent;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--pt-text-primary);
+}
 
+/* Gradient stroke drawn on a masked pseudo-element so the fill stays transparent on any surface. */
+.pt-eyebrow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1.5px;
+  border-radius: inherit;
+  background: var(--pt-gradient-signature);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  pointer-events: none;
+}
+
+.pt-eyebrow--on-dark { color: var(--pt-text-on-dark); }
+
+@media (max-width: 480px) {
+  .pt-eyebrow { white-space: normal; height: auto; min-height: 34px; padding: 8px 16px; line-height: 1.3; }
+}
+
+</style>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #F6F3E2; -webkit-font-smoothing: antialiased; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { animation: none !important; transition: none !important; }
+    }
+    a:focus-visible, button:focus-visible { outline: 2px solid #8B5CF6; outline-offset: 3px; border-radius: 4px; }
+    nav a { white-space: nowrap; }
+    section[id], header[id] { scroll-margin-top: 84px; }
+    @media (max-width: 960px) {
+      nav[aria-label="Portfolio"] > div { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      nav[aria-label="Portfolio"] > div > div { gap: 16px; flex-shrink: 0; }
+      nav[aria-label="Portfolio"] x-import { flex-shrink: 0; }
+    }
+    #reflection a[href="#top"], #reflection a[href="#top"] span { color: #EEDFAE !important; }
+    #reflection a[href="#top"]:hover, #reflection a[href="#top"]:hover span { color: #F6ECC8 !important; }
+    @media (max-width: 560px) {
+      .cv-step { grid-template-columns: 34px 1fr !important; }
+      .cv-step > :nth-child(3) { grid-column: 1 / -1; }
+    }
+  </style>
+</helmet>
+
+<!-- ============ READING PROGRESS ============ -->
+<sc-if>
+  <div aria-hidden="true" id="share-progress" style="position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#F5A623 0%,#E14F8E 50%,#8B5CF6 100%);z-index:120"></div>
+</sc-if>
+
+<!-- ============ PORTFOLIO GLOBAL NAV (inherited shell) ============ -->
 <nav aria-label="Portfolio" style="position:sticky;top:0;z-index:110;background:rgba(255,255,255,0.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(26,20,17,0.06)">
   <div style="max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
     <a href="index.html" aria-label="Pratiksha Tripathi — home" style="display:flex;align-items:center;text-decoration:none"><img src="assets/logo-lockup-cutout.png" alt="Pratiksha Tripathi" style="height:34px;width:auto;display:block"></a>
     <div style="display:flex;gap:28px;flex-wrap:wrap;align-items:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase">
-      <a href="index.html" style="color:#4A4A4F;text-decoration:none">Home</a>
-      <a href="index.html#about" style="color:#4A4A4F;text-decoration:none">Expertise</a>
+      <a href="index.html" style="color:#4A4A4F;text-decoration:none" data-hv="1">Home</a>
+      <a href="index.html#about" style="color:#4A4A4F;text-decoration:none" data-hv="2">Expertise</a>
       <a href="index.html#projects" style="color:#1A1411;text-decoration:none;border-bottom:2px solid #E14F8E;padding-bottom:2px" aria-current="page">Projects</a>
-      <a href="index.html#contact" style="color:#4A4A4F;text-decoration:none">Contact</a>
+      <a href="index.html#contact" style="color:#4A4A4F;text-decoration:none" data-hv="3">Contact</a>
     </div>
-    <a class="btn btn-sm" href="index.html#contact"><span>Book a call</span><span class="arrow"></span></a>
+    <x-import component-from-global-scope="PratikshaTripathiDesignSystem_4e2eff.Button" variant="outline" size="sm" arrow href="index.html#contact" hint-size="auto,38px">Book a call</x-import>
   </div>
 </nav>
 
 <!-- ============ HERO ============ -->
-<header id="top" data-screen-label="Hero" style="background:#261A15;color:#F3EFE6;padding:92px 24px 80px">
-  <div style="max-width:920px;margin:0 auto;display:flex;flex-direction:column;align-items:flex-start;gap:18px">
-    <p class="eyebrow eyebrow--dark">UX / Product Design · AI Decision Support</p>
-    <h1 style="margin:0;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(38px,6.4vw,72px);line-height:1.04;color:#F3EFE6;max-width:900px">Designing for career decisions, not career discovery.</h1>
-    <p style="margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;line-height:1.6;color:#D6CDC2;max-width:720px">CareerVerse is a career decision-support product that helps young professionals compare the career paths they are already considering using personal context, transparent reasoning, and real-world trade-offs.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:rgba(243,239,230,0.12);border:1px solid rgba(243,239,230,0.12);border-radius:16px;overflow:hidden;width:100%;margin-top:8px">
+<header id="top" data-screen-label="Hero" style="background:#261A15;color:#F3EFE6;padding:96px 24px 88px">
+  <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;align-items:flex-start;gap:20px">
+    <span class="pt-eyebrow pt-eyebrow--on-dark">UX case study · AI decision support</span>
+    <h1 style="margin:0;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(52px,9vw,96px);line-height:1.02;color:#F3EFE6;letter-spacing:0.01em">CAREERVERSE</h1>
+    <p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:clamp(20px,3vw,27px);line-height:1.45;color:#D8C788;max-width:640px">Designing for career decisions, not career discovery.</p>
+    <p style="margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.7;color:#B9AEA4;max-width:620px">CareerVerse is a career decision-support product that helps young professionals compare the career paths they are already considering using personal context, transparent reasoning, and real-world trade-offs.<br><br>I designed the AI behaviour around context, intent, corrections, uncertainty and guardrails, not just generated answers. The conversation is part of the product.</p>
+    <p style="margin:6px 0 0;font-family:'Playfair Display',Georgia,serif;font-size:clamp(17px,2.2vw,20px);line-height:1.5;color:#F3EFE6;max-width:640px;border-left:3px solid #E14F8E;padding-left:16px"><span style="display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:8px">Product problem</span>Too much information, not enough decision confidence. Aditi already has career options in mind. She needs help comparing what she would actually trade off between them.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:rgba(243,239,230,0.12);border:1px solid rgba(243,239,230,0.12);border-radius:16px;overflow:hidden;width:100%;margin-top:20px">
       <div style="background:#2E211B;padding:18px 20px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B9AEA4;margin-bottom:6px">Role</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:600;color:#F3EFE6">Solo Product &amp; UX Designer</div></div>
       <div style="background:#2E211B;padding:18px 20px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B9AEA4;margin-bottom:6px">Tools</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:600;color:#F3EFE6">Figma · React (reviewed) · Maze</div></div>
       <div style="background:#2E211B;padding:18px 20px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B9AEA4;margin-bottom:6px">Scope</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:600;color:#F3EFE6">AI conversation design · Personal Fit · design system</div></div>
       <div style="background:#2E211B;padding:18px 20px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B9AEA4;margin-bottom:6px">Status</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:600;color:#F3EFE6">Tested prototype, iterated</div></div>
     </div>
-    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px">
-      <span style="background:rgba(243,239,230,0.10);border:1px solid rgba(243,239,230,0.16);border-radius:999px;padding:7px 14px;font-family:'Plus Jakarta Sans';font-size:12.5px;color:#D6CDC2">Aditi Verma · 26</span>
-      <span style="background:rgba(243,239,230,0.10);border:1px solid rgba(243,239,230,0.16);border-radius:999px;padding:7px 14px;font-family:'Plus Jakarta Sans';font-size:12.5px;color:#D6CDC2">Bengaluru</span>
-      <span style="background:rgba(243,239,230,0.10);border:1px solid rgba(243,239,230,0.16);border-radius:999px;padding:7px 14px;font-family:'Plus Jakarta Sans';font-size:12.5px;color:#D6CDC2">Graphic Designer · 3 years</span>
-      <span style="background:rgba(243,239,230,0.10);border:1px solid rgba(243,239,230,0.16);border-radius:999px;padding:7px 14px;font-family:'Plus Jakarta Sans';font-size:12.5px;color:#D6CDC2">Tested prototype · Iterated experience</span>
-    </div>
-    <div style="margin-top:26px;background:#2E211B;border:1px solid rgba(243,239,230,0.12);border-radius:22px;padding:26px;width:100%;box-sizing:border-box">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px">
-        <div style="background:#33241D;border-radius:16px;padding:22px">
-          <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#D8C788;margin-bottom:8px">Product problem</div>
-          <div style="font-family:'Protest Riot';font-weight:300;font-size:21px;color:#F3EFE6;margin-bottom:8px">Too much information, not enough decision confidence.</div>
-          <div style="font-family:'Plus Jakarta Sans';font-size:14.5px;line-height:1.6;color:#B9AEA4">Aditi already has career options in mind. She needs help comparing what she would actually trade off between them.</div>
-        </div>
-        <div style="background:#33241D;border-radius:16px;padding:22px">
-          <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#D8C788;margin-bottom:8px">AI principle</div>
-          <div style="font-family:'Protest Riot';font-weight:300;font-size:21px;color:#F3EFE6;margin-bottom:8px">The conversation is part of the product.</div>
-          <div style="font-family:'Plus Jakarta Sans';font-size:14.5px;line-height:1.6;color:#B9AEA4">I designed AI behaviour around context, intent, corrections, uncertainty and guardrails — not just generated answers.</div>
-        </div>
-      </div>
-    </div>
   </div>
 </header>
 
-<!-- 01 — PROBLEM + CONTEXT -->
-<section id="s1" data-screen-label="01 Problem and context" style="padding:88px 24px 0">
-  <div style="max-width:1000px;margin:0 auto">
-    <p class="eyebrow">01 — Problem + context</p>
-    <h2 style="margin:18px 0 22px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(32px,4.8vw,48px);line-height:1.08;color:#261A15;max-width:800px">The information wasn't missing. The decision was.</h2>
-    <div style="max-width:800px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.75;color:#4A4A4F">
-      <p style="margin:0 0 18px">After another workday in <strong style="color:#261A15">Bengaluru</strong>, Aditi sits down to think about her next career move. She is a 26-year-old graphic designer with three years of experience and has already narrowed her options to <strong style="color:#261A15">UX Design, Product Management and Data Analytics</strong>.</p>
-      <p style="margin:0 0 18px">She searches Google for salary trends, watches YouTube transition stories, checks LinkedIn hiring trends, reads Reddit, asks ChatGPT to compare the options and talks to mentors, friends and family. She also keeps her own comparison notes around salary, learning effort, market demand, work-life balance and growth.</p>
-      <p style="margin:0 0 26px">Her frustration is not that information is unavailable. It is that information is <strong style="color:#261A15">scattered, conflicting and often disconnected from her financial responsibilities, family expectations and lifestyle.</strong> She worries about spending months on the wrong path and wants confidence in the decision, not another generic recommendation.</p>
+<!-- ============ MY ROLE ============ -->
+<section aria-label="My role" data-screen-label="My role" style="padding:56px 24px 0">
+  <div style="max-width:760px;margin:0 auto;box-sizing:border-box;background:#FFFFFF;border-radius:22px;padding:30px 30px;box-shadow:0 8px 30px rgba(38,26,21,0.07);display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;align-items:start">
+    <div>
+      <div style="height:3px;width:40px;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);border-radius:2px;margin-bottom:14px"></div>
+      <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:28px;line-height:1.1;color:#261A15;margin-bottom:8px">My contribution</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;color:#3B2A22">Solo Product &amp; UX Designer</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;line-height:1.6;color:#6E6E73;margin-top:4px">I took CareerVerse from research to a tested, iterated prototype: synthesising the research, structuring the experience, designing the AI's behaviour, building the design system, testing with users and carrying the findings into the next iteration.</div>
     </div>
-    <p style="margin:0 0 26px;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(19px,2.6vw,23px);line-height:1.5;color:#261A15;max-width:760px;border-left:3px solid #E14F8E;padding-left:20px">"I've already narrowed it down to three career options. I don't need another recommendation—I need someone to help me understand what I'm actually trading off between them so I can make the right decision."</p>
-    <p style="margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.75;color:#4A4A4F;max-width:800px">That became the gap I designed for: <strong style="color:#261A15">young professionals need a trusted way to compare the career options they are already seriously considering.</strong></p>
-  </div>
-</section>
-
-<!-- 02 — RESEARCH + VALIDATION -->
-<section id="s2" data-screen-label="02 Research and validation" style="padding:88px 24px 0">
-  <div style="max-width:1000px;margin:0 auto">
-    <p class="eyebrow">02 — Research + validation</p>
-    <h2 style="margin:18px 0 26px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(32px,4.8vw,48px);line-height:1.08;color:#261A15;max-width:800px">Three behaviours changed my product direction.</h2>
-    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:26px">
-      <div style="background:#FFFFFF;border-radius:16px;padding:22px;box-shadow:0 2px 12px rgba(38,26,21,0.05)"><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:700;color:#261A15;margin-bottom:8px">01 · Research is fragmented</div><div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.6;color:#6E6E73">People collect information from Google, YouTube, LinkedIn, Reddit, WhatsApp groups, mentors and family rather than relying on one platform.</div></div>
-      <div style="background:#FFFFFF;border-radius:16px;padding:22px;box-shadow:0 2px 12px rgba(38,26,21,0.05)"><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:700;color:#261A15;margin-bottom:8px">02 · The decision is personal</div><div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.6;color:#6E6E73">Fear of choosing incorrectly, financial security, family expectations, trust and social proof shape the decision.</div></div>
-      <div style="background:#FFFFFF;border-radius:16px;padding:22px;box-shadow:0 2px 12px rgba(38,26,21,0.05)"><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:700;color:#261A15;margin-bottom:8px">03 · The switching cost is habit</div><div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.6;color:#6E6E73">A new product must save time, build trust and provide value beyond the existing workflow.</div></div>
-    </div>
-    <div style="background:#261A15;border-radius:20px;padding:26px 28px;margin-bottom:16px">
-      <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#D8C788;margin-bottom:10px">Gap statement</div>
-      <p style="margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.72;color:#D6CDC2">Young professionals do not need more career recommendations—they need a trusted way to compare the career options they are already seriously considering. Current platforms recommend careers, sell counselling or courses, or provide fragmented information. None consistently combine personal context, transparent reasoning and structured trade-off comparisons in one decision-support experience.</p>
-    </div>
-    <div style="background:#FFFFFF;border-radius:16px;padding:22px 24px;margin-bottom:26px;box-shadow:0 2px 12px rgba(38,26,21,0.05)">
-      <div style="font-family:'Plus Jakarta Sans';font-size:15px;line-height:1.6;color:#3B2A22"><strong style="color:#261A15">Product wedge:</strong> help young professionals compare multiple career-transition options using their personal context, transparent reasoning and real-world trade-offs instead of generic recommendations or course-driven advice.</div>
-    </div>
-    <h3 style="margin:0 0 12px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:26px;color:#261A15">Competitor lens</h3>
-    <p style="margin:0 0 40px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.72;color:#4A4A4F;max-width:800px"><strong style="color:#261A15">Mindler</strong> focuses on career discovery and AI-driven suggestions. The gap I found was different: structured comparison between multiple career options is still uncommon, especially when personal context and trade-offs matter.</p>
-
-    <h3 style="margin:0 0 8px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:26px;color:#261A15">Research artifacts</h3>
-    <p style="margin:0 0 22px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15.5px;line-height:1.65;color:#6E6E73;max-width:800px">These are the working artefacts behind the synthesis above. They make the evidence trail visible instead of asking the reviewer to take the conclusions on faith.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-      <figure style="margin:0">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><span style="font-family:'Plus Jakarta Sans';font-size:14px;font-weight:700;color:#261A15">01 · Primary Persona</span><span style="font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#B5643C;background:#F6F3E2;border-radius:999px;padding:5px 9px">Research board</span></div>
-        <div style="border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(38,26,21,0.05)"><img src="assets/careerverse/persona.png" alt="Aditi persona — context, goals, behaviours, frustrations, motivations, quote" style="display:block;width:100%;height:auto"></div>
-        <figcaption style="margin-top:10px;font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#6E6E73"><strong style="color:#3B2A22">Why it belongs here:</strong> shows who the product is designed for and connects the research to the decision-confidence problem.</figcaption>
-      </figure>
-      <figure style="margin:0">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><span style="font-family:'Plus Jakarta Sans';font-size:14px;font-weight:700;color:#261A15">02 · Empathy Map</span><span style="font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#B5643C;background:#F6F3E2;border-radius:999px;padding:5px 9px">Research board</span></div>
-        <div style="border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(38,26,21,0.05)"><img src="assets/careerverse/empathy-map.png" alt="Empathy Map — Says, Thinks, Does, Feels, the gap" style="display:block;width:100%;height:auto"></div>
-        <figcaption style="margin-top:10px;font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#6E6E73"><strong style="color:#3B2A22">Why it belongs here:</strong> turns the persona into a more human picture of uncertainty, research fatigue and decision pressure.</figcaption>
-      </figure>
-      <figure style="margin:0;grid-column:1/-1">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><span style="font-family:'Plus Jakarta Sans';font-size:14px;font-weight:700;color:#261A15">04 · Research Synthesis</span><span style="font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9A8138;background:#F6F3E2;border-radius:999px;padding:5px 9px">Optional</span></div>
-        <div style="border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(38,26,21,0.05)"><img src="assets/careerverse/research-synthesis.png" alt="Research Synthesis — problem, approach, personalization, correction, decision" style="display:block;width:100%;height:auto"></div>
-      </figure>
-    </div>
-    <p style="margin:22px 0 0;font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;line-height:1.6;color:#6E6E73;background:#F6F3E2;border-radius:14px;padding:14px 18px"><strong style="color:#3B2A22">Portfolio tip:</strong> keep these visuals large enough to read. A reviewer should be able to zoom in and see that the insight cards are grounded in actual research artefacts.</p>
-  </div>
-</section>
-
-<!-- 03 — DESIGN PROCESS -->
-<section id="s3" data-screen-label="03 Design process" style="padding:88px 24px 0">
-  <div style="max-width:1000px;margin:0 auto">
-    <p class="eyebrow">03 — Design process</p>
-    <h2 style="margin:18px 0 30px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(32px,4.8vw,48px);line-height:1.08;color:#261A15;max-width:800px">From research to a tested AI conversation.</h2>
-    <div style="display:flex;flex-direction:column">
-      <div style="display:grid;grid-template-columns:48px 190px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid rgba(38,26,21,0.1)"><div style="font-family:'Plus Jakarta Sans',monospace;font-size:12px;color:#B5643C;font-weight:700">01</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:700;color:#261A15">Research</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;line-height:1.62;color:#4A4A4F">I synthesised the persona, behaviour insights, competitor gap and journey. <strong style="color:#261A15">Decision:</strong> focus the product on comparing realistic options because the research showed that users were already doing their own research.</div></div>
-      <div style="display:grid;grid-template-columns:48px 190px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid rgba(38,26,21,0.1)"><div style="font-family:'Plus Jakarta Sans',monospace;font-size:12px;color:#B5643C;font-weight:700">02</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:700;color:#261A15">Structure</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;line-height:1.62;color:#4A4A4F">I translated the journey into a sitemap, task flows and a progressive Decision Profile. <strong style="color:#261A15">Decision:</strong> gather context through conversation instead of starting with a long questionnaire.</div></div>
-      <div style="display:grid;grid-template-columns:48px 190px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid rgba(38,26,21,0.1)"><div style="font-family:'Plus Jakarta Sans',monospace;font-size:12px;color:#B5643C;font-weight:700">03</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:700;color:#261A15">Design system</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;line-height:1.62;color:#4A4A4F">I created reusable UI patterns and states for comparison, Personal Fit, evidence and uncertainty. <strong style="color:#261A15">Decision:</strong> make calculated results and AI-generated information visually distinct.</div></div>
-      <div style="display:grid;grid-template-columns:48px 190px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid rgba(38,26,21,0.1)"><div style="font-family:'Plus Jakarta Sans',monospace;font-size:12px;color:#B5643C;font-weight:700">04</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:700;color:#261A15">UI generation</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;line-height:1.62;color:#4A4A4F">I used AI to accelerate early interface exploration, then reviewed hierarchy, content, states and edge cases myself. <strong style="color:#261A15">Decision:</strong> use AI for exploration speed, not final product judgement.</div></div>
-      <div style="display:grid;grid-template-columns:48px 190px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid rgba(38,26,21,0.1)"><div style="font-family:'Plus Jakarta Sans',monospace;font-size:12px;color:#B5643C;font-weight:700">05</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:700;color:#261A15">Prototype</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;line-height:1.62;color:#4A4A4F">I connected discovery, comparison, Personal Fit, evidence, correction and recalculation so the experience could be evaluated as a journey rather than isolated screens.</div></div>
-      <div style="display:grid;grid-template-columns:48px 190px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid rgba(38,26,21,0.1)"><div style="font-family:'Plus Jakarta Sans',monospace;font-size:12px;color:#B5643C;font-weight:700">06</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:700;color:#261A15">Copy + accessibility</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;line-height:1.62;color:#4A4A4F">I treated wording as part of the interaction and made uncertainty explicit. <strong style="color:#261A15">Decision:</strong> never use confident language where evidence is unavailable.</div></div>
-      <div style="display:grid;grid-template-columns:48px 190px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid rgba(38,26,21,0.1)"><div style="font-family:'Plus Jakarta Sans',monospace;font-size:12px;color:#B5643C;font-weight:700">07</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:700;color:#261A15">Testing</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;line-height:1.62;color:#4A4A4F">I used Maze for Round 1 and then manually tested AI behaviour against unsupported careers, corrections, ambiguous input and comparison context.</div></div>
-      <div style="display:grid;grid-template-columns:48px 190px 1fr;gap:18px;padding:20px 0"><div style="font-family:'Plus Jakarta Sans',monospace;font-size:12px;color:#B5643C;font-weight:700">08</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:700;color:#261A15">Iteration</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;line-height:1.62;color:#4A4A4F">I carried the findings into the next iteration of the product. The documented iteration changes include broader deterministic career coverage, richer explanations, next steps and AI Perspective.</div></div>
-    </div>
-
-    <h3 style="margin:44px 0 8px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:26px;color:#261A15">Experience architecture</h3>
-    <p style="margin:0 0 22px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15.5px;line-height:1.65;color:#6E6E73;max-width:800px">Before showing polished UI, make the underlying structure visible: how the user moves through the product and how the system progressively builds context.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
-      <figure style="margin:0;grid-column:1/-1">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><span style="font-family:'Plus Jakarta Sans';font-size:14px;font-weight:700;color:#261A15">01 · Sitemap / Information Architecture</span><span style="font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#B5643C;background:#F6F3E2;border-radius:999px;padding:5px 9px">Research board</span></div>
-        <div style="border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(38,26,21,0.05)"><img src="assets/careerverse/sitemap.png" alt="Information Architecture — entry, discovery, career selection, decision, refinement, supporting" style="display:block;width:100%;height:auto"></div>
-        <figcaption style="margin-top:10px;font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#6E6E73"><strong style="color:#3B2A22">Decision to call out:</strong> how the information architecture supports an intelligent assistant rather than a rigid questionnaire.</figcaption>
-      </figure>
-      <figure style="margin:0">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><span style="font-family:'Plus Jakarta Sans';font-size:14px;font-weight:700;color:#261A15">02 · Primary User Flow</span><span style="font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#B5643C;background:#F6F3E2;border-radius:999px;padding:5px 9px">Research board</span></div>
-        <div style="border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(38,26,21,0.05)"><img src="assets/careerverse/primary-user-flow.png" alt="Primary User Flow — ten stages, Enter through Decide" style="display:block;width:100%;height:auto"></div>
-        <figcaption style="margin-top:10px;font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#6E6E73"><strong style="color:#3B2A22">Why it matters:</strong> demonstrates that the product was designed as a connected journey, not a collection of screens.</figcaption>
-      </figure>
-      <figure style="margin:0">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><span style="font-family:'Plus Jakarta Sans';font-size:14px;font-weight:700;color:#261A15">03 · Secondary / Task Flows</span><span style="font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#B5643C;background:#F6F3E2;border-radius:999px;padding:5px 9px">Research board</span></div>
-        <div style="aspect-ratio:1720/1352;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(38,26,21,0.05)"><img src="assets/careerverse/secondary-flows.png" alt="Secondary &amp; Task Flows — adjust priorities, add/replace career, correct profile, decision profile, save and resume" style="display:block;width:100%;height:100%;object-fit:contain;background:#FFFFFF"></div>
-      </figure>
-    </div>
-    <p style="margin:0 0 44px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;line-height:1.6;color:#6E6E73;background:#F6F3E2;border-radius:14px;padding:14px 18px"><strong style="color:#3B2A22">Don't turn this into a document dump.</strong> The final case study should show the artefact, then explain the design decision it enabled. The visuals are evidence; the narrative is the reasoning.</p>
-
-    <h3 style="margin:44px 0 8px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:26px;color:#261A15">AI behaviour + conversation design</h3>
-    <p style="margin:0 0 22px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15.5px;line-height:1.65;color:#6E6E73;max-width:800px">I didn't add AI after designing the interface. I designed how the AI should behave — it needed to understand what the user had already shared, ask only when information was missing, maintain context, respond to corrections and explain results without changing deterministic Personal Fit.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px">
-      <div style="background:#FFFFFF;border-radius:14px;padding:18px;box-shadow:0 2px 12px rgba(38,26,21,0.05)">
-        <div style="font-family:'Plus Jakarta Sans';font-size:13px;font-weight:700;color:#261A15;margin-bottom:8px">AI handles</div>
-        <ul style="margin:0;padding-left:16px;font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.7;color:#4A4A4F">
-          <li>Conversational input</li><li>Goals and priorities</li><li>Context across turns</li><li>Follow-up questions</li><li>Trade-off explanations</li><li>Corrections and "why?" questions</li><li>Qualitative career information</li>
-        </ul>
-      </div>
-      <div style="background:#FFFFFF;border-radius:14px;padding:18px;box-shadow:0 2px 12px rgba(38,26,21,0.05)">
-        <div style="font-family:'Plus Jakarta Sans';font-size:13px;font-weight:700;color:#261A15;margin-bottom:8px">Product determines</div>
-        <ul style="margin:0;padding-left:16px;font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.7;color:#4A4A4F">
-          <li>Personal Fit calculation</li><li>Fit level and score</li><li>Authored matched signals</li><li>Evidence boundaries</li><li>What counts as calculated vs general information</li>
-        </ul>
-      </div>
-    </div>
-    <div style="border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(38,26,21,0.08);margin-bottom:22px"><img src="assets/careerverse/ai-native-loop.png" alt="The AI-Native Loop — build context together, compare, explain, correct, refine, decide" style="display:block;width:100%;height:auto"></div>
-    <p style="margin:0 0 20px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.65;color:#4A4A4F;max-width:800px"><strong style="color:#261A15">Refinement rule:</strong> Known — use it. Missing but important — ask. Not necessary — don't ask. This kept the conversation from becoming a form disguised as a chatbot.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px">
-      <div style="background:#FFFFFF;border-radius:14px;padding:20px;box-shadow:0 2px 12px rgba(38,26,21,0.05);border-top:3px solid #E14F8E"><div style="font-family:'Plus Jakarta Sans';font-size:14px;font-weight:700;color:#261A15;margin-bottom:8px">Never invent</div><div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.6;color:#4A4A4F">Personal Fit scores or levels, unsupported market statistics, salary figures or evidence.</div></div>
-      <div style="background:#FFFFFF;border-radius:14px;padding:20px;box-shadow:0 2px 12px rgba(38,26,21,0.05);border-top:3px solid #4E9A6B"><div style="font-family:'Plus Jakarta Sans';font-size:14px;font-weight:700;color:#261A15;margin-bottom:8px">Keep the distinction</div><div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.6;color:#4A4A4F">AI Perspective provides qualitative information and remains clearly separate from calculated Personal Fit.</div></div>
-    </div>
-    <p style="margin:0 0 44px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.65;color:#4A4A4F;max-width:800px">When I tested failure cases, I also added career normalization so "UX Designer" and "UX Design" can resolve to the same career, while ambiguous terms such as "PM" and "BA" remain unmapped rather than guessed.</p>
-  </div>
-</section>
-
-<!-- 04 — KEY DESIGN DECISIONS -->
-<section id="s4" data-screen-label="04 Key design decisions" style="padding:88px 24px 0">
-  <div style="max-width:1000px;margin:0 auto">
-    <p class="eyebrow">04 — Key design decisions</p>
-    <h2 style="margin:18px 0 30px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(32px,4.8vw,48px);line-height:1.08;color:#261A15;max-width:800px">Three decisions kept the experience grounded.</h2>
-    <div style="display:flex;flex-direction:column;gap:16px">
-      <div style="background:#FFFFFF;border-radius:18px;padding:26px;box-shadow:0 2px 12px rgba(38,26,21,0.05)">
-        <h3 style="margin:0 0 12px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:22px;color:#261A15">DECISION: Build a Decision Profile before comparison.</h3>
-        <p style="margin:0 0 8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.65;color:#4A4A4F"><strong style="color:#261A15">EVIDENCE:</strong> Research showed that financial security, family expectations, trust and lifestyle shape career decisions.</p>
-        <p style="margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.65;color:#4A4A4F"><strong style="color:#261A15">OUTCOME:</strong> I made context progressively available to the comparison instead of treating the user as a generic career seeker.</p>
-      </div>
-      <div style="background:#FFFFFF;border-radius:18px;padding:26px;box-shadow:0 2px 12px rgba(38,26,21,0.05)">
-        <h3 style="margin:0 0 12px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:22px;color:#261A15">DECISION: Explain the result, not just the label.</h3>
-        <p style="margin:0 0 8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.65;color:#4A4A4F"><strong style="color:#261A15">EVIDENCE:</strong> Round 1 feedback said the experience could feel generic and one participant described the conversation as a general suggestion applicable to "any person or field."</p>
-        <p style="margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.65;color:#4A4A4F"><strong style="color:#261A15">OUTCOME:</strong> I added authored Why This Fits explanations, a second trade-off and concrete Next Steps.</p>
-      </div>
-      <div style="background:#FFFFFF;border-radius:18px;padding:26px;box-shadow:0 2px 12px rgba(38,26,21,0.05)">
-        <h3 style="margin:0 0 12px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:22px;color:#261A15">DECISION: Keep AI away from calculated Personal Fit.</h3>
-        <p style="margin:0 0 8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.65;color:#4A4A4F"><strong style="color:#261A15">EVIDENCE:</strong> Unsupported information and AI-generated certainty could undermine trust.</p>
-        <p style="margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.65;color:#4A4A4F"><strong style="color:#261A15">OUTCOME:</strong> Personal Fit stays deterministic while AI Perspective handles qualitative career discussion and carries a fixed disclaimer.</p>
-      </div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start">
+      <span style="background:#F6F3E2;border-radius:999px;padding:8px 14px;font-family:'Plus Jakarta Sans';font-size:13px;font-weight:600;color:#3B2A22">User research</span>
+      <span style="background:#F6F3E2;border-radius:999px;padding:8px 14px;font-family:'Plus Jakarta Sans';font-size:13px;font-weight:600;color:#3B2A22">Information architecture</span>
+      <span style="background:#F6F3E2;border-radius:999px;padding:8px 14px;font-family:'Plus Jakarta Sans';font-size:13px;font-weight:600;color:#3B2A22">AI conversation design</span>
+      <span style="background:#F6F3E2;border-radius:999px;padding:8px 14px;font-family:'Plus Jakarta Sans';font-size:13px;font-weight:600;color:#3B2A22">Design system</span>
+      <span style="background:#F6F3E2;border-radius:999px;padding:8px 14px;font-family:'Plus Jakarta Sans';font-size:13px;font-weight:600;color:#3B2A22">Prototyping</span>
+      <span style="background:#F6F3E2;border-radius:999px;padding:8px 14px;font-family:'Plus Jakarta Sans';font-size:13px;font-weight:600;color:#3B2A22">Usability testing</span>
     </div>
   </div>
 </section>
 
-<!-- 05 — USABILITY TEST + FINDINGS -->
-<section id="s5" data-screen-label="05 Usability test and findings" style="padding:88px 24px 0">
-  <div style="max-width:1000px;margin:0 auto">
-    <p class="eyebrow">05 — Usability test + findings</p>
-    <h2 style="margin:18px 0 26px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(32px,4.8vw,48px);line-height:1.08;color:#261A15;max-width:800px">Round 1 showed where usefulness broke down.</h2>
-    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:22px">
-      <div style="background:#261A15;border-radius:18px;padding:22px"><div style="font-family:'Protest Riot';font-weight:300;font-size:28px;color:#F3EFE6;line-height:1">Task 1</div><div style="font-family:'Plus Jakarta Sans';font-size:12.5px;color:#B9AEA4;margin-top:8px">Success rate: not reported in the exported Maze report</div></div>
-      <div style="background:#261A15;border-radius:18px;padding:22px"><div style="font-family:'Protest Riot';font-weight:300;font-size:28px;color:#F3EFE6;line-height:1">6</div><div style="font-family:'Plus Jakarta Sans';font-size:12.5px;color:#B9AEA4;margin-top:8px">Website-test responses</div></div>
-      <div style="background:#261A15;border-radius:18px;padding:22px"><div style="font-family:'Protest Riot';font-weight:300;font-size:28px;color:#F3EFE6;line-height:1">766.3s</div><div style="font-family:'Plus Jakarta Sans';font-size:12.5px;color:#B9AEA4;margin-top:8px">Average website-test duration</div></div>
-    </div>
-    <p style="margin:0 0 30px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.72;color:#4A4A4F;max-width:800px">I ran the Round 1 study in Maze. The exported report shows 6 website-test responses; the opinion scale received 5 responses with an average usefulness score of 3.4/5. The report does not expose a Task 1 success or misclick rate, so I have not invented one.</p>
-    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:22px">
-      <div style="background:#FFFFFF;border-radius:16px;padding:22px;box-shadow:0 2px 12px rgba(38,26,21,0.05)"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B5643C;margin-bottom:10px">Finding 01</div><p style="margin:0 0 8px;font-family:'Plus Jakarta Sans';font-size:14.5px;line-height:1.6;color:#3B2A22"><strong>Insight:</strong> Some participants found the career coverage too narrow.</p><p style="margin:0;font-family:'Plus Jakarta Sans';font-size:14.5px;line-height:1.6;color:#3B2A22"><strong>Solution:</strong> I expanded deterministic Personal Fit from 3 to 21 careers and added career aliases.</p></div>
-      <div style="background:#FFFFFF;border-radius:16px;padding:22px;box-shadow:0 2px 12px rgba(38,26,21,0.05)"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B5643C;margin-bottom:10px">Finding 02</div><p style="margin:0 0 8px;font-family:'Plus Jakarta Sans';font-size:14.5px;line-height:1.6;color:#3B2A22"><strong>Insight:</strong> An "insufficient information" state did not give users enough value for uncovered careers.</p><p style="margin:0;font-family:'Plus Jakarta Sans';font-size:14.5px;line-height:1.6;color:#3B2A22"><strong>Solution:</strong> I introduced AI Perspective as a qualitative, clearly labelled response.</p></div>
-      <div style="background:#FFFFFF;border-radius:16px;padding:22px;box-shadow:0 2px 12px rgba(38,26,21,0.05)"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B5643C;margin-bottom:10px">Finding 03</div><p style="margin:0 0 8px;font-family:'Plus Jakarta Sans';font-size:14.5px;line-height:1.6;color:#3B2A22"><strong>Insight:</strong> The conversation could feel generic rather than personalised.</p><p style="margin:0;font-family:'Plus Jakarta Sans';font-size:14.5px;line-height:1.6;color:#3B2A22"><strong>Solution:</strong> I expanded explanations, trade-offs and next steps.</p></div>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-      <div style="background:#FFFFFF;border-radius:16px;padding:20px;box-shadow:0 2px 12px rgba(38,26,21,0.05)"><q style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:16px;line-height:1.5;color:#3B2A22">It provide the data instantly without hustle</q></div>
-      <div style="background:#FFFFFF;border-radius:16px;padding:20px;box-shadow:0 2px 12px rgba(38,26,21,0.05)"><q style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:16px;line-height:1.5;color:#3B2A22">The whole conversation didn't felt personalized it was more of a general suggestion that is applicable to any person or field</q></div>
-    </div>
-  </div>
-</section>
-
-<!-- 06 — ITERATION + BEFORE / AFTER -->
-<section id="s6" data-screen-label="06 Iteration before and after" style="padding:88px 24px 0">
-  <div style="max-width:1000px;margin:0 auto">
-    <p class="eyebrow">06 — Iteration + before / after</p>
-    <h2 style="margin:18px 0 34px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(32px,4.8vw,48px);line-height:1.08;color:#261A15;max-width:800px">Three findings became three visible changes.</h2>
-
-    <p style="margin:0 0 40px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;line-height:1.6;color:#6E6E73;background:#F6F3E2;border-radius:14px;padding:14px 18px;max-width:800px"><strong style="color:#3B2A22">Real screens, not mockups:</strong> every image below is a live capture from the actual CareerVerse build (mock-data MVP, <code>careerverse-app</code>) — the "before" comparison screen predates the Add/Replace feature; the "after" screens were captured by scripting the real conversation through Playwright.</p>
-
-    <h3 style="margin:0 0 16px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:24px;color:#261A15">01 — Broader career coverage</h3>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px">
-      <div style="background:#FFFFFF;border-radius:18px;overflow:hidden;box-shadow:0 2px 12px rgba(38,26,21,0.05)">
-        <div style="background:#EFEAD5;padding:10px 16px;font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#6E6E73">Before · Fixed set of 3, no Add/Replace</div>
-        <div style="padding:14px"><div style="border-radius:14px;overflow:hidden"><img src="assets/careerverse/story1-before-fixed-three.png" alt="Earlier build: the career comparison sheet with exactly the three original careers and no way to add or swap one in" style="display:block;width:100%;height:auto"></div></div>
-      </div>
-      <div style="background:#FFFFFF;border-radius:18px;overflow:hidden;box-shadow:0 2px 12px rgba(38,26,21,0.05)">
-        <div style="background:#F6F3E2;padding:10px 16px;font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B5643C">After · Add / Replace, live capture</div>
-        <div style="padding:14px"><div style="border-radius:14px;overflow:hidden"><img src="assets/careerverse/story1-after-add-replace.png" alt="Live app: asking to add Photography while 3 careers are already selected triggers a Replace flow naming which option it would swap out" style="display:block;width:100%;height:auto"></div></div>
-      </div>
-    </div>
-    <p style="margin:0 0 40px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.65;color:#4A4A4F;max-width:800px"><strong style="color:#261A15">Why it matters:</strong> users can explore more career options — the comparison is no longer a closed set of three, and swapping one out is explicit rather than silent.</p>
-
-    <h3 style="margin:0 0 16px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:24px;color:#261A15">02 — From an information dead end to AI Perspective</h3>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px">
-      <div style="background:#FFFFFF;border-radius:18px;overflow:hidden;box-shadow:0 2px 12px rgba(38,26,21,0.05)">
-        <div style="background:#EFEAD5;padding:10px 16px;font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#6E6E73">Before · Flat "Insufficient information"</div>
-        <div style="padding:14px"><div style="border-radius:14px;overflow:hidden"><img src="assets/careerverse/story2-before-insufficient.png" alt="Live app: Photography added to comparison shows an Insufficient information tag and Not enough profile information yet, with no further guidance" style="display:block;width:100%;height:auto"></div></div>
-      </div>
-      <div style="background:#FFFFFF;border-radius:18px;overflow:hidden;box-shadow:0 2px 12px rgba(38,26,21,0.05)">
-        <div style="background:#F6F3E2;padding:10px 16px;font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B5643C">After · AI Perspective, live capture</div>
-        <div style="padding:14px"><div style="border-radius:14px;overflow:hidden"><img src="assets/careerverse/story2-after-ai-perspective.png" alt="Live app: asking what Photography involves returns a dashed-border AI Perspective callout with a fixed disclaimer that it is not a calculated Personal Fit result" style="display:block;width:100%;height:auto"></div></div>
-      </div>
-    </div>
-    <p style="margin:0 0 40px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.65;color:#4A4A4F;max-width:800px"><strong style="color:#261A15">Why it matters:</strong> users get a useful, honestly-labelled answer for any career instead of a wall — and it's visually impossible to mistake for a calculated Personal Fit.</p>
-
-    <h3 style="margin:0 0 16px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:24px;color:#261A15">03 — From generic signals to actionable reasoning</h3>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px">
-      <div style="background:#FFFFFF;border-radius:18px;overflow:hidden;box-shadow:0 2px 12px rgba(38,26,21,0.05)">
-        <div style="background:#EFEAD5;padding:10px 16px;font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#6E6E73">Before · Compact one-line signal</div>
-        <div style="padding:14px"><div style="border-radius:14px;overflow:hidden"><img src="assets/careerverse/story3-before-compact-signals.png" alt="Live app: the inline comparison cards showing only a one-line signal like Matches career growth and a fit-level tag, nothing more" style="display:block;width:100%;height:auto"></div></div>
-      </div>
-      <div style="background:#FFFFFF;border-radius:18px;overflow:hidden;box-shadow:0 2px 12px rgba(38,26,21,0.05)">
-        <div style="background:#F6F3E2;padding:10px 16px;font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B5643C">After · Expanded, live capture</div>
-        <div style="padding:14px"><div style="border-radius:14px;overflow:hidden"><img src="assets/careerverse/story3-after-expanded-explanation.png" alt="Live app: the expanded Personal Fit sheet for UX Design with a Why This Fits section (three authored reasons), Trade-offs, and Next Steps" style="display:block;width:100%;height:auto"></div></div>
-      </div>
-    </div>
-    <p style="margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.65;color:#4A4A4F;max-width:800px"><strong style="color:#261A15">Why it matters:</strong> users can understand why an option fits and what they can do next instead of only seeing a label — the same deterministic fit calculation, just no longer hidden behind one line.</p>
-  </div>
-</section>
-
-<!-- 07 — RESULT + WHAT'S NEXT -->
-<section id="s7" data-screen-label="07 Result and what's next" style="padding:88px 24px 0">
-  <div style="max-width:1000px;margin:0 auto">
-    <p class="eyebrow">07 — Result + what's next</p>
-    <h2 style="margin:18px 0 26px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(32px,4.8vw,48px);line-height:1.08;color:#261A15;max-width:820px">The iterated experience is more useful, while the AI stays bounded.</h2>
-    <p style="margin:0 0 10px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.72;color:#4A4A4F;max-width:800px"><strong style="color:#261A15">Prototype:</strong> the Figma prototype connects onboarding, conversational discovery, comparison, Personal Fit, evidence, correction and recalculation.</p>
-    <p style="margin:0 0 24px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.72;color:#4A4A4F;max-width:800px"><strong style="color:#261A15">Landing page:</strong> [Add Framer landing page URL]</p>
-    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px">
-      <a href="https://www.figma.com/design/rf6p67ICwnpAHVqElnPrko/Careerversus?node-id=240-1204&t=ekY6bHa8UxIr4KaC-1" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;background:#FFFFFF;border-radius:12px;padding:12px 16px;font-family:'Plus Jakarta Sans';font-size:13.5px;font-weight:600;color:#B5643C;box-shadow:0 2px 10px rgba(38,26,21,0.06)">Open Figma prototype →</a>
-      <a href="https://www.figma.com/board/9doyYtIm3OTsoz4aU0d2f6/CareerVersus-Research-data?node-id=0-1&t=nSU95mYvtItL4sZk-1" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;background:#FFFFFF;border-radius:12px;padding:12px 16px;font-family:'Plus Jakarta Sans';font-size:13.5px;font-weight:600;color:#B5643C;box-shadow:0 2px 10px rgba(38,26,21,0.06)">Open research board →</a>
-    </div>
-    <p style="margin:0 0 40px;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(19px,2.6vw,23px);line-height:1.5;color:#261A15;max-width:800px;border-left:3px solid #E14F8E;padding-left:20px">What surprised me most was that the hardest problem wasn't helping someone discover a career. It was helping them make sense of the trade-offs between options they were already considering.</p>
-    <h3 style="margin:0 0 16px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:26px;color:#261A15">What I would improve next</h3>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-      <div style="background:#FFFFFF;border-radius:16px;padding:22px;box-shadow:0 2px 12px rgba(38,26,21,0.05);border-top:3px solid #8B5CF6"><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:700;color:#261A15;margin-bottom:8px">01 · Proper custom careers</div><div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.6;color:#6E6E73">Replace the fake "Other / Some Other Field" behaviour with "+ Add another career" so a user-entered career such as Photography remains Photography.</div></div>
-      <div style="background:#FFFFFF;border-radius:16px;padding:22px;box-shadow:0 2px 12px rgba(38,26,21,0.05);border-top:3px solid #8B5CF6"><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:700;color:#261A15;margin-bottom:8px">02 · Better conversational intent</div><div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.6;color:#6E6E73">Distinguish career names from instructions such as "give updated report" or "compare these again," and keep comparison suggestions tied to the careers currently being compared.</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- CLOSE ============ -->
-<section id="close" data-screen-label="Key takeaway" style="padding:88px 24px 88px;background:#261A15;margin-top:88px">
+<!-- ============ 30-SECOND SCANNER LAYER ============ -->
+<section id="scan" data-screen-label="The 30-second version" style="padding:72px 24px 8px">
   <div style="max-width:760px;margin:0 auto">
-    <p class="eyebrow eyebrow--dark">Key takeaway</p>
-    <p style="margin:22px 0 26px;font-family:'Playfair Display',Georgia,serif;font-size:clamp(23px,3.6vw,34px);line-height:1.35;color:#F3EFE6">"I didn't just integrate AI into CareerVerse. I designed the AI's behaviour as part of the product experience."</p>
-    <p style="margin:0 0 34px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.75;color:#D6CDC2">The interface determines what users can do; conversation design determines how CareerVerse responds when they do it.</p>
-    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-      <a class="btn btn-ghost btn-on-dark" href="index.html#projects">Back to projects</a>
+    <span class="pt-eyebrow">The 30-second version</span>
+    <h2 style="margin:18px 0 14px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(34px,5vw,50px);line-height:1.06;color:#261A15;max-width:760px">The information wasn't missing. The decision was.</h2>
+    <p style="margin:0 0 26px;font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;line-height:1.65;color:#4A4A4F;max-width:720px">Young professionals do not need more career recommendations. They need a trusted way to compare the career options they are already seriously considering, using their own context, transparent reasoning and real-world trade-offs.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-bottom:36px">
+      <div style="background:#FFFFFF;border-radius:16px;padding:20px 22px;box-shadow:0 2px 10px rgba(38,26,21,0.05)">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#1F8A5B;margin-bottom:10px">Who it's for</div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px">
+          <span style="background:#EDF7EE;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#1F6B47">Aditi Verma · 26</span>
+          <span style="background:#EDF7EE;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#1F6B47">Bengaluru</span>
+          <span style="background:#EDF7EE;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#1F6B47">Graphic Designer · 3 years</span>
+        </div>
+      </div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:20px 22px;box-shadow:0 2px 10px rgba(38,26,21,0.05)">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#C4426E;margin-bottom:10px">Careers she's comparing</div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px">
+          <span style="background:#FBEDF2;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#9E355C">UX Design</span>
+          <span style="background:#FBEDF2;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#9E355C">Product Management</span>
+          <span style="background:#FBEDF2;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#9E355C">Data Analytics</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key UX move -->
+    <div style="background:#261A15;border-radius:22px;padding:30px 28px;margin-bottom:32px">
+      <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#B9AEA4;margin-bottom:6px">The AI principle</div>
+      <div style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(19px,2.4vw,24px);line-height:1.4;color:#F3EFE6;margin-bottom:22px;max-width:720px">The conversation is part of the product. AI explains and asks; the product calculates.</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px">
+        <div style="background:#2E211B;border-radius:14px;overflow:hidden"><div style="padding:18px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:14px"><span style="font-family:'Protest Riot',sans-serif;font-size:13px;color:#8C8178">01</span><span style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#8C8178">Context</span></div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:500;line-height:1.35;color:#F3EFE6;margin-bottom:8px">Build a Decision Profile first</div><div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#B9AEA4">Money, family, trust and lifestyle shape the comparison, gathered through conversation.</div></div></div>
+        <div style="background:#2E211B;border-radius:14px;overflow:hidden"><div style="padding:18px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:14px"><span style="font-family:'Protest Riot',sans-serif;font-size:13px;color:#8C8178">02</span><span style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#8C8178">Reasoning</span></div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:500;line-height:1.35;color:#F3EFE6;margin-bottom:8px">Explain the result, not just the label</div><div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#B9AEA4">Why This Fits, trade-offs and concrete next steps.</div></div></div>
+        <div style="background:#2E211B;border-radius:14px;overflow:hidden"><div style="padding:18px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:14px"><span style="font-family:'Protest Riot',sans-serif;font-size:13px;color:#8C8178">03</span><span style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#8C8178">Guardrails</span></div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:500;line-height:1.35;color:#F3EFE6;margin-bottom:8px">Keep AI away from the score</div><div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#B9AEA4">Personal Fit stays calculated; AI Perspective is clearly labelled as qualitative.</div></div></div>
+        <div style="background:#2E211B;border-radius:14px;overflow:hidden"><div style="padding:18px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:14px"><span style="font-family:'Protest Riot',sans-serif;font-size:13px;color:#8C8178">04</span><span style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#8C8178">Honesty</span></div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:500;line-height:1.35;color:#F3EFE6;margin-bottom:8px">Make uncertainty explicit</div><div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#B9AEA4">Never use confident language where evidence is unavailable.</div></div></div>
+      </div>
+    </div>
+
+    <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:12px">Jump to a part</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:8px">
+      <a href="#ai" style="text-decoration:none;background:#FFFFFF;border-radius:16px;padding:20px;box-shadow:0 2px 10px rgba(38,26,21,0.05);display:block" data-hv="4"><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:23px;color:#261A15;margin-bottom:4px">AI behaviour</div><div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#6E6E73">What the AI handles, what the product decides, and what it must never invent.</div></a>
+      <a href="#decisions" style="text-decoration:none;background:#FFFFFF;border-radius:16px;padding:20px;box-shadow:0 2px 10px rgba(38,26,21,0.05);display:block" data-hv="5"><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:23px;color:#261A15;margin-bottom:4px">Key decisions</div><div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#6E6E73">Three decisions, the evidence behind them and what they changed.</div></a>
+      <a href="#testing" style="text-decoration:none;background:#FFFFFF;border-radius:16px;padding:20px;box-shadow:0 2px 10px rgba(38,26,21,0.05);display:block" data-hv="6"><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:23px;color:#261A15;margin-bottom:4px">Usability findings</div><div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#6E6E73">What Round 1 in Maze showed, and where usefulness broke down.</div></a>
+      <a href="#iteration" style="text-decoration:none;background:#ECE8CF;border-radius:16px;padding:20px;display:block" data-hv="7"><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:23px;color:#261A15;margin-bottom:4px">Before / after</div><div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#6E6E73">Three findings that became three visible changes in the real build.</div></a>
+    </div>
+    <p style="margin:24px 0 0;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:16px;line-height:1.6;color:#6E6E73">Below is the full story, with the reasons behind each decision.</p>
+  </div>
+</section>
+
+<!-- ============ SECTION INDEX ============ -->
+<section aria-label="Explore this case study" data-screen-label="Section index" style="padding:56px 24px 0">
+  <div style="max-width:760px;margin:0 auto">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid rgba(26,20,17,0.12);padding-bottom:14px">
+      <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:30px;color:#261A15">Explore this case study</div>
+      <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:14px;color:#9A9AA0">Jump to any part, or just keep reading.</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));column-gap:48px;margin-top:6px">
+      <a href="#problem" style="display:flex;gap:14px;align-items:baseline;padding:13px 4px;border-bottom:1px solid rgba(26,20,17,0.07);text-decoration:none" data-hv="8"><span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;color:#B5984E;min-width:22px" data-toc="problem" data-toc-part="num">01</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;color:#6E6E73;" data-toc="problem" data-toc-part="label">Problem &amp; context</span></a>
+      <a href="#research" style="display:flex;gap:14px;align-items:baseline;padding:13px 4px;border-bottom:1px solid rgba(26,20,17,0.07);text-decoration:none" data-hv="9"><span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;color:#B5984E;min-width:22px" data-toc="research" data-toc-part="num">02</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;color:#6E6E73;" data-toc="research" data-toc-part="label">Research &amp; validation</span></a>
+      <a href="#process" style="display:flex;gap:14px;align-items:baseline;padding:13px 4px;border-bottom:1px solid rgba(26,20,17,0.07);text-decoration:none" data-hv="10"><span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;color:#B5984E;min-width:22px" data-toc="process" data-toc-part="num">03</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;color:#6E6E73;" data-toc="process" data-toc-part="label">Design process &amp; architecture</span></a>
+      <a href="#ai" style="display:flex;gap:14px;align-items:baseline;padding:13px 4px;border-bottom:1px solid rgba(26,20,17,0.07);text-decoration:none" data-hv="11"><span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;color:#B5984E;min-width:22px" data-toc="ai" data-toc-part="num">04</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;color:#6E6E73;" data-toc="ai" data-toc-part="label">AI behaviour &amp; conversation</span></a>
+      <a href="#decisions" style="display:flex;gap:14px;align-items:baseline;padding:13px 4px;border-bottom:1px solid rgba(26,20,17,0.07);text-decoration:none" data-hv="12"><span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;color:#B5984E;min-width:22px" data-toc="decisions" data-toc-part="num">05</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;color:#6E6E73;" data-toc="decisions" data-toc-part="label">Key design decisions</span></a>
+      <a href="#testing" style="display:flex;gap:14px;align-items:baseline;padding:13px 4px;border-bottom:1px solid rgba(26,20,17,0.07);text-decoration:none" data-hv="13"><span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;color:#B5984E;min-width:22px" data-toc="testing" data-toc-part="num">06</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;color:#6E6E73;" data-toc="testing" data-toc-part="label">Usability test &amp; findings</span></a>
+      <a href="#iteration" style="display:flex;gap:14px;align-items:baseline;padding:13px 4px;border-bottom:1px solid rgba(26,20,17,0.07);text-decoration:none" data-hv="14"><span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;color:#B5984E;min-width:22px" data-toc="iteration" data-toc-part="num">07</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;color:#6E6E73;" data-toc="iteration" data-toc-part="label">Iteration: before &amp; after</span></a>
+      <a href="#result" style="display:flex;gap:14px;align-items:baseline;padding:13px 4px;border-bottom:1px solid rgba(26,20,17,0.07);text-decoration:none" data-hv="15"><span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;color:#B5984E;min-width:22px" data-toc="result" data-toc-part="num">08</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;color:#6E6E73;" data-toc="result" data-toc-part="label">Result</span></a>
+      <a href="#reflection" style="display:flex;gap:14px;align-items:baseline;padding:13px 4px;border-bottom:1px solid rgba(26,20,17,0.07);text-decoration:none" data-hv="16"><span style="font-family:'Playfair Display',Georgia,serif;font-size:13px;color:#B5984E;min-width:22px" data-toc="reflection" data-toc-part="num">09</span><span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;color:#6E6E73;" data-toc="reflection" data-toc-part="label">Reflection &amp; what's next</span></a>
     </div>
   </div>
 </section>
 
-<footer style="background:#1F1511;border-top:1px solid rgba(243,239,230,0.12);padding:28px 24px">
+<!-- ============ 01 PROBLEM ============ -->
+<section id="problem" data-screen-label="01 Problem" style="padding:88px 24px 0">
+  <div style="max-width:760px;margin:0 auto">
+    <span class="pt-eyebrow">01 · Problem &amp; context</span>
+    <h2 style="margin:18px 0 16px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(36px,5vw,48px);line-height:1.08;color:#261A15">The information wasn't missing. The decision was.</h2>
+    <p style="margin:0 0 18px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.7;color:#4A4A4F">After another workday in <strong style="color:#261A15">Bengaluru</strong>, Aditi sits down to think about her next career move. She is a 26-year-old graphic designer with three years of experience and has already narrowed her options to <strong style="color:#261A15">UX Design, Product Management and Data Analytics</strong>.</p>
+    <p style="margin:0 0 18px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.7;color:#4A4A4F">She searches Google for salary trends, watches YouTube transition stories, checks LinkedIn hiring trends, reads Reddit, asks ChatGPT to compare the options and talks to mentors, friends and family. She also keeps her own comparison notes around salary, learning effort, market demand, work-life balance and growth.</p>
+    <p style="margin:0 0 18px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.7;color:#4A4A4F">Her frustration is not that information is unavailable. It is that information is <strong style="color:#261A15">scattered, conflicting and often disconnected from her financial responsibilities, family expectations and lifestyle.</strong> She worries about spending months on the wrong path and wants confidence in the decision, not another generic recommendation.</p>
+  </div>
+  <div style="max-width:760px;margin:32px auto 0">
+    <div style="background:#FFFFFF;border-radius:24px;padding:30px 28px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+      <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:12px">In Aditi's words</div>
+      <p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(18px,2.4vw,22px);line-height:1.55;color:#3B2A22">"I've already narrowed it down to three career options. I don't need another recommendation. I need someone to help me understand what I'm actually trading off between them so I can make the right decision."</p>
+    </div>
+  </div>
+  <div style="max-width:760px;margin:32px auto 0">
+    <div style="margin:0;border-left:3px solid #E14F8E;padding:2px 0 2px 16px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:6px">Takeaway</div><p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:18px;line-height:1.55;color:#3B2A22">That became the gap I designed for: young professionals need a trusted way to compare the career options they are already seriously considering.</p></div>
+  </div>
+</section>
+
+<!-- ============ 02 RESEARCH ============ -->
+<section id="research" data-screen-label="02 Research" style="padding:88px 24px 0">
+  <div style="max-width:760px;margin:0 auto">
+    <span class="pt-eyebrow">02 · Research &amp; validation</span>
+    <h2 style="margin:18px 0 16px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(36px,5vw,48px);line-height:1.08;color:#261A15">Three behaviours changed my product direction</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:28px 0 0">
+      <div style="background:#FFFFFF;border-radius:16px;padding:22px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+        <div style="font-family:'Protest Riot',sans-serif;font-size:13px;color:#9A8138;margin-bottom:8px">01</div>
+        <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:23px;line-height:1.15;color:#261A15;margin-bottom:8px">Research is fragmented</div>
+        <div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#6E6E73">People collect information from Google, YouTube, LinkedIn, Reddit, WhatsApp groups, mentors and family rather than relying on one platform.</div>
+      </div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:22px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+        <div style="font-family:'Protest Riot',sans-serif;font-size:13px;color:#9A8138;margin-bottom:8px">02</div>
+        <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:23px;line-height:1.15;color:#261A15;margin-bottom:8px">The decision is personal</div>
+        <div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#6E6E73">Fear of choosing incorrectly, financial security, family expectations, trust and social proof shape the decision.</div>
+      </div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:22px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+        <div style="font-family:'Protest Riot',sans-serif;font-size:13px;color:#9A8138;margin-bottom:8px">03</div>
+        <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:23px;line-height:1.15;color:#261A15;margin-bottom:8px">The switching cost is habit</div>
+        <div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#6E6E73">A new product must save time, build trust and provide value beyond the existing workflow.</div>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:760px;margin:24px auto 0">
+    <div style="background:#261A15;border-radius:22px;padding:30px 28px">
+      <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#B9AEA4;margin-bottom:10px">Gap statement</div>
+      <p style="margin:0 0 18px;font-family:'Playfair Display',Georgia,serif;font-size:clamp(18px,2.3vw,21px);line-height:1.5;color:#F3EFE6">Young professionals do not need more career recommendations. They need a trusted way to compare the career options they are already seriously considering.</p>
+      <p style="margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-size:14.5px;line-height:1.7;color:#B9AEA4">Current platforms recommend careers, sell counselling or courses, or provide fragmented information. None consistently combine personal context, transparent reasoning and structured trade-off comparisons in one decision-support experience.</p>
+    </div>
+  </div>
+  <div style="max-width:760px;margin:28px auto 0">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">
+      <div style="background:#FFF6E8;border:1px solid rgba(245,166,35,0.35);border-radius:16px;padding:22px">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:8px">Product wedge</div>
+        <div style="font-family:'Plus Jakarta Sans';font-size:14.5px;line-height:1.7;color:#3B2A22">Help young professionals compare multiple career-transition options using their personal context, transparent reasoning and real-world trade-offs instead of generic recommendations or course-driven advice.</div>
+      </div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:22px;box-shadow:0 2px 10px rgba(38,26,21,0.05)">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:8px">Competitor lens</div>
+        <div style="font-family:'Plus Jakarta Sans';font-size:14.5px;line-height:1.7;color:#4A4A4F"><strong style="color:#261A15">Mindler</strong> focuses on career discovery and AI-driven suggestions. The gap I found was different: structured comparison between multiple career options is still uncommon, especially when personal context and trade-offs matter.</div>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:760px;margin:40px auto 0">
+    <div style="display:flex;align-items:center;gap:10px;margin:0 0 6px"><div style="height:3px;width:28px;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);border-radius:2px"></div><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138">Research artefacts</div></div>
+    <h3 style="margin:0 0 10px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:32px;line-height:1.15;color:#261A15">The evidence behind the synthesis</h3>
+    <p style="margin:0 0 22px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.7;color:#4A4A4F">These are the working artefacts behind the findings above, so the evidence trail is visible instead of asking you to take the conclusions on faith.</p>
+    <div style="display:grid;gap:20px">
+      <figure style="margin:0;background:#FFFFFF;border-radius:24px;padding:22px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:4px">Artefact 01</div>
+        <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:26px;color:#261A15;margin-bottom:14px">Primary persona</div>
+        <img src="assets/careerverse/persona.png" alt="Aditi persona: context, goals, behaviours, frustrations, motivations and a quote" loading="lazy" style="width:100%;height:auto;display:block;border-radius:12px;border:1px solid rgba(26,20,17,0.08)">
+        <figcaption style="margin-top:12px;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.6;color:#6E6E73"><strong style="color:#261A15">Why it matters:</strong> shows who the product is designed for and connects the research to the decision-confidence problem.</figcaption>
+      </figure>
+      <figure style="margin:0;background:#FFFFFF;border-radius:24px;padding:22px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:4px">Artefact 02</div>
+        <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:26px;color:#261A15;margin-bottom:14px">Empathy map</div>
+        <img src="assets/careerverse/empathy-map.png" alt="Empathy map: says, thinks, does, feels, and the gap" loading="lazy" style="width:100%;height:auto;display:block;border-radius:12px;border:1px solid rgba(26,20,17,0.08)">
+        <figcaption style="margin-top:12px;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.6;color:#6E6E73"><strong style="color:#261A15">Why it matters:</strong> turns the persona into a more human picture of uncertainty, research fatigue and decision pressure.</figcaption>
+      </figure>
+      <figure style="margin:0;background:#FFFFFF;border-radius:24px;padding:22px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:4px">Artefact 03</div>
+        <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:26px;color:#261A15;margin-bottom:14px">Research synthesis</div>
+        <img src="assets/careerverse/research-synthesis.png" alt="Research synthesis: problem, approach, personalization, correction and decision" loading="lazy" style="width:100%;height:auto;display:block;border-radius:12px;border:1px solid rgba(26,20,17,0.08)">
+        <figcaption style="margin-top:12px;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.6;color:#6E6E73"><strong style="color:#261A15">Why it matters:</strong> she doesn't have an information problem; she has a decision-confidence problem. The synthesis connects every later design decision back to that.</figcaption>
+      </figure>
+    </div>
+  </div>
+  <div style="max-width:760px;margin:32px auto 0">
+    <div style="margin:0;border-left:3px solid #E14F8E;padding:2px 0 2px 16px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:6px">Takeaway</div><p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:18px;line-height:1.55;color:#3B2A22">Other tools help people discover careers. CareerVerse helps them compare the ones they're already considering.</p></div>
+  </div>
+</section>
+
+<!-- ============ 03 PROCESS ============ -->
+<section id="process" data-screen-label="03 Design process" style="padding:88px 24px 0">
+  <div style="max-width:760px;margin:0 auto">
+    <span class="pt-eyebrow">03 · Design process</span>
+    <h2 style="margin:18px 0 16px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(36px,5vw,48px);line-height:1.08;color:#261A15">From research to a tested AI conversation</h2>
+    <p style="margin:0 0 24px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.7;color:#4A4A4F">Eight steps, each ending in a decision that shaped what came next.</p>
+    <div style="background:#FFFFFF;border-radius:24px;padding:10px 28px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+      <div class="cv-step" style="display:grid;grid-template-columns:40px 170px 1fr;gap:6px 16px;padding:18px 0;border-bottom:1px solid rgba(26,20,17,0.08);font-family:'Plus Jakarta Sans'"><div style="font-family:'Protest Riot',sans-serif;font-size:18px;color:#E14F8E">01</div><div style="font-size:15px;font-weight:700;color:#261A15">Research</div><div style="font-size:14.5px;line-height:1.65;color:#4A4A4F">I synthesised the persona, behaviour insights, competitor gap and journey. <strong style="color:#261A15">Decision:</strong> focus the product on comparing realistic options, because the research showed that users were already doing their own research.</div></div>
+      <div class="cv-step" style="display:grid;grid-template-columns:40px 170px 1fr;gap:6px 16px;padding:18px 0;border-bottom:1px solid rgba(26,20,17,0.08);font-family:'Plus Jakarta Sans'"><div style="font-family:'Protest Riot',sans-serif;font-size:18px;color:#E14F8E">02</div><div style="font-size:15px;font-weight:700;color:#261A15">Structure</div><div style="font-size:14.5px;line-height:1.65;color:#4A4A4F">I translated the journey into a sitemap, task flows and a progressive Decision Profile. <strong style="color:#261A15">Decision:</strong> gather context through conversation instead of starting with a long questionnaire.</div></div>
+      <div class="cv-step" style="display:grid;grid-template-columns:40px 170px 1fr;gap:6px 16px;padding:18px 0;border-bottom:1px solid rgba(26,20,17,0.08);font-family:'Plus Jakarta Sans'"><div style="font-family:'Protest Riot',sans-serif;font-size:18px;color:#E14F8E">03</div><div style="font-size:15px;font-weight:700;color:#261A15">Design system</div><div style="font-size:14.5px;line-height:1.65;color:#4A4A4F">I created reusable UI patterns and states for comparison, Personal Fit, evidence and uncertainty. <strong style="color:#261A15">Decision:</strong> make calculated results and AI-generated information visually distinct.</div></div>
+      <div class="cv-step" style="display:grid;grid-template-columns:40px 170px 1fr;gap:6px 16px;padding:18px 0;border-bottom:1px solid rgba(26,20,17,0.08);font-family:'Plus Jakarta Sans'"><div style="font-family:'Protest Riot',sans-serif;font-size:18px;color:#E14F8E">04</div><div style="font-size:15px;font-weight:700;color:#261A15">UI generation</div><div style="font-size:14.5px;line-height:1.65;color:#4A4A4F">I used AI to accelerate early interface exploration, then reviewed hierarchy, content, states and edge cases myself. <strong style="color:#261A15">Decision:</strong> use AI for exploration speed, not final product judgement.</div></div>
+      <div class="cv-step" style="display:grid;grid-template-columns:40px 170px 1fr;gap:6px 16px;padding:18px 0;border-bottom:1px solid rgba(26,20,17,0.08);font-family:'Plus Jakarta Sans'"><div style="font-family:'Protest Riot',sans-serif;font-size:18px;color:#E14F8E">05</div><div style="font-size:15px;font-weight:700;color:#261A15">Prototype</div><div style="font-size:14.5px;line-height:1.65;color:#4A4A4F">I connected discovery, comparison, Personal Fit, evidence, correction and recalculation so the experience could be evaluated as a journey rather than isolated screens.</div></div>
+      <div class="cv-step" style="display:grid;grid-template-columns:40px 170px 1fr;gap:6px 16px;padding:18px 0;border-bottom:1px solid rgba(26,20,17,0.08);font-family:'Plus Jakarta Sans'"><div style="font-family:'Protest Riot',sans-serif;font-size:18px;color:#E14F8E">06</div><div style="font-size:15px;font-weight:700;color:#261A15">Copy &amp; accessibility</div><div style="font-size:14.5px;line-height:1.65;color:#4A4A4F">I treated wording as part of the interaction and made uncertainty explicit. <strong style="color:#261A15">Decision:</strong> never use confident language where evidence is unavailable.</div></div>
+      <div class="cv-step" style="display:grid;grid-template-columns:40px 170px 1fr;gap:6px 16px;padding:18px 0;border-bottom:1px solid rgba(26,20,17,0.08);font-family:'Plus Jakarta Sans'"><div style="font-family:'Protest Riot',sans-serif;font-size:18px;color:#E14F8E">07</div><div style="font-size:15px;font-weight:700;color:#261A15">Testing</div><div style="font-size:14.5px;line-height:1.65;color:#4A4A4F">I used Maze for Round 1 and then manually tested AI behaviour against unsupported careers, corrections, ambiguous input and comparison context.</div></div>
+      <div class="cv-step" style="display:grid;grid-template-columns:40px 170px 1fr;gap:6px 16px;padding:18px 0;font-family:'Plus Jakarta Sans'"><div style="font-family:'Protest Riot',sans-serif;font-size:18px;color:#E14F8E">08</div><div style="font-size:15px;font-weight:700;color:#261A15">Iteration</div><div style="font-size:14.5px;line-height:1.65;color:#4A4A4F">I carried the findings into the next iteration: broader calculated career coverage, richer explanations, next steps and AI Perspective.</div></div>
+    </div>
+  </div>
+  <div style="max-width:760px;margin:40px auto 0">
+    <div style="display:flex;align-items:center;gap:10px;margin:0 0 6px"><div style="height:3px;width:28px;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);border-radius:2px"></div><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138">Experience architecture</div></div>
+    <h3 style="margin:0 0 10px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:32px;line-height:1.15;color:#261A15">The structure underneath the screens</h3>
+    <p style="margin:0 0 22px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.7;color:#4A4A4F">Before any polished UI: how the user moves through the product, and how the system builds context step by step.</p>
+    <div style="display:grid;gap:20px">
+      <figure style="margin:0;background:#FFFFFF;border-radius:24px;padding:22px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:4px">Architecture 01</div>
+        <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:26px;color:#261A15;margin-bottom:14px">Sitemap &amp; information architecture</div>
+        <img src="assets/careerverse/sitemap.png" alt="Information architecture: entry, discovery, career selection, decision, refinement and supporting areas" loading="lazy" style="width:100%;height:auto;display:block;border-radius:12px;border:1px solid rgba(26,20,17,0.08)">
+        <figcaption style="margin-top:12px;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.6;color:#6E6E73"><strong style="color:#261A15">Decision:</strong> the information architecture supports an intelligent assistant rather than a rigid questionnaire.</figcaption>
+      </figure>
+      <figure style="margin:0;background:#FFFFFF;border-radius:24px;padding:22px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:4px">Architecture 02</div>
+        <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:26px;color:#261A15;margin-bottom:14px">Primary user flow</div>
+        <img src="assets/careerverse/primary-user-flow.png" alt="Primary user flow in ten stages, from Enter through Decide" loading="lazy" style="width:100%;height:auto;display:block;border-radius:12px;border:1px solid rgba(26,20,17,0.08)">
+        <figcaption style="margin-top:12px;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.6;color:#6E6E73"><strong style="color:#261A15">Why it matters:</strong> the product was designed as a connected journey, not a collection of screens.</figcaption>
+      </figure>
+      <figure style="margin:0;background:#FFFFFF;border-radius:24px;padding:22px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:4px">Architecture 03</div>
+        <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:26px;color:#261A15;margin-bottom:14px">Secondary &amp; task flows</div>
+        <img src="assets/careerverse/secondary-flows.png" alt="Secondary and task flows: adjust priorities, add or replace a career, correct profile, decision profile, save and resume" loading="lazy" style="width:100%;height:auto;display:block;border-radius:12px;border:1px solid rgba(26,20,17,0.08)">
+        <figcaption style="margin-top:12px;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.6;color:#6E6E73"><strong style="color:#261A15">Why it matters:</strong> real decisions aren't linear. Users adjust priorities, swap careers, correct their profile and come back later.</figcaption>
+      </figure>
+    </div>
+  </div>
+  <div style="max-width:760px;margin:32px auto 0">
+    <div style="margin:0;border-left:3px solid #E14F8E;padding:2px 0 2px 16px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:6px">Takeaway</div><p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:18px;line-height:1.55;color:#3B2A22">The visuals are the evidence; the reasoning is the narrative. Every artefact led to a design decision.</p></div>
+  </div>
+</section>
+
+<!-- ============ 04 AI BEHAVIOUR ============ -->
+<section id="ai" data-screen-label="04 AI behaviour" style="padding:88px 24px 0">
+  <div style="max-width:760px;margin:0 auto">
+    <span class="pt-eyebrow">04 · AI behaviour &amp; conversation design</span>
+    <h2 style="margin:18px 0 16px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(36px,5vw,48px);line-height:1.08;color:#261A15">I designed how the AI behaves, not just what it says</h2>
+    <p style="margin:0 0 18px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.7;color:#4A4A4F">I didn't add AI after designing the interface. I designed how the AI should behave: it needed to understand what the user had already shared, ask only when information was missing, keep context, respond to corrections and explain results without changing the calculated Personal Fit.</p>
+  </div>
+  <div style="max-width:760px;margin:28px auto 0">
+    <figure style="margin:0;background:#FFFFFF;border-radius:24px;padding:22px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+      <img src="assets/careerverse/ai-native-loop.png" alt="The AI-native loop: build context together, compare, explain, correct, refine, decide" loading="lazy" style="width:100%;height:auto;display:block;border-radius:12px">
+      <figcaption style="margin-top:12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#9A9AA0;text-align:center">The AI-native loop: build context together, compare, explain, correct, refine, decide.</figcaption>
+    </figure>
+  </div>
+  <div style="max-width:760px;margin:24px auto 0">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px">
+      <div style="background:#FFFFFF;border-radius:16px;padding:20px 22px;box-shadow:0 2px 10px rgba(38,26,21,0.05)">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#C4426E;margin-bottom:10px">AI handles</div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px">
+          <span style="background:#FBEDF2;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#9E355C">Conversational input</span>
+          <span style="background:#FBEDF2;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#9E355C">Goals and priorities</span>
+          <span style="background:#FBEDF2;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#9E355C">Context across turns</span>
+          <span style="background:#FBEDF2;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#9E355C">Follow-up questions</span>
+          <span style="background:#FBEDF2;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#9E355C">Trade-off explanations</span>
+          <span style="background:#FBEDF2;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#9E355C">Corrections and "why?" questions</span>
+          <span style="background:#FBEDF2;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#9E355C">Qualitative career information</span>
+        </div>
+      </div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:20px 22px;box-shadow:0 2px 10px rgba(38,26,21,0.05)">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#1F8A5B;margin-bottom:10px">Product determines</div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px">
+          <span style="background:#EDF7EE;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#1F6B47">Personal Fit calculation</span>
+          <span style="background:#EDF7EE;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#1F6B47">Fit level and score</span>
+          <span style="background:#EDF7EE;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#1F6B47">Authored matched signals</span>
+          <span style="background:#EDF7EE;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#1F6B47">Evidence boundaries</span>
+          <span style="background:#EDF7EE;border-radius:999px;padding:6px 12px;font-family:'Plus Jakarta Sans';font-size:13px;color:#1F6B47">Calculated vs general information</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:760px;margin:24px auto 0">
+    <div style="background:#261A15;border-radius:22px;padding:28px">
+      <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#B9AEA4;margin-bottom:8px">Refinement rule</div>
+      <div style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(19px,2.4vw,23px);line-height:1.45;color:#F3EFE6;margin-bottom:10px">Known: use it. Missing but important: ask. Not necessary: don't ask.</div>
+      <div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#B9AEA4;margin-bottom:20px">This kept the conversation from becoming a form disguised as a chatbot.</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px">
+        <div style="background:#2E211B;border-radius:14px;padding:18px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#E14F8E;margin-bottom:8px">Never invent</div><div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.6;color:#F3EFE6">Personal Fit scores or levels, unsupported market statistics, salary figures or evidence.</div></div>
+        <div style="background:#2E211B;border-radius:14px;padding:18px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#D8C788;margin-bottom:8px">Keep the distinction</div><div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.6;color:#F3EFE6">AI Perspective provides qualitative information and stays clearly separate from calculated Personal Fit.</div></div>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:760px;margin:24px auto 0">
+    <p style="margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.7;color:#4A4A4F">When I tested failure cases, I also added career normalisation, so "UX Designer" and "UX Design" resolve to the same career, while ambiguous terms such as "PM" and "BA" stay unmapped rather than guessed.</p>
+  </div>
+  <div style="max-width:760px;margin:32px auto 0">
+    <div style="margin:0;border-left:3px solid #E14F8E;padding:2px 0 2px 16px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:6px">Takeaway</div><p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:18px;line-height:1.55;color:#3B2A22">The AI talks, asks and explains. The product calculates. Users can always tell which is which.</p></div>
+  </div>
+</section>
+
+<!-- ============ 05 KEY DECISIONS ============ -->
+<section id="decisions" data-screen-label="05 Key decisions" style="padding:88px 24px 0">
+  <div style="max-width:760px;margin:0 auto">
+    <span class="pt-eyebrow">05 · Key design decisions</span>
+    <h2 style="margin:18px 0 26px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(36px,5vw,48px);line-height:1.08;color:#261A15">Three decisions kept the experience grounded</h2>
+    <div style="display:grid;gap:20px">
+      <div style="background:#FFFFFF;border-radius:24px;padding:28px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:4px">Decision 01</div>
+        <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:28px;color:#261A15;margin-bottom:16px">Build a Decision Profile before comparison</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#4A4A4F">
+          <div><div style="font-weight:700;color:#261A15;margin-bottom:4px">Evidence</div>Research showed that financial security, family expectations, trust and lifestyle shape career decisions.</div>
+          <div><div style="font-weight:700;color:#261A15;margin-bottom:4px">Outcome</div>I made context progressively available to the comparison instead of treating the user as a generic career seeker.</div>
+        </div>
+      </div>
+      <div style="background:#FFFFFF;border-radius:24px;padding:28px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:4px">Decision 02</div>
+        <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:28px;color:#261A15;margin-bottom:16px">Explain the result, not just the label</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#4A4A4F">
+          <div><div style="font-weight:700;color:#261A15;margin-bottom:4px">Evidence</div>Round 1 feedback said the experience could feel generic, and one participant described the conversation as a general suggestion applicable to "any person or field."</div>
+          <div><div style="font-weight:700;color:#261A15;margin-bottom:4px">Outcome</div>I added authored Why This Fits explanations, a second trade-off and concrete Next Steps.</div>
+        </div>
+      </div>
+      <div style="background:#FFFFFF;border-radius:24px;padding:28px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:4px">Decision 03</div>
+        <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:28px;color:#261A15;margin-bottom:16px">Keep AI away from calculated Personal Fit</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#4A4A4F">
+          <div><div style="font-weight:700;color:#261A15;margin-bottom:4px">Evidence</div>Unsupported information and AI-generated certainty could undermine trust.</div>
+          <div><div style="font-weight:700;color:#261A15;margin-bottom:4px">Outcome</div>Personal Fit stays calculated by the product, while AI Perspective handles qualitative career discussion and carries a fixed disclaimer.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:760px;margin:32px auto 0">
+    <div style="margin:0;border-left:3px solid #E14F8E;padding:2px 0 2px 16px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:6px">Takeaway</div><p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:18px;line-height:1.55;color:#3B2A22">Each decision traded a little AI freedom for a lot of user trust.</p></div>
+  </div>
+</section>
+
+<!-- ============ 06 TESTING ============ -->
+<section id="testing" data-screen-label="06 Usability test" style="padding:88px 24px 0">
+  <div style="max-width:760px;margin:0 auto">
+    <span class="pt-eyebrow">06 · Usability test &amp; findings</span>
+    <h2 style="margin:18px 0 16px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(36px,5vw,48px);line-height:1.08;color:#261A15">Round 1 showed where usefulness broke down</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:rgba(26,20,17,0.08);border-radius:18px;overflow:hidden;margin:24px 0">
+      <div style="background:#FFFFFF;padding:20px"><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:34px;line-height:1;color:#261A15;margin-bottom:8px">6</div><div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.5;color:#6E6E73">Website-test responses</div></div>
+      <div style="background:#FFFFFF;padding:20px"><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:34px;line-height:1;color:#261A15;margin-bottom:8px">3.4/5</div><div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.5;color:#6E6E73">Average usefulness score (5 responses)</div></div>
+      <div style="background:#FFFFFF;padding:20px"><div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:34px;line-height:1;color:#261A15;margin-bottom:8px">766.3s</div><div style="font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.5;color:#6E6E73">Average website-test duration</div></div>
+    </div>
+    <p style="margin:0 0 24px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.7;color:#4A4A4F">I ran the Round 1 study in Maze. The exported report shows 6 website-test responses; the opinion scale received 5 responses with an average usefulness score of 3.4/5. The report does not show a Task 1 success or misclick rate, so I have not invented one.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
+      <div style="background:#FFFFFF;border-radius:16px;padding:22px;box-shadow:0 8px 30px rgba(38,26,21,0.07);font-family:'Plus Jakarta Sans'">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:10px">Finding 01</div>
+        <div style="font-size:14px;line-height:1.6;color:#4A4A4F;margin-bottom:10px"><strong style="color:#261A15">Insight:</strong> some participants found the career coverage too narrow.</div>
+        <div style="font-size:14px;line-height:1.6;color:#4A4A4F"><strong style="color:#261A15">Solution:</strong> I expanded calculated Personal Fit from 3 to 21 careers and added career aliases.</div>
+      </div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:22px;box-shadow:0 8px 30px rgba(38,26,21,0.07);font-family:'Plus Jakarta Sans'">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:10px">Finding 02</div>
+        <div style="font-size:14px;line-height:1.6;color:#4A4A4F;margin-bottom:10px"><strong style="color:#261A15">Insight:</strong> an "insufficient information" state did not give users enough value for careers that weren't covered.</div>
+        <div style="font-size:14px;line-height:1.6;color:#4A4A4F"><strong style="color:#261A15">Solution:</strong> I introduced AI Perspective as a qualitative, clearly labelled response.</div>
+      </div>
+      <div style="background:#FFFFFF;border-radius:16px;padding:22px;box-shadow:0 8px 30px rgba(38,26,21,0.07);font-family:'Plus Jakarta Sans'">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:10px">Finding 03</div>
+        <div style="font-size:14px;line-height:1.6;color:#4A4A4F;margin-bottom:10px"><strong style="color:#261A15">Insight:</strong> the conversation could feel generic rather than personalised.</div>
+        <div style="font-size:14px;line-height:1.6;color:#4A4A4F"><strong style="color:#261A15">Solution:</strong> I expanded explanations, trade-offs and next steps.</div>
+      </div>
+    </div>
+    <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin:28px 0 12px">What participants said</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px">
+      <div style="background:#EDF7EE;border-radius:16px;padding:20px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#1F8A5B;margin-bottom:8px">Worked</div><q style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:16px;line-height:1.55;color:#1F4A33">It provide the data instantly without hustle</q></div>
+      <div style="background:#FBEDF2;border-radius:16px;padding:20px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#C4426E;margin-bottom:8px">Broke down</div><q style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:16px;line-height:1.55;color:#6B2440">The whole conversation didn't felt personalized it was more of a general suggestion that is applicable to any person or field</q></div>
+    </div>
+  </div>
+  <div style="max-width:760px;margin:32px auto 0">
+    <div style="margin:0;border-left:3px solid #E14F8E;padding:2px 0 2px 16px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:6px">Takeaway</div><p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:18px;line-height:1.55;color:#3B2A22">Speed wasn't the problem. Feeling personal was.</p></div>
+  </div>
+</section>
+
+<!-- ============ 07 ITERATION ============ -->
+<section id="iteration" data-screen-label="07 Iteration" style="padding:88px 24px 0">
+  <div style="max-width:760px;margin:0 auto">
+    <span class="pt-eyebrow">07 · Iteration: before &amp; after</span>
+    <h2 style="margin:18px 0 16px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(36px,5vw,48px);line-height:1.08;color:#261A15">Three findings became three visible changes</h2>
+    <p style="margin:0 0 24px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.7;color:#4A4A4F"><strong style="color:#261A15">Real screens, not mockups.</strong> Every image below is a live capture from the actual CareerVerse build (a mock-data MVP). The "before" comparison screen predates the Add/Replace feature; the "after" screens were captured by scripting the real conversation.</p>
+    <div style="display:grid;gap:20px">
+      <div style="background:#FFFFFF;border-radius:24px;padding:28px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:4px">Change 01</div>
+        <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:28px;color:#261A15;margin-bottom:18px">Broader career coverage</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:18px">
+          <figure style="margin:0"><img src="assets/careerverse/story1-before-fixed-three.png" alt="Earlier build: the career comparison sheet with exactly the three original careers and no way to add or swap one in" loading="lazy" style="width:100%;height:440px;object-fit:contain;background:#F6F3E2;display:block;border-radius:12px"><figcaption style="margin-top:8px;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138">Before · fixed set of 3, no Add/Replace</figcaption></figure>
+          <figure style="margin:0"><img src="assets/careerverse/story1-after-add-replace.png" alt="Live app: asking to add Photography while three careers are selected triggers a Replace flow naming which option it would swap out" loading="lazy" style="width:100%;height:440px;object-fit:contain;background:#F6F3E2;display:block;border-radius:12px"><figcaption style="margin-top:8px;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138">After · Add / Replace</figcaption></figure>
+        </div>
+        <div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#4A4A4F"><div style="font-weight:700;color:#261A15;margin-bottom:4px">Why it matters</div>Users can explore more career options. The comparison is no longer a closed set of three, and swapping one out is explicit rather than silent.</div>
+      </div>
+      <div style="background:#FFFFFF;border-radius:24px;padding:28px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:4px">Change 02</div>
+        <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:28px;color:#261A15;margin-bottom:18px">From an information dead end to AI Perspective</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:18px">
+          <figure style="margin:0"><img src="assets/careerverse/story2-before-insufficient.png" alt="Photography added to the comparison shows an Insufficient information tag with no further guidance" loading="lazy" style="width:100%;height:440px;object-fit:contain;background:#F6F3E2;display:block;border-radius:12px"><figcaption style="margin-top:8px;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138">Before · flat "Insufficient information"</figcaption></figure>
+          <figure style="margin:0"><img src="assets/careerverse/story2-after-ai-perspective.png" alt="Asking what Photography involves returns a dashed-border AI Perspective callout with a fixed disclaimer that it is not a calculated Personal Fit result" loading="lazy" style="width:100%;height:440px;object-fit:contain;background:#F6F3E2;display:block;border-radius:12px"><figcaption style="margin-top:8px;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138">After · AI Perspective</figcaption></figure>
+        </div>
+        <div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#4A4A4F"><div style="font-weight:700;color:#261A15;margin-bottom:4px">Why it matters</div>Users get a useful, honestly labelled answer for any career instead of a wall, and it's visually impossible to mistake for a calculated Personal Fit.</div>
+      </div>
+      <div style="background:#FFFFFF;border-radius:24px;padding:28px;box-shadow:0 8px 30px rgba(38,26,21,0.07)">
+        <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E14F8E;margin-bottom:4px">Change 03</div>
+        <div style="font-family:'Protest Riot',sans-serif;font-weight:300;font-size:28px;color:#261A15;margin-bottom:18px">From generic signals to actionable reasoning</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:18px">
+          <figure style="margin:0"><img src="assets/careerverse/story3-before-compact-signals.png" alt="Inline comparison cards showing only a one-line signal and a fit-level tag" loading="lazy" style="width:100%;height:440px;object-fit:contain;background:#F6F3E2;display:block;border-radius:12px"><figcaption style="margin-top:8px;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138">Before · compact one-line signal</figcaption></figure>
+          <figure style="margin:0"><img src="assets/careerverse/story3-after-expanded-explanation.png" alt="Expanded Personal Fit sheet for UX Design with Why This Fits, Trade-offs and Next Steps" loading="lazy" style="width:100%;height:440px;object-fit:contain;background:#F6F3E2;display:block;border-radius:12px"><figcaption style="margin-top:8px;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9A8138">After · expanded explanation</figcaption></figure>
+        </div>
+        <div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#4A4A4F"><div style="font-weight:700;color:#261A15;margin-bottom:4px">Why it matters</div>Users can understand why an option fits and what they can do next, instead of only seeing a label. It's the same fit calculation, no longer hidden behind one line.</div>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:760px;margin:32px auto 0">
+    <div style="margin:0;border-left:3px solid #E14F8E;padding:2px 0 2px 16px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A8138;margin-bottom:6px">Takeaway</div><p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:18px;line-height:1.55;color:#3B2A22">Each change came straight from a test finding, and each one is visible in the real build.</p></div>
+  </div>
+</section>
+
+<!-- ============ 08 RESULT ============ -->
+<section id="result" data-screen-label="08 Result" style="padding:88px 24px 0">
+  <div style="max-width:760px;margin:0 auto">
+    <span class="pt-eyebrow">08 · Result</span>
+    <h2 style="margin:18px 0 28px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(36px,5vw,48px);line-height:1.08;color:#261A15">More useful, while the AI stays bounded</h2>
+    <div style="background:#261A15;border-radius:24px;padding:32px 30px;box-shadow:0 16px 40px rgba(38,26,21,0.18)">
+      <div style="height:3px;width:56px;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);border-radius:2px;margin-bottom:26px"></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:28px 32px">
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <div style="flex-shrink:0;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:30px;line-height:1;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);-webkit-background-clip:text;background-clip:text;color:transparent">01</div>
+          <div><div style="font-family:'Plus Jakarta Sans';font-size:16px;font-weight:700;line-height:1.4;color:#F3EFE6;margin-bottom:6px">7× broader calculated coverage</div><div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#B9AEA4">Personal Fit went from 3 to 21 careers, with aliases so the same career isn't treated as two.</div></div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <div style="flex-shrink:0;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:30px;line-height:1;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);-webkit-background-clip:text;background-clip:text;color:transparent">02</div>
+          <div><div style="font-family:'Plus Jakarta Sans';font-size:16px;font-weight:700;line-height:1.4;color:#F3EFE6;margin-bottom:6px">No more dead ends</div><div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#B9AEA4">AI Perspective gives a clearly labelled answer for careers outside the calculated set.</div></div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <div style="flex-shrink:0;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:30px;line-height:1;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);-webkit-background-clip:text;background-clip:text;color:transparent">03</div>
+          <div><div style="font-family:'Plus Jakarta Sans';font-size:16px;font-weight:700;line-height:1.4;color:#F3EFE6;margin-bottom:6px">Reasoning users can act on</div><div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#B9AEA4">Why This Fits, trade-offs and next steps replace one-line labels.</div></div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <div style="flex-shrink:0;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:30px;line-height:1;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);-webkit-background-clip:text;background-clip:text;color:transparent">04</div>
+          <div><div style="font-family:'Plus Jakarta Sans';font-size:16px;font-weight:700;line-height:1.4;color:#F3EFE6;margin-bottom:6px">A connected, testable prototype</div><div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.65;color:#B9AEA4">The Figma prototype connects onboarding, conversational discovery, comparison, Personal Fit, evidence, correction and recalculation.</div></div>
+        </div>
+      </div>
+    </div>
+    <p style="margin:28px 0 0;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(18px,2.3vw,21px);line-height:1.55;color:#3B2A22">What surprised me most was that the hardest problem wasn't helping someone discover a career. It was helping them make sense of the trade-offs between options they were already considering.</p>
+  </div>
+</section>
+
+<!-- ============ 09 REFLECTION ============ -->
+<section id="reflection" data-screen-label="09 Reflection" style="padding:88px 24px 88px;background:#261A15;margin-top:88px">
+  <div style="max-width:760px;margin:0 auto">
+    <span class="pt-eyebrow pt-eyebrow--on-dark">09 · Reflection &amp; what's next</span>
+    <h2 style="margin:18px 0 20px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(36px,5vw,48px);line-height:1.08;color:#F3EFE6">What I would improve next</h2>
+    <div style="display:grid;gap:12px;margin:0 0 32px">
+      <div style="display:flex;gap:16px;align-items:flex-start;background:#2E211B;border:1px solid rgba(243,239,230,0.12);border-radius:16px;padding:20px 22px">
+        <div style="flex-shrink:0;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:28px;line-height:1;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);-webkit-background-clip:text;background-clip:text;color:transparent">01</div>
+        <div><div style="font-family:'Plus Jakarta Sans';font-size:16px;font-weight:700;line-height:1.4;color:#F3EFE6;margin-bottom:6px">Proper custom careers</div><div style="font-family:'Plus Jakarta Sans';font-size:14.5px;line-height:1.7;color:#B9AEA4">Replace the "Other / Some Other Field" behaviour with "+ Add another career", so a career the user types in, such as Photography, stays Photography.</div></div>
+      </div>
+      <div style="display:flex;gap:16px;align-items:flex-start;background:#2E211B;border:1px solid rgba(243,239,230,0.12);border-radius:16px;padding:20px 22px">
+        <div style="flex-shrink:0;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:28px;line-height:1;background:linear-gradient(90deg,#F5A623,#E14F8E,#8B5CF6);-webkit-background-clip:text;background-clip:text;color:transparent">02</div>
+        <div><div style="font-family:'Plus Jakarta Sans';font-size:16px;font-weight:700;line-height:1.4;color:#F3EFE6;margin-bottom:6px">Better conversational intent</div><div style="font-family:'Plus Jakarta Sans';font-size:14.5px;line-height:1.7;color:#B9AEA4">Tell career names apart from instructions such as "give updated report" or "compare these again", and keep comparison suggestions tied to the careers currently being compared.</div></div>
+      </div>
+    </div>
+    <div style="border-left:3px solid #E14F8E;padding-left:18px;margin-bottom:12px">
+      <p style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:clamp(18px,2.2vw,21px);line-height:1.55;color:#F3EFE6">"I didn't just integrate AI into CareerVerse. I designed the AI's behaviour as part of the product experience."</p>
+    </div>
+    <p style="margin:0 0 32px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.75;color:#D6CDC2">The interface determines what users can do; conversation design determines how CareerVerse responds when they do it.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;align-items:center">
+      <x-import component-from-global-scope="PratikshaTripathiDesignSystem_4e2eff.Button" variant="gold" arrow href="https://www.figma.com/design/rf6p67ICwnpAHVqElnPrko/Careerversus?node-id=240-1204&amp;t=ekY6bHa8UxIr4KaC-1" target="_blank" rel="noopener" hint-size="auto,44px">Open Figma prototype</x-import>
+      <x-import component-from-global-scope="PratikshaTripathiDesignSystem_4e2eff.Button" variant="outline" arrow href="https://www.figma.com/board/9doyYtIm3OTsoz4aU0d2f6/CareerVersus-Research-data?node-id=0-1&amp;t=nSU95mYvtItL4sZk-1" target="_blank" rel="noopener" style="color:#F3EFE6" hint-size="auto,44px">Open research board</x-import>
+      <x-import component-from-global-scope="PratikshaTripathiDesignSystem_4e2eff.Button" variant="ghost" href="#top" style="color:#F3EFE6" hint-size="auto,44px">Back to top</x-import>
+    </div>
+  </div>
+</section>
+
+<footer style="background:#261A15;border-top:1px solid rgba(243,239,230,0.12);padding:28px 24px">
   <div style="max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center">
     <div style="font-family:'Protest Riot',sans-serif;font-size:15px;color:#B9AEA4">CAREERVERSE<span style="color:#E14F8E">.</span> case study</div>
-    <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:14px;color:#B9AEA4">Case Study · by Pratiksha Tripathi</div>
+    <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:14px;color:#B9AEA4">A tested, iterated prototype. Every screen shown is from the real build.</div>
   </div>
 </footer>
-
-<script src="js/site.js"></script>
+</x-dc>
 </body>
 </html>
