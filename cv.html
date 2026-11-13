@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pratiksha Tripathi CV</title>
+<meta name="description" content="CV of Pratiksha Tripathi, Product Designer">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Protest+Riot&display=swap">
+<style>
+  :root {
+    --paper: #F6F3E2;
+    --ink: #1A1411;
+    --ink-soft: #6E6E73;
+    --bar: #261A15;
+    --bar-text: #F3EFE6;
+    --gold: #D8C788;
+    --hair: rgba(26, 20, 17, 0.1);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'Plus Jakarta Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+
+  .bar { position: sticky; top: 0; z-index: 10; background: var(--bar); color: var(--bar-text); }
+  .bar-inner { max-width: 920px; margin: 0 auto; padding: 12px max(16px, env(safe-area-inset-right, 0px)) 12px max(16px, env(safe-area-inset-left, 0px));
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .back { color: var(--bar-text); text-decoration: none; font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.8; }
+  .back:hover { opacity: 1; }
+  .title { flex: 1; min-width: 0; font-family: 'Protest Riot', sans-serif; font-size: clamp(18px, 3vw, 22px); text-align: center; }
+  .download { display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 18px; border-radius: 10px; background: var(--gold); color: var(--ink);
+    text-decoration: none; font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
+  .download:hover { background: #E4D69C; }
+  .back:focus-visible, .download:focus-visible { outline: 2px solid #E14F8E; outline-offset: 3px; }
+  .download svg { width: 16px; height: 16px; }
+
+  main { max-width: 920px; margin: 0 auto; padding: 28px max(16px, env(safe-area-inset-right, 0px)) 56px max(16px, env(safe-area-inset-left, 0px));
+    display: grid; gap: 24px; justify-items: center; }
+  .sheet { width: 100%; max-width: 820px; background: #FFFFFF; border: 1px solid var(--hair); border-radius: 6px; box-shadow: 0 14px 36px rgba(26, 20, 17, 0.1); overflow: hidden; }
+  .sheet canvas { display: block; width: 100%; height: auto; }
+  .status { font-size: 15px; line-height: 1.6; color: var(--ink-soft); text-align: center; }
+  .status a { color: var(--ink); font-weight: 600; }
+
+  @media (max-width: 520px) {
+    .title { order: -1; flex-basis: 100%; text-align: left; }
+    .bar-inner { justify-content: space-between; }
+  }
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="bar-inner">
+    <a class="back" href="./">&larr; Portfolio</a>
+    <div class="title">Pratiksha Tripathi &middot; CV</div>
+    <a class="download" href="assets/cv/Pratiksha_Tripathi_CV.pdf" download="Pratiksha_Tripathi_CV.pdf">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+      Download PDF
+    </a>
+  </div>
+</header>
+
+<main id="pages">
+  <p class="status" id="status">Loading CV&hellip;</p>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+(function () {
+  var url = 'assets/cv/Pratiksha_Tripathi_CV.pdf';
+  var main = document.getElementById('pages');
+  var status = document.getElementById('status');
+  function fail() {
+    status.innerHTML = 'The CV could not be shown here. <a href="' + url + '" target="_blank" rel="noopener">Open the PDF</a> instead.';
+  }
+  if (!window.pdfjsLib) { fail(); return; }
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  pdfjsLib.getDocument(url).promise.then(function (pdf) {
+    status.remove();
+    var chain = Promise.resolve();
+    for (var n = 1; n <= pdf.numPages; n++) {
+      (function (num) {
+        chain = chain.then(function () {
+          return pdf.getPage(num).then(function (page) {
+            // Render sharp on high-density screens.
+            var scale = Math.min(3, (window.devicePixelRatio || 1) * 1.6);
+            var vp = page.getViewport({ scale: scale });
+            var sheet = document.createElement('div');
+            sheet.className = 'sheet';
+            var canvas = document.createElement('canvas');
+            canvas.width = vp.width; canvas.height = vp.height;
+            canvas.setAttribute('role', 'img');
+            canvas.setAttribute('aria-label', 'CV page ' + num + ' of ' + pdf.numPages);
+            sheet.appendChild(canvas);
+            main.appendChild(sheet);
+            return page.render({ canvasContext: canvas.getContext('2d'), viewport: vp }).promise;
+          });
+        });
+      })(n);
+    }
+    return chain;
+  }).catch(fail);
+})();
+</script>
+</body>
+</html>
