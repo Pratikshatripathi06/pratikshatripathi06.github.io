@@ -1,0 +1,51 @@
+/* ============================================================
+   Shared base rules — consolidated from the <helmet><style> block
+   that was duplicated (near-identically) across every .dc.html
+   page in the original handoff.
+   ============================================================ */
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+img { max-width: 100%; }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #8B5CF6;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Keep nav/button labels on one line; content links wrap normally */
+nav a, header a, footer a, section a { white-space: nowrap; }
+#projects a, #projects a * { white-space: normal; }
+
+/* Anchored sections land below the sticky nav, not under it */
+section[id], header[id] { scroll-margin-top: 84px; }
+
+/* Portfolio nav: horizontal scroll on narrow viewports instead of wrapping */
+@media (max-width: 960px) {
+  nav[aria-label="Portfolio"] > div { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  nav[aria-label="Portfolio"] > div > div { gap: 16px; flex-shrink: 0; }
+}
+
+/* Infinite marquee (tools strip, skills strip) */
+@keyframes pt-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.pt-tool { width: 16vw; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+@media (max-width: 900px) { .pt-tool { width: 22vw; } }
+@media (max-width: 600px) { .pt-tool { width: 33vw; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}

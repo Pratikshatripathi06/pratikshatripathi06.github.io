@@ -1,196 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CareerVerse Case Study</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Permanent+Marker&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Protest+Riot&display=swap">
-<style id="share-shim">
-x-dc, helmet, sc-if { display: contents; }
-x-import[component-from-global-scope$=".Button"] {
-  position: relative; display: inline-flex; align-items: center; gap: 14px; box-sizing: border-box;
-  height: 44px; padding: 0 28px; border-radius: 12px; cursor: pointer; white-space: nowrap;
-  font: 700 14px/1 'Plus Jakarta Sans', sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #1A1411;
-}
-x-import[component-from-global-scope$=".Button"]:focus-visible { outline: 2px solid #E14F8E; outline-offset: 3px; }
-x-import[component-from-global-scope$=".Button"][size="sm"] { height: 38px; padding: 0 20px; gap: 10px; font-size: 13px; }
-x-import[component-from-global-scope$=".Button"][variant="outline"]::before {
-  content: ""; position: absolute; inset: 0; padding: 1.5px; border-radius: inherit;
-  background: linear-gradient(90deg, #F5A623, #E14F8E 50%, #8B5CF6);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); pointer-events: none;
-}
-x-import[component-from-global-scope$=".Button"][variant="gold"] { background: #D8C788; }
-x-import[component-from-global-scope$=".Button"][variant="ghost"] { padding: 0 4px; text-decoration: underline; text-underline-offset: 4px; }
-x-import[component-from-global-scope$=".Button"][arrow]::after { content: "\2197"; font-size: 1.15em; letter-spacing: 0; }
-x-import[component-from-global-scope$=".Avatar"] {
-  display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%;
-  background: linear-gradient(135deg, #E14F8E, #F5A623); color: #fff; font: 700 13px/1 'Plus Jakarta Sans', sans-serif; letter-spacing: 0.04em;
-}
-.share-video { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; width: 100%; height: 100%;
-  text-decoration: none; color: #F3EFE6; font: 700 12.5px/1.2 'Plus Jakarta Sans', sans-serif; letter-spacing: 0.08em; text-transform: uppercase;
-  background: radial-gradient(circle at 50% 40%, #3B2A22, #1A1411 70%); }
-.share-video span.play { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; font-size: 18px; letter-spacing: 0;
-  background: linear-gradient(135deg, #E14F8E, #F5A623); color: #fff; }
-.share-video:hover span.play { transform: scale(1.06); }
-.share-video:focus-visible { outline: 2px solid #E14F8E; outline-offset: -4px; }
-
-[data-hv="1"]:hover{color:#1A1411 !important}
-[data-hv="2"]:hover{color:#1A1411 !important}
-[data-hv="3"]:hover{color:#1A1411 !important}
+<title>CareerVerse — Case Study · Pratiksha Tripathi</title>
+<meta name="description" content="AI Behaviour + Conversation Design case study for CareerVerse.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Protest+Riot&display=swap">
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/components.css">
+<style>
+  body { background: #F6F3E2; }
+  a { color: #B5643C; }
+  a:hover { color: #8F4A2A; }
+  #close a[href*="#projects"], #close a[href*="#projects"] span { color: #EEDFAE !important; }
+  #close a[href*="#projects"]:hover, #close a[href*="#projects"]:hover span { color: #F6ECC8 !important; }
 </style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('x-import[component-from-global-scope$=".Button"]').forEach(function (b) {
-    var href = b.getAttribute('href');
-    b.setAttribute('role', 'link'); b.tabIndex = 0;
-    function go() {
-      if (!href || href === '#') return;
-      if (b.getAttribute('target') === '_blank' || /^https?:/.test(href)) { var a = document.createElement('a'); a.href = href; a.target = '_blank'; a.rel = 'noopener'; document.body.appendChild(a); a.click(); a.remove(); }
-      else location.href = href;
-    }
-    b.addEventListener('click', go);
-    b.addEventListener('keydown', function (e) { if (e.key === 'Enter') go(); });
-  });
-  document.querySelectorAll('x-import[component-from-global-scope$=".Avatar"]').forEach(function (a) {
-    a.textContent = (a.getAttribute('name') || '').split(/\s+/).map(function (w) { return w[0] || ''; }).join('').slice(0, 2).toUpperCase();
-  });
-  var bar = document.getElementById('share-progress');
-  var tocIds = Array.prototype.map.call(document.querySelectorAll('[data-toc]'), function (el) { return el.getAttribute('data-toc'); })
-    .filter(function (v, i, arr) { return arr.indexOf(v) === i; });
-  function onScroll() {
-    var doc = document.documentElement, max = doc.scrollHeight - window.innerHeight;
-    if (bar) bar.style.width = (max > 0 ? Math.min(100, Math.max(0, window.scrollY / max * 100)) : 0) + '%';
-    if (!tocIds.length) return;
-    var active = '', y = window.scrollY + 140;
-    tocIds.forEach(function (id) { var el = document.getElementById(id); if (el && el.offsetTop <= y) active = id; });
-    document.querySelectorAll('[data-toc]').forEach(function (el) {
-      var on = el.getAttribute('data-toc') === active;
-      el.style.color = el.getAttribute('data-toc-part') === 'num' ? (on ? '#E14F8E' : '#B5984E') : (on ? '#1A1411' : '#6E6E73');
-    });
-  }
-  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
-  var form = document.querySelector('form[data-share-form]');
-  if (form) form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var btn = form.querySelector('[type="submit"]');
-    var status = form.querySelector('[data-form-status]');
-    if (!status) { status = document.createElement('p'); status.setAttribute('data-form-status', ''); status.setAttribute('role', 'status');
-      status.style.cssText = "margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;line-height:1.5;color:#3B2A22"; form.appendChild(status); }
-    var data = {}; new FormData(form).forEach(function (v, k) { data[k] = v; });
-    data._subject = 'New message from your portfolio: ' + (data.name || '');
-    data._template = 'table';
-    if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
-    status.textContent = '';
-    fetch('https://formsubmit.co/ajax/tripathi.pratiksha3555@gmail.com', {
-      method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data)
-    }).then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
-      .then(function (j) { if (j && (j.success === false || j.success === 'false')) throw new Error();
-        form.reset(); if (btn) btn.textContent = 'Sent'; status.textContent = 'Thanks! Your message is on its way. I\'ll get back to you soon.'; })
-      .catch(function () { if (btn) { btn.disabled = false; btn.textContent = 'Submit'; }
-        status.textContent = 'Sorry, the message could not be sent. Please email tripathi.pratiksha3555@gmail.com directly.'; });
-  });
-});
-</script>
+<style>
+/* Phones: stack the fixed 2- and 3-column grids into one column */
+@media (max-width: 640px) {
+  [style*="grid-template-columns:1fr 1fr"],
+  [style*="grid-template-columns:repeat(3,minmax(0,1fr))"] { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns:48px 190px 1fr"] { grid-template-columns: 32px 1fr !important; gap: 6px 12px !important; }
+  [style*="grid-template-columns:48px 190px 1fr"] > :nth-child(3) { grid-column: 1 / -1; }
+}
+</style>
 </head>
 <body>
-<x-dc>
-<helmet>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-  
-  <style>
-/* Eyebrow — mirrors the "Eyebrow" component in the Figma file "Pratiksha's Portfolio".
-   Pill, 34px tall, 1.5px Signature gradient stroke (amber → pink → violet), transparent fill. */
-:root {
-  --pt-gradient-signature: linear-gradient(90deg, #F5A623 0%, #E14F8E 50%, #8B5CF6 100%);
-  --pt-text-primary: #1A1411;
-  --pt-text-on-dark: #F3EFE6;
-}
 
-.pt-eyebrow {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  box-sizing: border-box;
-  height: 34px;
-  padding: 0 18px;
-  border-radius: 999px;
-  background: transparent;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  color: var(--pt-text-primary);
-}
-
-/* Gradient stroke drawn on a masked pseudo-element so the fill stays transparent on any surface. */
-.pt-eyebrow::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 1.5px;
-  border-radius: inherit;
-  background: var(--pt-gradient-signature);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
-  pointer-events: none;
-}
-
-.pt-eyebrow--on-dark { color: var(--pt-text-on-dark); }
-
-@media (max-width: 480px) {
-  .pt-eyebrow { white-space: normal; height: auto; min-height: 34px; padding: 8px 16px; line-height: 1.3; }
-}
-
-</style>
-  <style>
-    html { scroll-behavior: smooth; }
-    body { margin: 0; background: #F6F3E2; -webkit-font-smoothing: antialiased; }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
-    a { color: #B5643C; }
-    a:hover { color: #8F4A2A; }
-    a:focus-visible, button:focus-visible { outline: 2px solid #8B5CF6; outline-offset: 3px; border-radius: 4px; }
-    nav a { white-space: nowrap; }
-    section[id], header[id] { scroll-margin-top: 84px; }
-    @media (max-width: 960px) {
-      nav[aria-label="Portfolio"] > div { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-      nav[aria-label="Portfolio"] > div > div { gap: 16px; flex-shrink: 0; }
-      nav[aria-label="Portfolio"] x-import { flex-shrink: 0; }
-    }
-    #close a[href*="#projects"], #close a[href*="#projects"] span { color: #EEDFAE !important; }
-    #close a[href*="#projects"]:hover, #close a[href*="#projects"]:hover span { color: #F6ECC8 !important; }
-  </style>
-</helmet>
-
-<sc-if>
-  <div aria-hidden="true" id="share-progress" style="position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#F5A623 0%,#E14F8E 50%,#8B5CF6 100%);z-index:120"></div>
-</sc-if>
+<div id="reading-progress" aria-hidden="true"></div>
 
 <nav aria-label="Portfolio" style="position:sticky;top:0;z-index:110;background:rgba(255,255,255,0.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(26,20,17,0.06)">
   <div style="max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
     <a href="index.html" aria-label="Pratiksha Tripathi — home" style="display:flex;align-items:center;text-decoration:none"><img src="assets/logo-lockup-cutout.png" alt="Pratiksha Tripathi" style="height:34px;width:auto;display:block"></a>
     <div style="display:flex;gap:28px;flex-wrap:wrap;align-items:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase">
-      <a href="index.html" style="color:#4A4A4F;text-decoration:none" data-hv="1">Home</a>
-      <a href="index.html#about" style="color:#4A4A4F;text-decoration:none" data-hv="2">Expertise</a>
+      <a href="index.html" style="color:#4A4A4F;text-decoration:none">Home</a>
+      <a href="index.html#about" style="color:#4A4A4F;text-decoration:none">Expertise</a>
       <a href="index.html#projects" style="color:#1A1411;text-decoration:none;border-bottom:2px solid #E14F8E;padding-bottom:2px" aria-current="page">Projects</a>
-      <a href="index.html#contact" style="color:#4A4A4F;text-decoration:none" data-hv="3">Contact</a>
+      <a href="index.html#contact" style="color:#4A4A4F;text-decoration:none">Contact</a>
     </div>
-    <x-import component-from-global-scope="PratikshaTripathiDesignSystem_4e2eff.Button" variant="outline" size="sm" arrow href="index.html#contact" hint-size="auto,38px">Book a call</x-import>
+    <a class="btn btn-sm" href="index.html#contact"><span>Book a call</span><span class="arrow"></span></a>
   </div>
 </nav>
 
 <!-- ============ HERO ============ -->
 <header id="top" data-screen-label="Hero" style="background:#261A15;color:#F3EFE6;padding:92px 24px 80px">
   <div style="max-width:920px;margin:0 auto;display:flex;flex-direction:column;align-items:flex-start;gap:18px">
-    <span class="pt-eyebrow pt-eyebrow--on-dark">UX / Product Design · AI Decision Support</span>
+    <p class="eyebrow eyebrow--dark">UX / Product Design · AI Decision Support</p>
     <h1 style="margin:0;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(38px,6.4vw,72px);line-height:1.04;color:#F3EFE6;max-width:900px">Designing for career decisions, not career discovery.</h1>
     <p style="margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;line-height:1.6;color:#D6CDC2;max-width:720px">CareerVerse is a career decision-support product that helps young professionals compare the career paths they are already considering using personal context, transparent reasoning, and real-world trade-offs.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:rgba(243,239,230,0.12);border:1px solid rgba(243,239,230,0.12);border-radius:16px;overflow:hidden;width:100%;margin-top:8px">
+      <div style="background:#2E211B;padding:18px 20px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B9AEA4;margin-bottom:6px">Role</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:600;color:#F3EFE6">Solo Product &amp; UX Designer</div></div>
+      <div style="background:#2E211B;padding:18px 20px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B9AEA4;margin-bottom:6px">Tools</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:600;color:#F3EFE6">Figma · React (reviewed) · Maze</div></div>
+      <div style="background:#2E211B;padding:18px 20px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B9AEA4;margin-bottom:6px">Scope</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:600;color:#F3EFE6">AI conversation design · Personal Fit · design system</div></div>
+      <div style="background:#2E211B;padding:18px 20px"><div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B9AEA4;margin-bottom:6px">Status</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:600;color:#F3EFE6">Tested prototype, iterated</div></div>
+    </div>
     <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px">
       <span style="background:rgba(243,239,230,0.10);border:1px solid rgba(243,239,230,0.16);border-radius:999px;padding:7px 14px;font-family:'Plus Jakarta Sans';font-size:12.5px;color:#D6CDC2">Aditi Verma · 26</span>
       <span style="background:rgba(243,239,230,0.10);border:1px solid rgba(243,239,230,0.16);border-radius:999px;padding:7px 14px;font-family:'Plus Jakarta Sans';font-size:12.5px;color:#D6CDC2">Bengaluru</span>
@@ -198,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <span style="background:rgba(243,239,230,0.10);border:1px solid rgba(243,239,230,0.16);border-radius:999px;padding:7px 14px;font-family:'Plus Jakarta Sans';font-size:12.5px;color:#D6CDC2">Tested prototype · Iterated experience</span>
     </div>
     <div style="margin-top:26px;background:#2E211B;border:1px solid rgba(243,239,230,0.12);border-radius:22px;padding:26px;width:100%;box-sizing:border-box">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px">
         <div style="background:#33241D;border-radius:16px;padding:22px">
           <div style="font-family:'Plus Jakarta Sans';font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#D8C788;margin-bottom:8px">Product problem</div>
           <div style="font-family:'Protest Riot';font-weight:300;font-size:21px;color:#F3EFE6;margin-bottom:8px">Too much information, not enough decision confidence.</div>
@@ -217,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <!-- 01 — PROBLEM + CONTEXT -->
 <section id="s1" data-screen-label="01 Problem and context" style="padding:88px 24px 0">
   <div style="max-width:1000px;margin:0 auto">
-    <span class="pt-eyebrow">01 — Problem + context</span>
+    <p class="eyebrow">01 — Problem + context</p>
     <h2 style="margin:18px 0 22px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(32px,4.8vw,48px);line-height:1.08;color:#261A15;max-width:800px">The information wasn't missing. The decision was.</h2>
     <div style="max-width:800px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.75;color:#4A4A4F">
       <p style="margin:0 0 18px">After another workday in <strong style="color:#261A15">Bengaluru</strong>, Aditi sits down to think about her next career move. She is a 26-year-old graphic designer with three years of experience and has already narrowed her options to <strong style="color:#261A15">UX Design, Product Management and Data Analytics</strong>.</p>
@@ -232,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <!-- 02 — RESEARCH + VALIDATION -->
 <section id="s2" data-screen-label="02 Research and validation" style="padding:88px 24px 0">
   <div style="max-width:1000px;margin:0 auto">
-    <span class="pt-eyebrow">02 — Research + validation</span>
+    <p class="eyebrow">02 — Research + validation</p>
     <h2 style="margin:18px 0 26px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(32px,4.8vw,48px);line-height:1.08;color:#261A15;max-width:800px">Three behaviours changed my product direction.</h2>
     <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:26px">
       <div style="background:#FFFFFF;border-radius:16px;padding:22px;box-shadow:0 2px 12px rgba(38,26,21,0.05)"><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:700;color:#261A15;margin-bottom:8px">01 · Research is fragmented</div><div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.6;color:#6E6E73">People collect information from Google, YouTube, LinkedIn, Reddit, WhatsApp groups, mentors and family rather than relying on one platform.</div></div>
@@ -254,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
       <figure style="margin:0">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><span style="font-family:'Plus Jakarta Sans';font-size:14px;font-weight:700;color:#261A15">01 · Primary Persona</span><span style="font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#B5643C;background:#F6F3E2;border-radius:999px;padding:5px 9px">Research board</span></div>
-        <div style="aspect-ratio:1960/1790;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(38,26,21,0.05)"><image-slot id="cv-persona" shape="rect" placeholder="Aditi persona — context, goals, behaviours, frustrations, motivations, quote"></image-slot></div>
+        <div style="border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(38,26,21,0.05)"><img src="assets/careerverse/persona.png" alt="Aditi persona — context, goals, behaviours, frustrations, motivations, quote" style="display:block;width:100%;height:auto"></div>
         <figcaption style="margin-top:10px;font-family:'Plus Jakarta Sans';font-size:13px;line-height:1.55;color:#6E6E73"><strong style="color:#3B2A22">Why it belongs here:</strong> shows who the product is designed for and connects the research to the decision-confidence problem.</figcaption>
       </figure>
       <figure style="margin:0">
@@ -274,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <!-- 03 — DESIGN PROCESS -->
 <section id="s3" data-screen-label="03 Design process" style="padding:88px 24px 0">
   <div style="max-width:1000px;margin:0 auto">
-    <span class="pt-eyebrow">03 — Design process</span>
+    <p class="eyebrow">03 — Design process</p>
     <h2 style="margin:18px 0 30px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(32px,4.8vw,48px);line-height:1.08;color:#261A15;max-width:800px">From research to a tested AI conversation.</h2>
     <div style="display:flex;flex-direction:column">
       <div style="display:grid;grid-template-columns:48px 190px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid rgba(38,26,21,0.1)"><div style="font-family:'Plus Jakarta Sans',monospace;font-size:12px;color:#B5643C;font-weight:700">01</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;font-weight:700;color:#261A15">Research</div><div style="font-family:'Plus Jakarta Sans';font-size:15px;line-height:1.62;color:#4A4A4F">I synthesised the persona, behaviour insights, competitor gap and journey. <strong style="color:#261A15">Decision:</strong> focus the product on comparing realistic options because the research showed that users were already doing their own research.</div></div>
@@ -324,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
     </div>
     <div style="border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(38,26,21,0.08);margin-bottom:22px"><img src="assets/careerverse/ai-native-loop.png" alt="The AI-Native Loop — build context together, compare, explain, correct, refine, decide" style="display:block;width:100%;height:auto"></div>
-    <p style="margin:0 0 20px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.65;color:#4A4A4F;max-width:800px"><strong style="color:#261A15">Refinement rule:</strong> Known → use it. Missing but important → ask. Not necessary → don't ask. This kept the conversation from becoming a form disguised as a chatbot.</p>
+    <p style="margin:0 0 20px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.65;color:#4A4A4F;max-width:800px"><strong style="color:#261A15">Refinement rule:</strong> Known — use it. Missing but important — ask. Not necessary — don't ask. This kept the conversation from becoming a form disguised as a chatbot.</p>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px">
       <div style="background:#FFFFFF;border-radius:14px;padding:20px;box-shadow:0 2px 12px rgba(38,26,21,0.05);border-top:3px solid #E14F8E"><div style="font-family:'Plus Jakarta Sans';font-size:14px;font-weight:700;color:#261A15;margin-bottom:8px">Never invent</div><div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.6;color:#4A4A4F">Personal Fit scores or levels, unsupported market statistics, salary figures or evidence.</div></div>
       <div style="background:#FFFFFF;border-radius:14px;padding:20px;box-shadow:0 2px 12px rgba(38,26,21,0.05);border-top:3px solid #4E9A6B"><div style="font-family:'Plus Jakarta Sans';font-size:14px;font-weight:700;color:#261A15;margin-bottom:8px">Keep the distinction</div><div style="font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.6;color:#4A4A4F">AI Perspective provides qualitative information and remains clearly separate from calculated Personal Fit.</div></div>
@@ -336,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <!-- 04 — KEY DESIGN DECISIONS -->
 <section id="s4" data-screen-label="04 Key design decisions" style="padding:88px 24px 0">
   <div style="max-width:1000px;margin:0 auto">
-    <span class="pt-eyebrow">04 — Key design decisions</span>
+    <p class="eyebrow">04 — Key design decisions</p>
     <h2 style="margin:18px 0 30px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(32px,4.8vw,48px);line-height:1.08;color:#261A15;max-width:800px">Three decisions kept the experience grounded.</h2>
     <div style="display:flex;flex-direction:column;gap:16px">
       <div style="background:#FFFFFF;border-radius:18px;padding:26px;box-shadow:0 2px 12px rgba(38,26,21,0.05)">
@@ -361,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <!-- 05 — USABILITY TEST + FINDINGS -->
 <section id="s5" data-screen-label="05 Usability test and findings" style="padding:88px 24px 0">
   <div style="max-width:1000px;margin:0 auto">
-    <span class="pt-eyebrow">05 — Usability test + findings</span>
+    <p class="eyebrow">05 — Usability test + findings</p>
     <h2 style="margin:18px 0 26px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(32px,4.8vw,48px);line-height:1.08;color:#261A15;max-width:800px">Round 1 showed where usefulness broke down.</h2>
     <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:22px">
       <div style="background:#261A15;border-radius:18px;padding:22px"><div style="font-family:'Protest Riot';font-weight:300;font-size:28px;color:#F3EFE6;line-height:1">Task 1</div><div style="font-family:'Plus Jakarta Sans';font-size:12.5px;color:#B9AEA4;margin-top:8px">Success rate: not reported in the exported Maze report</div></div>
@@ -384,67 +248,62 @@ document.addEventListener('DOMContentLoaded', function () {
 <!-- 06 — ITERATION + BEFORE / AFTER -->
 <section id="s6" data-screen-label="06 Iteration before and after" style="padding:88px 24px 0">
   <div style="max-width:1000px;margin:0 auto">
-    <span class="pt-eyebrow">06 — Iteration + before / after</span>
+    <p class="eyebrow">06 — Iteration + before / after</p>
     <h2 style="margin:18px 0 34px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(32px,4.8vw,48px);line-height:1.08;color:#261A15;max-width:800px">Three findings became three visible changes.</h2>
+
+    <p style="margin:0 0 40px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;line-height:1.6;color:#6E6E73;background:#F6F3E2;border-radius:14px;padding:14px 18px;max-width:800px"><strong style="color:#3B2A22">Real screens, not mockups:</strong> every image below is a live capture from the actual CareerVerse build (mock-data MVP, <code>careerverse-app</code>) — the "before" comparison screen predates the Add/Replace feature; the "after" screens were captured by scripting the real conversation through Playwright.</p>
 
     <h3 style="margin:0 0 16px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:24px;color:#261A15">01 — Broader career coverage</h3>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px">
       <div style="background:#FFFFFF;border-radius:18px;overflow:hidden;box-shadow:0 2px 12px rgba(38,26,21,0.05)">
-        <div style="background:#EFEAD5;padding:10px 16px;font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#6E6E73">Before · Initial tested experience</div>
-        <div style="padding:24px;min-height:200px">
-          <div style="border:1px dashed #C9C2B0;border-radius:14px;padding:18px;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.6;color:#6E6E73"><strong style="color:#3B2A22;display:block;margin-bottom:8px">Personal Fit</strong>Not enough profile information yet.<br><br>Insufficient information</div>
-          <p style="margin:14px 0 0;font-family:'Plus Jakarta Sans';font-size:13.5px;line-height:1.55;color:#6E6E73">Unsupported careers could stop at an information gap.</p>
-        </div>
+        <div style="background:#EFEAD5;padding:10px 16px;font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#6E6E73">Before · Fixed set of 3, no Add/Replace</div>
+        <div style="padding:14px"><div style="border-radius:14px;overflow:hidden"><img src="assets/careerverse/story1-before-fixed-three.png" alt="Earlier build: the career comparison sheet with exactly the three original careers and no way to add or swap one in" style="display:block;width:100%;height:auto"></div></div>
       </div>
       <div style="background:#FFFFFF;border-radius:18px;overflow:hidden;box-shadow:0 2px 12px rgba(38,26,21,0.05)">
-        <div style="background:#F6F3E2;padding:10px 16px;font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B5643C">After · Iterated experience</div>
-        <div style="padding:14px"><div style="aspect-ratio:4/3;border-radius:14px;overflow:hidden"><image-slot id="cv-ba1-after" shape="rect" placeholder="V3 Personal Fit detail — richer explanations, two trade-offs, next steps"></image-slot></div></div>
+        <div style="background:#F6F3E2;padding:10px 16px;font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B5643C">After · Add / Replace, live capture</div>
+        <div style="padding:14px"><div style="border-radius:14px;overflow:hidden"><img src="assets/careerverse/story1-after-add-replace.png" alt="Live app: asking to add Photography while 3 careers are already selected triggers a Replace flow naming which option it would swap out" style="display:block;width:100%;height:auto"></div></div>
       </div>
     </div>
-    <p style="margin:0 0 40px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.65;color:#4A4A4F;max-width:800px"><strong style="color:#261A15">Why it matters:</strong> users can explore more career options without the product guessing an ambiguous career identity.</p>
+    <p style="margin:0 0 40px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.65;color:#4A4A4F;max-width:800px"><strong style="color:#261A15">Why it matters:</strong> users can explore more career options — the comparison is no longer a closed set of three, and swapping one out is explicit rather than silent.</p>
 
     <h3 style="margin:0 0 16px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:24px;color:#261A15">02 — From an information dead end to AI Perspective</h3>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px">
       <div style="background:#FFFFFF;border-radius:18px;overflow:hidden;box-shadow:0 2px 12px rgba(38,26,21,0.05)">
-        <div style="background:#EFEAD5;padding:10px 16px;font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#6E6E73">Before · Initial tested experience</div>
-        <div style="padding:24px;min-height:200px">
-          <div style="border:1px dashed #C9C2B0;border-radius:14px;padding:18px;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.6;color:#6E6E73"><strong style="color:#3B2A22;display:block;margin-bottom:8px">Insufficient information</strong>No useful qualitative answer beyond the unavailable state.</div>
-        </div>
+        <div style="background:#EFEAD5;padding:10px 16px;font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#6E6E73">Before · Flat "Insufficient information"</div>
+        <div style="padding:14px"><div style="border-radius:14px;overflow:hidden"><img src="assets/careerverse/story2-before-insufficient.png" alt="Live app: Photography added to comparison shows an Insufficient information tag and Not enough profile information yet, with no further guidance" style="display:block;width:100%;height:auto"></div></div>
       </div>
       <div style="background:#FFFFFF;border-radius:18px;overflow:hidden;box-shadow:0 2px 12px rgba(38,26,21,0.05)">
-        <div style="background:#F6F3E2;padding:10px 16px;font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B5643C">After · Iterated experience</div>
-        <div style="padding:14px"><div style="aspect-ratio:4/3;border-radius:14px;overflow:hidden"><image-slot id="cv-ba2-after" shape="rect" placeholder="V3 AI Perspective — qualitative info with fixed disclaimer"></image-slot></div></div>
+        <div style="background:#F6F3E2;padding:10px 16px;font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B5643C">After · AI Perspective, live capture</div>
+        <div style="padding:14px"><div style="border-radius:14px;overflow:hidden"><img src="assets/careerverse/story2-after-ai-perspective.png" alt="Live app: asking what Photography involves returns a dashed-border AI Perspective callout with a fixed disclaimer that it is not a calculated Personal Fit result" style="display:block;width:100%;height:auto"></div></div>
       </div>
     </div>
-    <p style="margin:0 0 40px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.65;color:#4A4A4F;max-width:800px"><strong style="color:#261A15">Why it matters:</strong> users get useful general career information without receiving a fabricated fit result.</p>
+    <p style="margin:0 0 40px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.65;color:#4A4A4F;max-width:800px"><strong style="color:#261A15">Why it matters:</strong> users get a useful, honestly-labelled answer for any career instead of a wall — and it's visually impossible to mistake for a calculated Personal Fit.</p>
 
     <h3 style="margin:0 0 16px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:24px;color:#261A15">03 — From generic signals to actionable reasoning</h3>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px">
       <div style="background:#FFFFFF;border-radius:18px;overflow:hidden;box-shadow:0 2px 12px rgba(38,26,21,0.05)">
-        <div style="background:#EFEAD5;padding:10px 16px;font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#6E6E73">Before · Initial tested experience</div>
-        <div style="padding:24px;min-height:200px">
-          <div style="border:1px dashed #C9C2B0;border-radius:14px;padding:18px;font-family:'Plus Jakarta Sans';font-size:14px;line-height:1.6;color:#6E6E73"><strong style="color:#3B2A22;display:block;margin-bottom:8px">Matched signals</strong>Short phrases and one static trade-off.</div>
-        </div>
+        <div style="background:#EFEAD5;padding:10px 16px;font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#6E6E73">Before · Compact one-line signal</div>
+        <div style="padding:14px"><div style="border-radius:14px;overflow:hidden"><img src="assets/careerverse/story3-before-compact-signals.png" alt="Live app: the inline comparison cards showing only a one-line signal like Matches career growth and a fit-level tag, nothing more" style="display:block;width:100%;height:auto"></div></div>
       </div>
       <div style="background:#FFFFFF;border-radius:18px;overflow:hidden;box-shadow:0 2px 12px rgba(38,26,21,0.05)">
-        <div style="background:#F6F3E2;padding:10px 16px;font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B5643C">After · Iterated experience</div>
-        <div style="padding:14px"><div style="aspect-ratio:4/3;border-radius:14px;overflow:hidden"><image-slot id="cv-ba3-after" shape="rect" placeholder="V3 Why This Fits, multiple trade-offs, Next Steps — original fit calculation kept"></image-slot></div></div>
+        <div style="background:#F6F3E2;padding:10px 16px;font-family:'Plus Jakarta Sans';font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#B5643C">After · Expanded, live capture</div>
+        <div style="padding:14px"><div style="border-radius:14px;overflow:hidden"><img src="assets/careerverse/story3-after-expanded-explanation.png" alt="Live app: the expanded Personal Fit sheet for UX Design with a Why This Fits section (three authored reasons), Trade-offs, and Next Steps" style="display:block;width:100%;height:auto"></div></div>
       </div>
     </div>
-    <p style="margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.65;color:#4A4A4F;max-width:800px"><strong style="color:#261A15">Why it matters:</strong> users can understand why an option fits and what they can do next instead of only seeing a label.</p>
+    <p style="margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.65;color:#4A4A4F;max-width:800px"><strong style="color:#261A15">Why it matters:</strong> users can understand why an option fits and what they can do next instead of only seeing a label — the same deterministic fit calculation, just no longer hidden behind one line.</p>
   </div>
 </section>
 
 <!-- 07 — RESULT + WHAT'S NEXT -->
 <section id="s7" data-screen-label="07 Result and what's next" style="padding:88px 24px 0">
   <div style="max-width:1000px;margin:0 auto">
-    <span class="pt-eyebrow">07 — Result + what's next</span>
+    <p class="eyebrow">07 — Result + what's next</p>
     <h2 style="margin:18px 0 26px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:clamp(32px,4.8vw,48px);line-height:1.08;color:#261A15;max-width:820px">The iterated experience is more useful, while the AI stays bounded.</h2>
     <p style="margin:0 0 10px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.72;color:#4A4A4F;max-width:800px"><strong style="color:#261A15">Prototype:</strong> the Figma prototype connects onboarding, conversational discovery, comparison, Personal Fit, evidence, correction and recalculation.</p>
     <p style="margin:0 0 24px;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.72;color:#4A4A4F;max-width:800px"><strong style="color:#261A15">Landing page:</strong> [Add Framer landing page URL]</p>
     <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px">
-      <a href="https://www.figma.com/design/rf6p67ICwnpAHVqElnPrko/Careerversus?node-id=240-1204&t=ekY6bHa8UxIr4KaC-1" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;background:#FFFFFF;border-radius:12px;padding:12px 16px;font-family:'Plus Jakarta Sans';font-size:13.5px;font-weight:600;color:#B5643C;box-shadow:0 2px 10px rgba(38,26,21,0.06)">Open Figma prototype ↗</a>
-      <a href="https://www.figma.com/board/9doyYtIm3OTsoz4aU0d2f6/CareerVersus-Research-data?node-id=0-1&t=nSU95mYvtItL4sZk-1" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;background:#FFFFFF;border-radius:12px;padding:12px 16px;font-family:'Plus Jakarta Sans';font-size:13.5px;font-weight:600;color:#B5643C;box-shadow:0 2px 10px rgba(38,26,21,0.06)">Open research board ↗</a>
+      <a href="https://www.figma.com/design/rf6p67ICwnpAHVqElnPrko/Careerversus?node-id=240-1204&t=ekY6bHa8UxIr4KaC-1" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;background:#FFFFFF;border-radius:12px;padding:12px 16px;font-family:'Plus Jakarta Sans';font-size:13.5px;font-weight:600;color:#B5643C;box-shadow:0 2px 10px rgba(38,26,21,0.06)">Open Figma prototype →</a>
+      <a href="https://www.figma.com/board/9doyYtIm3OTsoz4aU0d2f6/CareerVersus-Research-data?node-id=0-1&t=nSU95mYvtItL4sZk-1" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;background:#FFFFFF;border-radius:12px;padding:12px 16px;font-family:'Plus Jakarta Sans';font-size:13.5px;font-weight:600;color:#B5643C;box-shadow:0 2px 10px rgba(38,26,21,0.06)">Open research board →</a>
     </div>
     <p style="margin:0 0 40px;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(19px,2.6vw,23px);line-height:1.5;color:#261A15;max-width:800px;border-left:3px solid #E14F8E;padding-left:20px">What surprised me most was that the hardest problem wasn't helping someone discover a career. It was helping them make sense of the trade-offs between options they were already considering.</p>
     <h3 style="margin:0 0 16px;font-family:'Protest Riot',sans-serif;font-weight:300;font-size:26px;color:#261A15">What I would improve next</h3>
@@ -458,11 +317,11 @@ document.addEventListener('DOMContentLoaded', function () {
 <!-- CLOSE ============ -->
 <section id="close" data-screen-label="Key takeaway" style="padding:88px 24px 88px;background:#261A15;margin-top:88px">
   <div style="max-width:760px;margin:0 auto">
-    <span class="pt-eyebrow pt-eyebrow--on-dark">Key takeaway</span>
+    <p class="eyebrow eyebrow--dark">Key takeaway</p>
     <p style="margin:22px 0 26px;font-family:'Playfair Display',Georgia,serif;font-size:clamp(23px,3.6vw,34px);line-height:1.35;color:#F3EFE6">"I didn't just integrate AI into CareerVerse. I designed the AI's behaviour as part of the product experience."</p>
     <p style="margin:0 0 34px;font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;line-height:1.75;color:#D6CDC2">The interface determines what users can do; conversation design determines how CareerVerse responds when they do it.</p>
     <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-      <x-import component-from-global-scope="PratikshaTripathiDesignSystem_4e2eff.Button" variant="ghost" href="index.html#projects" hint-size="auto,44px">Back to projects</x-import>
+      <a class="btn btn-ghost btn-on-dark" href="index.html#projects">Back to projects</a>
     </div>
   </div>
 </section>
@@ -473,6 +332,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:14px;color:#B9AEA4">Case Study · by Pratiksha Tripathi</div>
   </div>
 </footer>
-</x-dc>
+
+<script src="js/site.js"></script>
 </body>
 </html>

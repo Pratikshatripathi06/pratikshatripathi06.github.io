@@ -1,0 +1,95 @@
+/* ============================================================
+   Reusable components — replaces the proprietary DS bundle's
+   Button / Eyebrow / Avatar x-import components with plain,
+   editable CSS classes. Everything else on the pages keeps its
+   original inline styles (that inline CSS is the pixel-accurate
+   spec from the design handoff, so it's left untouched).
+   ============================================================ */
+
+/* ---------- Eyebrow (small-caps section label) ---------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #B5643C;
+}
+.eyebrow::before {
+  content: '';
+  width: 18px;
+  height: 2px;
+  border-radius: 1px;
+  background: currentColor;
+  flex-shrink: 0;
+}
+.eyebrow--dark { color: #D8C788; }
+
+/* ---------- Button ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 22px;
+  border-radius: 999px;
+  border: 1.5px solid currentColor;
+  background: transparent;
+  color: #1A1411;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease, opacity .18s ease;
+}
+.btn:hover { background: #1A1411; color: #F3EFE6; }
+.btn-sm { padding: 9px 16px; font-size: 12.5px; }
+.btn .arrow::after { content: '\2192'; margin-left: 2px; }
+
+.btn-gold {
+  border-color: transparent;
+  background: linear-gradient(90deg, #F5A623, #E9863A);
+  color: #261A15;
+}
+.btn-gold:hover { filter: brightness(1.06); background: linear-gradient(90deg, #F5A623, #E9863A); color: #261A15; }
+
+.btn-ghost { border-color: currentColor; background: transparent; }
+.btn-ghost:hover { background: rgba(0,0,0,0.06); color: inherit; }
+
+.btn-on-dark { color: #F3EFE6; border-color: rgba(243,239,230,0.35); }
+.btn-on-dark:hover { background: #F3EFE6; color: #1A1411; }
+
+/* ghost button rendered on a dark section (e.g. "Back to projects") */
+.btn-ghost.btn-on-dark:hover { background: rgba(243,239,230,0.12); color: #F3EFE6; }
+
+/* ---------- Avatar (initials chip) ---------- */
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #E14F8E, #F5A623);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+/* ---------- Reading progress bar ---------- */
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #F5A623 0%, #E14F8E 50%, #8B5CF6 100%);
+  z-index: 120;
+  pointer-events: none;
+}
