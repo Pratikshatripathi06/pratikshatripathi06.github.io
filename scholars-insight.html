@@ -74,7 +74,22 @@ document.addEventListener('DOMContentLoaded', function () {
   var form = document.querySelector('form[data-share-form]');
   if (form) form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var btn = form.querySelector('[type="submit"]'); if (btn) btn.textContent = 'Thanks! I\'ll get back to you soon.';
+    var btn = form.querySelector('[type="submit"]');
+    var status = form.querySelector('[data-form-status]');
+    if (!status) { status = document.createElement('p'); status.setAttribute('data-form-status', ''); status.setAttribute('role', 'status');
+      status.style.cssText = "margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;line-height:1.5;color:#3B2A22"; form.appendChild(status); }
+    var data = {}; new FormData(form).forEach(function (v, k) { data[k] = v; });
+    data._subject = 'New message from your portfolio: ' + (data.name || '');
+    data._template = 'table';
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+    status.textContent = '';
+    fetch('https://formsubmit.co/ajax/tripathi.pratiksha3555@gmail.com', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data)
+    }).then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
+      .then(function (j) { if (j && (j.success === false || j.success === 'false')) throw new Error();
+        form.reset(); if (btn) btn.textContent = 'Sent'; status.textContent = 'Thanks! Your message is on its way. I\'ll get back to you soon.'; })
+      .catch(function () { if (btn) { btn.disabled = false; btn.textContent = 'Submit'; }
+        status.textContent = 'Sorry, the message could not be sent. Please email tripathi.pratiksha3555@gmail.com directly.'; });
   });
 });
 </script>
